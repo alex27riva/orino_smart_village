@@ -70,8 +70,8 @@ class Registration extends StatelessWidget {
               text: TextSpan(
                 style: DefaultTextStyle.of(context).style,
                 children: <TextSpan>[
-                  TextSpan(text: 'Non hai un account?', style: TextStyle(color: Colors.black, fontSize: 11, decoration: TextDecoration.none)),
-                  TextSpan(text: ' Accedi', style: TextStyle(color: Colors.black, fontSize: 11, fontWeight: FontWeight.w500, decoration: TextDecoration.none),
+                  const TextSpan(text: 'Non hai un account?', style: TextStyle(color: Colors.black, fontSize: 13, decoration: TextDecoration.none)),
+                  TextSpan(text: ' Accedi', style: const TextStyle(color: Colors.black, fontSize: 13, fontWeight: FontWeight.w500, decoration: TextDecoration.none),
                       recognizer: TapGestureRecognizer()..onTap = () => Navigator.pushNamed(context, '/login'),
                   ),
                 ],

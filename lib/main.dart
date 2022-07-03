@@ -78,8 +78,7 @@ class _HomePageState extends State<HomePage> {
         },
         items: const [
           BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(constants.arIcon),
-                  size: iconSize),
+              icon: ImageIcon(AssetImage(constants.arIcon), size: iconSize),
               label: 'AR'),
           BottomNavigationBarItem(
               icon: ImageIcon(
@@ -88,17 +87,15 @@ class _HomePageState extends State<HomePage> {
               ),
               label: 'Scan'),
           BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(constants.homeIcon),
-                  size: iconSize),
+              icon: ImageIcon(AssetImage(constants.homeIcon), size: iconSize),
               label: 'Home'),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage(constants.mapIcon),
-                size: iconSize),
+            icon: ImageIcon(AssetImage(constants.mapIcon), size: iconSize),
             label: 'Map',
           ),
           BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(constants.profileIcon),
-                  size: iconSize),
+              icon:
+                  ImageIcon(AssetImage(constants.profileIcon), size: iconSize),
               label: 'Profile')
         ],
       ),
@@ -106,21 +103,49 @@ class _HomePageState extends State<HomePage> {
       //floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
 
       drawer: Drawer(
-        child: Container(
-          padding: const EdgeInsets.fromLTRB(16, 32, 16, 16),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const <Widget>[
-              Text("Signin"),
-              Text("Login"),
-              Text("Home"),
-              Text("Profile"),
-              Text("About"),
-              Text("Contacts"),
-              Text("Settings"),
-            ],
-          )
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text('Menu'),
+            ),
+            ListTile(
+              title: const Text('Signin'),
+              onTap: () {
+                Navigator.pushNamed(context, '/register');
+              },
+            ),
+            ListTile(
+              title: const Text('Login'),
+              onTap: () {
+                Navigator.pushNamed(context, '/login');
+              },
+            ),
+            ListTile(
+              title: const Text('About'),
+              onTap: () {
+                Navigator.pushNamed(context, '/about');
+              },
+            ),
+            ListTile(
+              title: const Text('Contacts'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+              },
+            ),
+            ListTile(
+              title: const Text('Settings'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+              },
+            ),
+          ],
         ),
       ),
     );
