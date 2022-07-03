@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:orino_smart_village/ar.dart';
+import 'package:orino_smart_village/profile.dart';
 import 'package:orino_smart_village/registration.dart';
-
+import 'package:orino_smart_village/scanner.dart';
+import 'package:orino_smart_village/home.dart';
 import 'login.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -11,31 +14,38 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Personal budget',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: PbHomePage(),
-        initialRoute: '/login',
-      routes: {
-        '/login': (_) => const Login(),
-        '/register': (_) => const Registration()
-
-      }
-    );
+        title: 'Orino Smart Village',
+        theme: ThemeData(primarySwatch: Colors.blue),
+        home: HomePage(),
+        initialRoute: '/register',
+        routes: {
+          '/login': (_) => const Login(),
+          '/register': (_) => const Registration(),
+          '/scan': (_) => const Scanner()
+        });
   }
 }
 
-class PbHomePage extends StatefulWidget {
-  PbHomePage({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  HomePage({Key? key}) : super(key: key);
 
   final String title = 'Orino Smart Village';
 
   @override
-  _PbHomePageState createState() => _PbHomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _PbHomePageState extends State<PbHomePage> {
-  int _selectedIndex = 0;
+class _HomePageState extends State<HomePage> {
+  int _currentIndex = 0;
+
   static const double iconSize = 50;
+  final List _screens = [
+    const ArView(),
+    const Scanner(),
+    const Home(),
+    null,
+    const Profile()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -43,27 +53,49 @@ class _PbHomePageState extends State<PbHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
         actions: <Widget>[
-          IconButton(onPressed: () {Navigator.pushNamed(context, '/login'); }, icon: const Icon(Icons.settings)),
-          IconButton(onPressed: () {Navigator.pushNamed(context, '/register');}, icon: const Icon(Icons.add)),
+          IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/login');
+              },
+              icon: const Icon(Icons.help)),
         ],
       ),
+      body: _screens[_currentIndex],
 
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.blueAccent,
-        currentIndex: _selectedIndex,
+        currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {
-            _selectedIndex = index;
+            _currentIndex = index;
           });
         },
         items: const [
-          BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/images/ar-icon.png'), size: iconSize), label: 'AR'),
-          BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/images/scan-icon.png'), size: iconSize,), label: 'Scan'),
-          BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/images/home-icon.png'), size: iconSize), label: 'Home'),
-          BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/images/map-icon.png'), size: iconSize), label: 'Map',),
-          BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/images/profile-icon.png'), size: iconSize), label: 'Profile')
+          BottomNavigationBarItem(
+              icon: ImageIcon(AssetImage('assets/images/ar-icon.png'),
+                  size: iconSize),
+              label: 'AR'),
+          BottomNavigationBarItem(
+              icon: ImageIcon(
+                AssetImage('assets/images/scan-icon.png'),
+                size: iconSize,
+              ),
+              label: 'Scan'),
+          BottomNavigationBarItem(
+              icon: ImageIcon(AssetImage('assets/images/home-icon.png'),
+                  size: iconSize),
+              label: 'Home'),
+          BottomNavigationBarItem(
+            icon: ImageIcon(AssetImage('assets/images/map-icon.png'),
+                size: iconSize),
+            label: 'Map',
+          ),
+          BottomNavigationBarItem(
+              icon: ImageIcon(AssetImage('assets/images/profile-icon.png'),
+                  size: iconSize),
+              label: 'Profile')
         ],
       ),
 
@@ -72,8 +104,8 @@ class _PbHomePageState extends State<PbHomePage> {
       drawer: Drawer(
         child: Container(
           color: Colors.yellow,
-          padding: EdgeInsets.fromLTRB(16, 32, 16, 16),
-          child: Text("Demo menu"),
+          padding: const EdgeInsets.fromLTRB(16, 32, 16, 16),
+          child: const Text("Demo menu"),
         ),
       ),
     );

@@ -44,12 +44,11 @@ class Login extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[ElevatedButton(
                 child: const Text('Login'),
-                onPressed: () async {print('Button pressed');},
+                onPressed: () {},
               )],
             )
           ])),
 
     );
   }
-  
 }

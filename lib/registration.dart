@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class Registration extends StatelessWidget {
@@ -13,55 +14,70 @@ class Registration extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           child: Column(children: <Widget>[
             Container(
-                margin: const EdgeInsets.only(bottom: 16.0),
-                child: const Text('Crea un account')),
-            Container(
               margin: const EdgeInsets.only(bottom: 16.0),
-              child: Row(
-                children: <Widget>[
-                  Container(
-                      margin: const EdgeInsets.only(right: 8.0),
-                      child: const Text('Nome e cognome')),
-                  const Flexible(
-                    child: TextField(),
-                  )
-                ],
+              child: const Flexible(
+                child: TextField(
+                    decoration: InputDecoration(
+                        labelText: "Nome e cognome",
+                        hintText: "Inserisci Nome e Cognome",
+                        border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20))))),
               ),
             ),
             Container(
                 margin: const EdgeInsets.only(bottom: 16.0),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                        margin: const EdgeInsets.only(right: 8.0),
-                        child: const Text('Indirizzo email')),
-                    const Flexible(
-                      child: TextField(),
-                    )
-                  ],
+                child: const Flexible(
+                  child: TextField(
+                      decoration: InputDecoration(
+                          labelText: "Indirizzo email",
+                          hintText: "Inserisci email",
+                          border: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))))),
                 )),
             Container(
                 margin: const EdgeInsets.only(bottom: 16.0),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                        margin: const EdgeInsets.only(right: 8.0),
-                        child: const Text('Password')),
-                    const Flexible(
-                      child: TextField(obscureText: true,),
-                    )
-                  ],
+                child: const Flexible(
+                  child: TextField(
+                      decoration: InputDecoration(
+                          labelText: "Password",
+                          hintText: "Inserisci una password",
+                          border: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20)),
+                              borderSide:
+                                  BorderSide(color: Colors.black, width: 3))),
+                      obscureText: true),
                 )),
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[ElevatedButton(
-                child: const Text('Crea account'),
-                onPressed: () {},
-              )],
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                ElevatedButton(
+                  child: const Text('Crea account'),
+                  onPressed: () {},
+                )
+              ],
+            ),
+            const Divider(
+              color: Colors.black,
+              height: 20,
+              thickness: 1,
+              indent: 10,
+              endIndent: 10,
+            ),
+            RichText(
+              text: TextSpan(
+                style: DefaultTextStyle.of(context).style,
+                children: <TextSpan>[
+                  TextSpan(text: 'Non hai un account?', style: TextStyle(color: Colors.black, fontSize: 11, decoration: TextDecoration.none)),
+                  TextSpan(text: ' Accedi', style: TextStyle(color: Colors.black, fontSize: 11, fontWeight: FontWeight.w500, decoration: TextDecoration.none),
+                      recognizer: TapGestureRecognizer()..onTap = () => Navigator.pushNamed(context, '/login'),
+                  ),
+                ],
+              ),
             )
           ])),
-
     );
   }
-  
 }
