@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:orino_smart_village/ar.dart';
+import 'package:orino_smart_village/map.dart';
 import 'package:orino_smart_village/profile.dart';
 import 'package:orino_smart_village/registration.dart';
 import 'package:orino_smart_village/scanner.dart';
 import 'package:orino_smart_village/home.dart';
+import 'about.dart';
+import 'constants.dart' as constants;
 import 'login.dart';
 
 void main() => runApp(const MyApp());
@@ -21,7 +24,8 @@ class MyApp extends StatelessWidget {
         routes: {
           '/login': (_) => const Login(),
           '/register': (_) => const Registration(),
-          '/scan': (_) => const Scanner()
+          '/scan': (_) => const Scanner(),
+          '/about': (_) => const About(),
         });
   }
 }
@@ -43,7 +47,7 @@ class _HomePageState extends State<HomePage> {
     const ArView(),
     const Scanner(),
     const Home(),
-    null,
+    const MapPage(),
     const Profile()
   ];
 
@@ -55,7 +59,7 @@ class _HomePageState extends State<HomePage> {
         actions: <Widget>[
           IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/login');
+                Navigator.pushNamed(context, '/about');
               },
               icon: const Icon(Icons.help)),
         ],
@@ -74,26 +78,26 @@ class _HomePageState extends State<HomePage> {
         },
         items: const [
           BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage('assets/images/ar-icon.png'),
+              icon: ImageIcon(AssetImage(constants.arIcon),
                   size: iconSize),
               label: 'AR'),
           BottomNavigationBarItem(
               icon: ImageIcon(
-                AssetImage('assets/images/scan-icon.png'),
+                AssetImage(constants.scanIcon),
                 size: iconSize,
               ),
               label: 'Scan'),
           BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage('assets/images/home-icon.png'),
+              icon: ImageIcon(AssetImage(constants.homeIcon),
                   size: iconSize),
               label: 'Home'),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('assets/images/map-icon.png'),
+            icon: ImageIcon(AssetImage(constants.mapIcon),
                 size: iconSize),
             label: 'Map',
           ),
           BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage('assets/images/profile-icon.png'),
+              icon: ImageIcon(AssetImage(constants.profileIcon),
                   size: iconSize),
               label: 'Profile')
         ],
@@ -103,9 +107,20 @@ class _HomePageState extends State<HomePage> {
 
       drawer: Drawer(
         child: Container(
-          color: Colors.yellow,
           padding: const EdgeInsets.fromLTRB(16, 32, 16, 16),
-          child: const Text("Demo menu"),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const <Widget>[
+              Text("Signin"),
+              Text("Login"),
+              Text("Home"),
+              Text("Profile"),
+              Text("About"),
+              Text("Contacts"),
+              Text("Settings"),
+            ],
+          )
         ),
       ),
     );
