@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.orinosmartvillage.orino_smart_village">
+    <uses-permission android:name="android.permission.VIBRATE"/>
    <application
         android:label="orino_smart_village"
         android:name="${applicationName}"

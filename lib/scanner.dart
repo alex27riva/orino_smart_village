@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:vibration/vibration.dart';
 
 class Scanner extends StatelessWidget {
   const Scanner({Key? key}) : super(key: key);
@@ -13,7 +14,6 @@ class Scanner extends StatelessWidget {
       body: Center(
         child:  QRViewExample(),
             ));
-
   }
 }
 
@@ -68,6 +68,9 @@ class _QRViewExampleState extends State<QRViewExample> {
                             onPressed: () async {
                               await controller?.toggleFlash();
                               setState(() {});
+                              if (await Vibration.hasVibrator() ?? false) {
+                                Vibration.vibrate(duration: 100);
+                              }
                             },
                             //  return Text('Flash: ${snapshot.data}
                             child: FutureBuilder(
