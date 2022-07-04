@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'constants.dart' as constants;
+import 'images.dart' as images;
 
 class About extends StatelessWidget {
   const About({Key? key}) : super(key: key);
@@ -14,7 +14,7 @@ class About extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   const Image(
-                      image: AssetImage(constants.cariplo),
+                      image: AssetImage(images.cariplo),
                       height: 100,
                       width: 400),
                   Container(
@@ -51,7 +51,7 @@ class About extends StatelessWidget {
                   )),
 
                   const Image(
-                      image: AssetImage(constants.insubria),
+                      image: AssetImage(images.insubria),
                       height: 100,
                       width: 400),
                 ],

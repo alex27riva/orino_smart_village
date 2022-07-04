@@ -1,10 +1,13 @@
+import 'package:alert/alert.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'images.dart' as images;
+
 final List<String> imgList = [
-  'assets/images/carousel/rocca-tramonto.jpg',
-  'assets/images/carousel/territorio.jpg'
+  images.roccaTramonto,
+
 ];
 
 const buttonForeground = Color(0xff304d85);
@@ -13,9 +16,7 @@ const buttonSize = Size(120, 120);
 //button border
 RoundedRectangleBorder buttonBorder = RoundedRectangleBorder(
     side: const BorderSide(
-        color: Colors.black,
-        width: 1.2,
-        style: BorderStyle.solid),
+        color: Colors.black, width: 1.2, style: BorderStyle.solid),
     borderRadius: BorderRadius.circular(15));
 
 class Home extends StatelessWidget {
@@ -49,7 +50,9 @@ class Home extends StatelessWidget {
                       fixedSize: buttonSize,
                       shape: buttonBorder,
                     ),
-                    onPressed: null,
+                    onPressed: () {
+                      Alert(message: 'Prossimamente!', shortDuration: true).show();
+                    },
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: const [
@@ -62,9 +65,9 @@ class Home extends StatelessWidget {
                   // Rocca di Orino
                   TextButton(
                     style: TextButton.styleFrom(
-                        textStyle: const TextStyle(fontSize: 20),
-                        backgroundColor: buttonBackground,
-                        fixedSize: buttonSize,
+                      textStyle: const TextStyle(fontSize: 20),
+                      backgroundColor: buttonBackground,
+                      fixedSize: buttonSize,
                       shape: buttonBorder,
                     ),
                     onPressed: null,
@@ -98,7 +101,9 @@ class Home extends StatelessWidget {
                     fixedSize: buttonSize,
                     shape: buttonBorder,
                   ),
-                  onPressed: null,
+                  onPressed: () {
+                    Alert(message: 'Prossimamente!', shortDuration: true).show();
+                  },
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: const [

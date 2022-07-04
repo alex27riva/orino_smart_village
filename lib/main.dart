@@ -6,7 +6,7 @@ import 'package:orino_smart_village/registration.dart';
 import 'package:orino_smart_village/scanner.dart';
 import 'package:orino_smart_village/home.dart';
 import 'about.dart';
-import 'constants.dart' as constants;
+import 'images.dart' as constants;
 import 'login.dart';
 
 void main() => runApp(const MyApp());
@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
           '/register': (_) => const Registration(),
           '/scan': (_) => const Scanner(),
           '/about': (_) => const About(),
+          '/home': (_) => const Home(),
         });
   }
 }
