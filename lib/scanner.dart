@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:vibration/vibration.dart';
 
 class Scanner extends StatelessWidget {
@@ -121,6 +122,7 @@ void _onQRViewCreated(QRViewController controller) {
     setState(() {
       result = scanData;
     });
+    _launchURLBrowser(result!.code);
   });
 }
 
@@ -132,6 +134,14 @@ void _onPermissionSet(BuildContext context, QRViewController ctrl, bool p) {
     );
   }
 }
+
+  _launchURLBrowser(scannedUrl) async {
+    final Uri url = Uri.parse(scannedUrl);
+    if (kDebugMode) {
+      print(url);
+    }
+    if (!await launchUrl(url)) throw 'Could not launch $url';
+  }
 
 @override
 void dispose() {

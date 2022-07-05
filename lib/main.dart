@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Orino Smart Village',
         theme: ThemeData(primarySwatch: Colors.blue),
-        home: HomePage(),
+        home: MainApp(),
         initialRoute: '/register',
         routes: {
           '/login': (_) => const Login(),
@@ -31,16 +31,16 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+class MainApp extends StatefulWidget {
+  MainApp({Key? key}) : super(key: key);
 
   final String title = 'Orino Smart Village';
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _MainAppState createState() => _MainAppState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _MainAppState extends State<MainApp> {
   int _currentIndex = 0;
 
   static const double iconSize = 50;
