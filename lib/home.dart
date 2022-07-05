@@ -7,7 +7,6 @@ import 'images.dart' as images;
 
 final List<String> imgList = [
   images.roccaTramonto,
-
 ];
 
 const buttonForeground = Color(0xff304d85);
@@ -51,7 +50,8 @@ class Home extends StatelessWidget {
                       shape: buttonBorder,
                     ),
                     onPressed: () {
-                      Alert(message: 'Prossimamente!', shortDuration: true).show();
+                      Alert(message: 'Prossimamente!', shortDuration: true)
+                          .show();
                     },
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -59,7 +59,7 @@ class Home extends StatelessWidget {
                           //FaIcon(FontAwesomeIcons.fortAwesome, size: 75),
                           Text('Ecomuseo',
                               textAlign: TextAlign.end,
-                              style: TextStyle(fontSize: 15)),
+                              style: TextStyle(fontSize: 15, color: Colors.black)),
                         ]),
                   ),
                   // Rocca di Orino
@@ -70,7 +70,9 @@ class Home extends StatelessWidget {
                       fixedSize: buttonSize,
                       shape: buttonBorder,
                     ),
-                    onPressed: null,
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/rocca');
+                    },
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: const [
@@ -81,7 +83,8 @@ class Home extends StatelessWidget {
                           ),
                           Text('Rocca di Orino',
                               textAlign: TextAlign.center,
-                              style: TextStyle(fontSize: 15)),
+                              style:
+                                  TextStyle(fontSize: 15, color: Colors.black)),
                         ]),
                   ),
                 ],
@@ -102,7 +105,8 @@ class Home extends StatelessWidget {
                     shape: buttonBorder,
                   ),
                   onPressed: () {
-                    Alert(message: 'Prossimamente!', shortDuration: true).show();
+                    Alert(message: 'Prossimamente!', shortDuration: true)
+                        .show();
                   },
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -111,7 +115,7 @@ class Home extends StatelessWidget {
                             size: 75, color: buttonForeground),
                         Text('Ecoturismo',
                             textAlign: TextAlign.end,
-                            style: TextStyle(fontSize: 15)),
+                            style: TextStyle(fontSize: 15, color: Colors.black)),
                       ]),
                 ),
                 // Cantine
@@ -133,7 +137,7 @@ class Home extends StatelessWidget {
                         ),
                         Text('Cantine',
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 15)),
+                            style: TextStyle(fontSize: 15, color: Colors.black)),
                       ]),
                 ),
               ],

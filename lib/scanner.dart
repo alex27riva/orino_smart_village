@@ -137,9 +137,6 @@ void _onPermissionSet(BuildContext context, QRViewController ctrl, bool p) {
 
   _launchURLBrowser(scannedUrl) async {
     final Uri url = Uri.parse(scannedUrl);
-    if (kDebugMode) {
-      print(url);
-    }
     if (!await launchUrl(url)) throw 'Could not launch $url';
   }
 

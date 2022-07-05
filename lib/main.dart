@@ -3,6 +3,7 @@ import 'package:orino_smart_village/ar.dart';
 import 'package:orino_smart_village/map.dart';
 import 'package:orino_smart_village/profile.dart';
 import 'package:orino_smart_village/registration.dart';
+import 'package:orino_smart_village/rocca.dart';
 import 'package:orino_smart_village/scanner.dart';
 import 'package:orino_smart_village/home.dart';
 import 'about.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
           '/scan': (_) => const Scanner(),
           '/about': (_) => const About(),
           '/home': (_) => const Home(),
+          '/rocca': (_) => const Rocca(),
         });
   }
 }
