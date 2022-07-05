@@ -30,14 +30,17 @@ class Profile extends StatelessWidget {
                   margin: const EdgeInsets.only(bottom: 16.0),
                   child: Column(children: <Widget>[
                     const Image(
-                        image: AssetImage(images.profilePlaceholder)),
+                        image: AssetImage(images.profilePlaceholder),
+                        width: 100,
+                        fit: BoxFit.fill,
+                        height: 100),
                     RichText(
                         text: const TextSpan(
                       text: "Nome Cognome",
                       style: TextStyle(
                           color: Colors.black,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          fontWeight: FontWeight.normal,
                           decoration: TextDecoration.none),
                     )),
                     RichText(

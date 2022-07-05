@@ -7,6 +7,7 @@ import 'package:orino_smart_village/rocca.dart';
 import 'package:orino_smart_village/scanner.dart';
 import 'package:orino_smart_village/home.dart';
 import 'about.dart';
+import 'contacts.dart';
 import 'images.dart' as constants;
 import 'login.dart';
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Orino Smart Village',
         theme: ThemeData(primarySwatch: Colors.blue),
-        home: MainApp(),
+        home: const MainApp(),
         initialRoute: '/register',
         routes: {
           '/login': (_) => const Login(),
@@ -29,12 +30,13 @@ class MyApp extends StatelessWidget {
           '/about': (_) => const About(),
           '/home': (_) => const Home(),
           '/rocca': (_) => const Rocca(),
+          '/contacts': (_) => const Contacts(),
         });
   }
 }
 
 class MainApp extends StatefulWidget {
-  MainApp({Key? key}) : super(key: key);
+  const MainApp({Key? key}) : super(key: key);
 
   final String title = 'Orino Smart Village';
 
@@ -43,7 +45,8 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
-  int _currentIndex = 0;
+  // Home = 2
+  int _currentIndex = 2;
 
   static const double iconSize = 50;
   final List _screens = [
@@ -137,8 +140,7 @@ class _MainAppState extends State<MainApp> {
             ListTile(
               title: const Text('Contacts'),
               onTap: () {
-                // Update the state of the app.
-                // ...
+                Navigator.pushNamed(context, '/contacts');
               },
             ),
             ListTile(

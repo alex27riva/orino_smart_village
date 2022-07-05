@@ -14,6 +14,20 @@ class Registration extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           child: Column(children: <Widget>[
             Container(
+              margin: const EdgeInsets.only(top: 10, bottom: 20),
+          child: RichText(
+                textAlign: TextAlign.justify,
+                text: const TextSpan(
+                  text: "Crea un account",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 28,
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.normal,
+                      decoration: TextDecoration.none),
+                ),
+            )),
+            Container(
               margin: const EdgeInsets.only(bottom: 16.0),
               child: const Flexible(
                 child: TextField(
@@ -70,9 +84,22 @@ class Registration extends StatelessWidget {
               text: TextSpan(
                 style: DefaultTextStyle.of(context).style,
                 children: <TextSpan>[
-                  const TextSpan(text: 'Non hai un account?', style: TextStyle(color: Colors.black, fontSize: 13, decoration: TextDecoration.none)),
-                  TextSpan(text: ' Accedi', style: const TextStyle(color: Colors.black, fontSize: 13, fontWeight: FontWeight.w500, decoration: TextDecoration.none),
-                      recognizer: TapGestureRecognizer()..onTap = () => Navigator.pushNamed(context, '/login'),
+                  const TextSpan(
+                      text: 'Non hai un account?',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 13,
+                          fontWeight: FontWeight.normal,
+                          decoration: TextDecoration.none)),
+                  TextSpan(
+                    text: ' Accedi',
+                    style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.none),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () => Navigator.pushNamed(context, '/login'),
                   ),
                 ],
               ),

@@ -15,8 +15,14 @@ class Rocca extends StatelessWidget {
       margin: const EdgeInsets.all(20.0),
       child: Column(
         children: <Widget>[
-          const Image(
-            image: AssetImage(images.roccaTramonto),
+          Container(
+            margin: const EdgeInsets.only(top: 50.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20.0),
+              child: const Image(
+                image: AssetImage(images.roccaTramonto),
+              ),
+            ),
           ),
           Container(
             margin: const EdgeInsets.only(top: 80),
@@ -24,7 +30,7 @@ class Rocca extends StatelessWidget {
                 textAlign: TextAlign.justify,
                 text: const TextSpan(
                   text:
-                      "La Rocca di Orino è un'antica fortezza, posta a nord-est del comune, a 540 metri di altitudine. \n"
+                      "La Rocca di Orino è un'antica fortezza, situata a nord-est del comune, a 540 metri di altitudine. \n"
                       "Essa giace su di uno sperone roccioso che garantisce un'ottima visibilità su tutta la Valcuvia.",
                   style: TextStyle(
                       color: Colors.black,
@@ -34,6 +40,7 @@ class Rocca extends StatelessWidget {
                       decoration: TextDecoration.none),
                 )),
           ),
+          // Show on map button container
           Container(
             margin: const EdgeInsets.only(top: 150.0, left: 20.0, right: 20.0),
             child: OutlinedButton(

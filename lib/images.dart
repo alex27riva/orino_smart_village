@@ -15,3 +15,6 @@ const profilePlaceholder = 'assets/images/profile-placeholder.png';
 // Carousel
 const roccaTramonto = 'assets/images/carousel/rocca-tramonto.jpg';
 const territorio = 'assets/images/carousel/territorio.jpg';
+
+// Contacts
+const contactBanner = 'assets/images/contacts.png';

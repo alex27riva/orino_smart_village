@@ -14,8 +14,19 @@ class Login extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           child: Column(children: <Widget>[
             Container(
-                margin: const EdgeInsets.only(bottom: 16.0),
-                child: const Text('Login')),
+                margin: const EdgeInsets.only(top: 10, bottom: 20),
+                child: RichText(
+                  textAlign: TextAlign.justify,
+                  text: const TextSpan(
+                    text: "Accedi con il tuo account",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 28,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.normal,
+                        decoration: TextDecoration.none),
+                  ),
+                )),
             Container(
               margin: const EdgeInsets.only(bottom: 16.0),
               child: Row(

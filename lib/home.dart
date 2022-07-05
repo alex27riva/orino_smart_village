@@ -7,6 +7,7 @@ import 'images.dart' as images;
 
 final List<String> imgList = [
   images.roccaTramonto,
+  images.territorio,
 ];
 
 const buttonForeground = Color(0xff304d85);
@@ -30,9 +31,13 @@ class Home extends StatelessWidget {
           CarouselSlider(
             options: CarouselOptions(),
             items: imgList
-                .map((item) => Container(
-                      child: Center(child: Image(image: AssetImage(item))),
-                    ))
+                .map((item) => Center(
+                        child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20.0),
+                      child: Image(
+                        image: AssetImage(item),
+                      ),
+                    )))
                 .toList(),
           ),
           Container(
@@ -59,7 +64,8 @@ class Home extends StatelessWidget {
                           //FaIcon(FontAwesomeIcons.fortAwesome, size: 75),
                           Text('Ecomuseo',
                               textAlign: TextAlign.end,
-                              style: TextStyle(fontSize: 15, color: Colors.black)),
+                              style:
+                                  TextStyle(fontSize: 15, color: Colors.black)),
                         ]),
                   ),
                   // Rocca di Orino
@@ -115,7 +121,8 @@ class Home extends StatelessWidget {
                             size: 75, color: buttonForeground),
                         Text('Ecoturismo',
                             textAlign: TextAlign.end,
-                            style: TextStyle(fontSize: 15, color: Colors.black)),
+                            style:
+                                TextStyle(fontSize: 15, color: Colors.black)),
                       ]),
                 ),
                 // Cantine
@@ -137,7 +144,8 @@ class Home extends StatelessWidget {
                         ),
                         Text('Cantine',
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 15, color: Colors.black)),
+                            style:
+                                TextStyle(fontSize: 15, color: Colors.black)),
                       ]),
                 ),
               ],
