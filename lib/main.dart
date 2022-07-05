@@ -6,6 +6,7 @@ import 'package:orino_smart_village/registration.dart';
 import 'package:orino_smart_village/rocca.dart';
 import 'package:orino_smart_village/scanner.dart';
 import 'package:orino_smart_village/home.dart';
+import 'package:orino_smart_village/settings.dart';
 import 'about.dart';
 import 'contacts.dart';
 import 'images.dart' as constants;
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
           '/home': (_) => const Home(),
           '/rocca': (_) => const Rocca(),
           '/contacts': (_) => const Contacts(),
+          '/settings': (_) => const Settings(),
         });
   }
 }
@@ -146,8 +148,7 @@ class _MainAppState extends State<MainApp> {
             ListTile(
               title: const Text('Settings'),
               onTap: () {
-                // Update the state of the app.
-                // ...
+                Navigator.pushNamed(context, '/settings');
               },
             ),
           ],

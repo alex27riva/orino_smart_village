@@ -1,6 +1,6 @@
 # orino_smart_village
 
-A new Flutter project.
+OrinoAr rebuilt using Flutter (Dart) language.
 
 ## Getting Started
 
