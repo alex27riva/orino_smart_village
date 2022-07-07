@@ -11,7 +11,7 @@ class MapPage extends StatelessWidget {
         body: Container(
             child: FlutterMap(
       options: MapOptions(
-        center: LatLng(51.509364, -0.128928),
+        center: LatLng(45.8876175, 8.7261915),
         zoom: 9.2,
       ),
       layers: [

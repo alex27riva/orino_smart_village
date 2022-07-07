@@ -23,13 +23,12 @@ class Cantine extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-          margin: EdgeInsets.all(16.0),
+          margin: const EdgeInsets.all(16.0),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        //crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               TextButton(
                 style: TextButton.styleFrom(
@@ -49,8 +48,8 @@ class Cantine extends StatelessWidget {
                         fit: BoxFit.contain,
                       ),
                       Text('Il Burgett di Ratt',
-                          textAlign: TextAlign.end,
-                          style: TextStyle(fontSize: 15, color: Colors.black)),
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 12, color: Colors.black)),
                     ]),
               ),
               // Cantina du la Gesa
@@ -69,18 +68,19 @@ class Cantine extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: const [
                       Image(image: AssetImage(images.cantina_gesa),
+                        width: 90,
+                        height: 80,
                         fit: BoxFit.contain,
-
                       ),
                       Text('Cantina du la Gesa',
-                          textAlign: TextAlign.end,
-                          style: TextStyle(fontSize: 15, color: Colors.black)),
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 12, color: Colors.black)),
                     ]),
               ),
             ],
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             // Cantina du la Mariana
             children: <Widget>[
               TextButton(
@@ -98,11 +98,13 @@ class Cantine extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: const [
                       Image(image: AssetImage(images.cantina_mariana),
+                        width: 90,
+                        height: 70,
                         fit: BoxFit.contain,
                       ),
                       Text('Cantina du la Mariana',
-                          textAlign: TextAlign.end,
-                          style: TextStyle(fontSize: 15, color: Colors.black)),
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 12, color: Colors.black)),
                     ]),
               ),
               //Cantina dul Fael
@@ -121,11 +123,11 @@ class Cantine extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: const [
                       Image(image: AssetImage(images.fael),
-                        fit: BoxFit.scaleDown,
+                        fit: BoxFit.contain,
                       ),
                       Text('La cantina dul Fael',
-                          textAlign: TextAlign.end,
-                          style: TextStyle(fontSize: 15, color: Colors.black)),
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 12, color: Colors.black)),
                     ]),
               ),
             ],
