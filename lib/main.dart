@@ -7,10 +7,11 @@ import 'package:orino_smart_village/rocca.dart';
 import 'package:orino_smart_village/scanner.dart';
 import 'package:orino_smart_village/home.dart';
 import 'package:orino_smart_village/settings.dart';
-import 'about.dart';
-import 'contacts.dart';
-import 'images.dart' as constants;
-import 'login.dart';
+import 'package:orino_smart_village/about.dart';
+import 'package:orino_smart_village/cantine.dart';
+import 'package:orino_smart_village/contacts.dart';
+import 'package:orino_smart_village/images.dart' as images;
+import 'package:orino_smart_village/login.dart';
 
 void main() => runApp(const MyApp());
 
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
           '/rocca': (_) => const Rocca(),
           '/contacts': (_) => const Contacts(),
           '/settings': (_) => const Settings(),
+          '/cantine': (_) => const Cantine(),
         });
   }
 }
@@ -86,24 +88,24 @@ class _MainAppState extends State<MainApp> {
         },
         items: const [
           BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(constants.arIcon), size: iconSize),
+              icon: ImageIcon(AssetImage(images.arIcon), size: iconSize),
               label: 'AR'),
           BottomNavigationBarItem(
               icon: ImageIcon(
-                AssetImage(constants.scanIcon),
+                AssetImage(images.scanIcon),
                 size: iconSize,
               ),
               label: 'Scan'),
           BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(constants.homeIcon), size: iconSize),
+              icon: ImageIcon(AssetImage(images.homeIcon), size: iconSize),
               label: 'Home'),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage(constants.mapIcon), size: iconSize),
+            icon: ImageIcon(AssetImage(images.mapIcon), size: iconSize),
             label: 'Map',
           ),
           BottomNavigationBarItem(
               icon:
-                  ImageIcon(AssetImage(constants.profileIcon), size: iconSize),
+                  ImageIcon(AssetImage(images.profileIcon), size: iconSize),
               label: 'Profile')
         ],
       ),

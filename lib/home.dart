@@ -13,6 +13,7 @@ final List<String> imgList = [
 const buttonForeground = Color(0xff304d85);
 const buttonBackground = Color(0xff90a955);
 const buttonSize = Size(120, 120);
+
 //button border
 RoundedRectangleBorder buttonBorder = RoundedRectangleBorder(
     side: const BorderSide(
@@ -133,7 +134,9 @@ class Home extends StatelessWidget {
                     fixedSize: buttonSize,
                     shape: buttonBorder,
                   ),
-                  onPressed: null,
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/cantine');
+                  },
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: const [

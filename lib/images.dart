@@ -18,3 +18,9 @@ const territorio = 'assets/images/carousel/territorio.jpg';
 
 // Contacts
 const contactBanner = 'assets/images/contacts.png';
+
+// Cantine
+const burgett = 'assets/images/cantine/burgett.jpg';
+const cantina_gesa = 'assets/images/cantine/cantina-gesa.jpg';
+const cantina_mariana = 'assets/images/cantine/cantina-mariana.jpg';
+const fael = 'assets/images/cantine/fael.jpg';
