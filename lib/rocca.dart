@@ -11,6 +11,9 @@ class Rocca extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: const Text("Rocca di Orino"),
+        ),
         body: Container(
       margin: const EdgeInsets.all(20.0),
       child: Column(

@@ -38,15 +38,18 @@ class _ProfileState extends State<Profile> {
                     decoration: const InputDecoration(
                         hintText: 'Inserisci la password attuale'),
                     controller: currentPassController,
+                    obscureText: true,
                   ),
                   TextField(
                     decoration:
                         const InputDecoration(hintText: 'Inserisci la nuova password'),
                     controller: newPassController,
+                    obscureText: true,
                   ),
                   TextField(
                     decoration: const InputDecoration(hintText: 'Ripeti password'),
                     controller: newPassRepeatController,
+                    obscureText: true,
                   ),
                 ],
               ),

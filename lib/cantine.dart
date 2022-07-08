@@ -22,6 +22,9 @@ class Cantine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Cantine"),
+      ),
         body: Container(
           margin: const EdgeInsets.all(16.0),
       child: Column(

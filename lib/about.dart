@@ -7,6 +7,9 @@ class About extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: const Text("Su di noi"),
+        ),
         body: Container(
             margin: const EdgeInsets.all(20.0),
             child: Center(
