@@ -69,7 +69,9 @@ class Registration extends StatelessWidget {
               children: <Widget>[
                 ElevatedButton(
                   child: const Text('Crea account'),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/home');
+                  },
                 )
               ],
             ),

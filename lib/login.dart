@@ -64,11 +64,13 @@ class Login extends StatelessWidget {
               ]),
             ),
             SimpleRoundButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/home');
+              },
               backgroundColor: const Color(0xffe04d4d),
-              buttonText: const Text("Login",
-                style: TextStyle(
-                    color: Colors.black
-                ),
+              buttonText: const Text(
+                "Login",
+                style: TextStyle(color: Colors.black),
               ),
             ),
           ])),

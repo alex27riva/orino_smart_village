@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           '/register': (_) => const Registration(),
           '/scan': (_) => const Scanner(),
           '/about': (_) => const About(),
-          '/home': (_) => const Home(),
+          '/home': (_) => const MainApp(),
           '/rocca': (_) => const Rocca(),
           '/contacts': (_) => const Contacts(),
           '/settings': (_) => const Settings(),
