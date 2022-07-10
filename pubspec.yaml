@@ -36,13 +36,13 @@ dependencies:
   cupertino_icons: ^1.0.2
   carousel_slider: ^4.1.1
   qr_code_scanner: ^1.0.0
-  flutter_map: ^1.1.1
   font_awesome_flutter: ^10.1.0
   vibration: ^1.7.4-nullsafety.0
   alert: ^2.0.1
   url_launcher: ^6.1.4
   flutter_dropdown: ^1.0.1+hotfix.1
   flutter_native_splash: ^2.2.4
+  google_maps_flutter: ^2.1.8
 
 dev_dependencies:
   flutter_test:

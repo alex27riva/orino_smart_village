@@ -1,31 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_map/flutter_map.dart';
-import 'package:latlong2/latlong.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class MapPage extends StatelessWidget {
+class MapPage extends StatefulWidget {
   const MapPage({Key? key}) : super(key: key);
 
   @override
+  State<MapPage> createState() => _MapPageState();
+}
+
+class _MapPageState extends State<MapPage> {
+  late GoogleMapController mapController;
+
+  final LatLng _center = const LatLng(45.8876175, 8.7261915);
+
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
+  }
+    @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-            child: FlutterMap(
-      options: MapOptions(
-        center: LatLng(45.8876175, 8.7261915),
-        zoom: 9.2,
-      ),
-      layers: [
-        TileLayerOptions(
-          urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-          subdomains: ['a', 'b', 'c'],
+        body: GoogleMap(
+          myLocationButtonEnabled: true,
+          mapType: MapType.terrain,
+          onMapCreated: _onMapCreated,
+          initialCameraPosition: CameraPosition(
+            target: _center,
+            zoom: 11.0,
+          ),
+          markers: {Marker(position: _center, markerId: const MarkerId('centro'),)},
         ),
-      ],
-      // nonRotatedChildren: [
-      //   AttributionWidget.defaultWidget(
-      //     source: 'OpenStreetMap contributors',
-      //     onSourceTapped: null,
-      //   ),
-      // ],
-    )));
+    );
   }
 }

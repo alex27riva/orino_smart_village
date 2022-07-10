@@ -5,6 +5,9 @@
         android:label="orino_smart_village"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+       <meta-data
+           android:name="com.google.android.geo.API_KEY"
+           android:value="AIzaSyBapTrQs515tmWxDNLO4Rz9-oNBEHKJ790" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
