@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'images.dart' as images;
+
+import 'images.dart';
 
 const contactEmail = 'mailto:orinosmartvillage@gmail.com';
 const contactInstagram = 'https://www.instagram.com/orinosmartvillage';
@@ -21,7 +22,7 @@ class Contacts extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(20.0),
             child: const Image(
-              image: AssetImage(images.contactBanner),
+              image: AssetImage(ImageConstants.contactBanner),
             ),
           ),
           // Instagram

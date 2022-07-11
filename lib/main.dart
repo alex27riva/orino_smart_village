@@ -10,8 +10,9 @@ import 'package:orino_smart_village/settings.dart';
 import 'package:orino_smart_village/about.dart';
 import 'package:orino_smart_village/cantine.dart';
 import 'package:orino_smart_village/contacts.dart';
-import 'package:orino_smart_village/images.dart' as images;
 import 'package:orino_smart_village/login.dart';
+
+import 'images.dart';
 
 void main() => runApp(const MyApp());
 
@@ -88,24 +89,24 @@ class _MainAppState extends State<MainApp> {
         },
         items: const [
           BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(images.arIcon), size: iconSize),
+              icon: ImageIcon(AssetImage(ImageConstants.arIcon), size: iconSize),
               label: 'AR'),
           BottomNavigationBarItem(
               icon: ImageIcon(
-                AssetImage(images.scanIcon),
+                AssetImage(ImageConstants.scanIcon),
                 size: iconSize,
               ),
               label: 'Scan'),
           BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(images.homeIcon), size: iconSize),
+              icon: ImageIcon(AssetImage(ImageConstants.homeIcon), size: iconSize),
               label: 'Home'),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage(images.mapIcon), size: iconSize),
+            icon: ImageIcon(AssetImage(ImageConstants.mapIcon), size: iconSize),
             label: 'Map',
           ),
           BottomNavigationBarItem(
               icon:
-                  ImageIcon(AssetImage(images.profileIcon), size: iconSize),
+                  ImageIcon(AssetImage(ImageConstants.profileIcon), size: iconSize),
               label: 'Profile')
         ],
       ),
@@ -124,31 +125,31 @@ class _MainAppState extends State<MainApp> {
               child: Text('Menu'),
             ),
             ListTile(
-              title: const Text('Signin'),
+              title: const Text('Registrati'),
               onTap: () {
                 Navigator.pushNamed(context, '/register');
               },
             ),
             ListTile(
-              title: const Text('Login'),
+              title: const Text('Accedi'),
               onTap: () {
                 Navigator.pushNamed(context, '/login');
               },
             ),
             ListTile(
-              title: const Text('About'),
+              title: const Text('Su di noi'),
               onTap: () {
                 Navigator.pushNamed(context, '/about');
               },
             ),
             ListTile(
-              title: const Text('Contacts'),
+              title: const Text('Contatti'),
               onTap: () {
                 Navigator.pushNamed(context, '/contacts');
               },
             ),
             ListTile(
-              title: const Text('Settings'),
+              title: const Text('Impostazioni'),
               onTap: () {
                 Navigator.pushNamed(context, '/settings');
               },

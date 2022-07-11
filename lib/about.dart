@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'images.dart' as images;
+import 'package:orino_smart_village/images.dart';
 
 class About extends StatelessWidget {
   const About({Key? key}) : super(key: key);
@@ -17,7 +17,7 @@ class About extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   const Image(
-                      image: AssetImage(images.cariplo),
+                      image: AssetImage(ImageConstants.cariplo),
                       height: 100,
                       width: 400),
                   Container(
@@ -54,7 +54,7 @@ class About extends StatelessWidget {
                   )),
 
                   const Image(
-                      image: AssetImage(images.insubria),
+                      image: AssetImage(ImageConstants.insubria),
                       height: 100,
                       width: 400),
                 ],

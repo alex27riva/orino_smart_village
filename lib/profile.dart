@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'images.dart' as images;
+
+import 'images.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -41,13 +42,14 @@ class _ProfileState extends State<Profile> {
                     obscureText: true,
                   ),
                   TextField(
-                    decoration:
-                        const InputDecoration(hintText: 'Inserisci la nuova password'),
+                    decoration: const InputDecoration(
+                        hintText: 'Inserisci la nuova password'),
                     controller: newPassController,
                     obscureText: true,
                   ),
                   TextField(
-                    decoration: const InputDecoration(hintText: 'Ripeti password'),
+                    decoration:
+                        const InputDecoration(hintText: 'Ripeti password'),
                     controller: newPassRepeatController,
                     obscureText: true,
                   ),
@@ -143,7 +145,7 @@ class _ProfileState extends State<Profile> {
                   margin: const EdgeInsets.only(bottom: 16.0),
                   child: Column(children: <Widget>[
                     const Image(
-                        image: AssetImage(images.profilePlaceholder),
+                        image: AssetImage(ImageConstants.profilePlaceholder),
                         width: 100,
                         fit: BoxFit.fill,
                         height: 100),
@@ -169,58 +171,77 @@ class _ProfileState extends State<Profile> {
                 margin: const EdgeInsets.only(top: 80.0),
                 child: Flexible(
                   child: Center(
-                      child: Column(
-                    children: <Widget>[
-                      RichText(
-                          text: TextSpan(
-                        text: 'Cambia password',
-                        style: const TextStyle(
-                          fontSize: 20,
-                          color: Colors.black,
-                        ),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () => openChangePasswordDialog(),
-                      )),
-                      const Divider(
-                          color: Colors.black,
-                          height: 20,
-                          thickness: 1,
-                          indent: 20,
-                          endIndent: 10),
-                      RichText(
-                          text: TextSpan(
-                        text: 'Cambia email',
-                        style: const TextStyle(
-                          fontSize: 20,
-                          color: Colors.black,
-                        ),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () => openChangeEmailDialog(),
-                      )),
-                      const Divider(
-                          color: Colors.black,
-                          height: 20,
-                          thickness: 1,
-                          indent: 20,
-                          endIndent: 10),
-                      RichText(
-                          text: TextSpan(
-                            text: 'Elimina profilo',
-                            style: const TextStyle(
-                              fontSize: 20,
-                              color: Colors.red,
+                    child: Column(
+                      children: <Widget>[
+                        RichText(
+                            text: TextSpan(
+                          text: 'Cambia password',
+                          style: const TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                          ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () => openChangePasswordDialog(),
+                        )),
+                        const Divider(
+                            color: Colors.black,
+                            height: 20,
+                            thickness: 1,
+                            indent: 20,
+                            endIndent: 10),
+                        RichText(
+                            text: TextSpan(
+                          text: 'Cambia email',
+                          style: const TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                          ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () => openChangeEmailDialog(),
+                        )),
+                        const Divider(
+                            color: Colors.black,
+                            height: 20,
+                            thickness: 1,
+                            indent: 20,
+                            endIndent: 10),
+                        RichText(
+                            text: TextSpan(
+                          text: 'Elimina profilo',
+                          style: const TextStyle(
+                            fontSize: 20,
+                            color: Colors.red,
+                          ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () => openDeleteProfileDialog(),
+                        )),
+                        const Divider(
+                            color: Colors.black,
+                            height: 20,
+                            thickness: 1,
+                            indent: 20,
+                            endIndent: 10),
+                        Center(
+                          child: Container(
+                            margin: const EdgeInsets.only(top: 20),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                const Text('Logout'),
+                                IconButton(
+                                  icon: const Icon(Icons.exit_to_app),
+                                  tooltip: "Logout",
+                                  onPressed: () {
+                                    Navigator.pushNamed(context, '/login');
+                                  },
+                                ),
+                              ],
                             ),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () => openDeleteProfileDialog(),
-                          )),
-                      const Divider(
-                          color: Colors.black,
-                          height: 20,
-                          thickness: 1,
-                          indent: 20,
-                          endIndent: 10),
-                    ],
-                  )),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
                 ),
               ),
             ])));

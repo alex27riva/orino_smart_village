@@ -1,7 +1,7 @@
-import 'package:alert/alert.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'images.dart' as images;
+
+import 'images.dart';
 
 //button border
 RoundedRectangleBorder buttonBorder = RoundedRectangleBorder(
@@ -47,7 +47,7 @@ class Cantine extends StatelessWidget {
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: const [
-                      Image(image: AssetImage(images.burgett),
+                      Image(image: AssetImage(ImageConstants.burgett),
                         fit: BoxFit.contain,
                       ),
                       Text('Il Burgett di Ratt',
@@ -70,7 +70,7 @@ class Cantine extends StatelessWidget {
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: const [
-                      Image(image: AssetImage(images.cantina_gesa),
+                      Image(image: AssetImage(ImageConstants.cantina_gesa),
                         width: 90,
                         height: 80,
                         fit: BoxFit.contain,
@@ -100,7 +100,7 @@ class Cantine extends StatelessWidget {
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: const [
-                      Image(image: AssetImage(images.cantina_mariana),
+                      Image(image: AssetImage(ImageConstants.cantina_mariana),
                         width: 90,
                         height: 70,
                         fit: BoxFit.contain,
@@ -125,7 +125,7 @@ class Cantine extends StatelessWidget {
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: const [
-                      Image(image: AssetImage(images.fael),
+                      Image(image: AssetImage(ImageConstants.fael),
                         fit: BoxFit.contain,
                       ),
                       Text('La cantina dul Fael',

@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'images.dart' as images;
+import 'images.dart';
 
 final List<String> imgList = [
-  images.roccaTramonto,
-  images.territorio,
+  ImageConstants.roccaTramonto,
+  ImageConstants.territorio,
 ];
 
 const buttonForeground = Color(0xff304d85);

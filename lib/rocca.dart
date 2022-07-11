@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'images.dart' as images;
+
+import 'images.dart';
 
 const roccaLocation = 'geo:45.8876175,8.7261915,17';
 
@@ -23,7 +24,7 @@ class Rocca extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20.0),
               child: const Image(
-                image: AssetImage(images.roccaTramonto),
+                image: AssetImage(ImageConstants.roccaTramonto),
               ),
             ),
           ),

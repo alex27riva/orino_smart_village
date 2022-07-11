@@ -16,6 +16,9 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Impostazioni"),
+      ),
         body: Container(
       margin: const EdgeInsets.all(16.0),
       child: Column(
