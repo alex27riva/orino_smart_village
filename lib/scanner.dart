@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'dart:io';
+import 'package:alert/alert.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
@@ -137,6 +138,8 @@ void _onPermissionSet(BuildContext context, QRViewController ctrl, bool p) {
 
   _launchURLBrowser(scannedUrl) async {
     final Uri url = Uri.parse(scannedUrl);
+    Alert(message: url.toString(), shortDuration: true)
+        .show();
     if (!await launchUrl(url)) throw 'Could not launch $url';
   }
 

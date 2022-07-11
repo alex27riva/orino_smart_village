@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'images.dart';
+import 'constants/images.dart';
 
 //button border
 RoundedRectangleBorder buttonBorder = RoundedRectangleBorder(

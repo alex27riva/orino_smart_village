@@ -15,81 +15,99 @@ class _SettingsState extends State<Settings> {
 
   @override
   Widget build(BuildContext context) {
+    const double lineThickness = 0.7;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Impostazioni"),
-      ),
+        appBar: AppBar(
+          title: const Text("Impostazioni"),
+        ),
         body: Container(
-      margin: const EdgeInsets.all(16.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          // Language
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: RichText(
-              textAlign: TextAlign.justify,
-              text: const TextSpan(
-                text: "Impostazioni",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 28,
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.normal,
-                    decoration: TextDecoration.none),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                const Text("Lingua"),
-                DropDown(
-                  items: const ["Italiano", "English"],
-                  hint: const Text("Italiano"),
-                  icon: const Icon(
-                    Icons.expand_more,
-                    color: Colors.blue,
+          margin: const EdgeInsets.all(20.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              // Language
+
+              Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      const Text("Lingua"),
+                      DropDown(
+                        items: const ["Italiano", "English"],
+                        hint: const Text("Italiano"),
+                        icon: const Icon(
+                          Icons.expand_more,
+                          color: Colors.blue,
+                        ),
+                        onChanged: print,
+                      ),
+                    ],
                   ),
-                  onChanged: print,
-                ),
-              ],
-            ),
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Divider(
+                        color: Colors.black,
+                        height: 20,
+                        thickness: lineThickness,
+                        indent: 20,
+                        endIndent: 10),
+                  ),
+                ],
+              ),
+
+              // Dark theme
+              Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      const Text("Tema scuro"),
+                      Switch(
+                          value: darkThemeState,
+                          onChanged: (newValue) {
+                            setState(() => darkThemeState = newValue);
+                          })
+                    ],
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Divider(
+                        color: Colors.black,
+                        height: 20,
+                        thickness: lineThickness,
+                        indent: 20,
+                        endIndent: 10),
+                  ),
+                ],
+              ),
+              // Notifiche
+              Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      const Text("Notifiche"),
+                      Switch(
+                          value: notificationState,
+                          onChanged: (newValue) {
+                            setState(() => notificationState = newValue);
+                          })
+                    ],
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Divider(
+                        color: Colors.black,
+                        height: 20,
+                        thickness: lineThickness,
+                        indent: 20,
+                        endIndent: 10),
+                  ),
+                ],
+              ),
+            ],
           ),
-          // Dark theme
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                const Text("Tema scuro"),
-                Switch(
-                    value: darkThemeState,
-                    onChanged: (newValue) {
-                      setState(() => darkThemeState = newValue);
-                    })
-              ],
-            ),
-          ),
-          // Notifiche
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                const Text("Notifiche"),
-                Switch(
-                    value: notificationState,
-                    onChanged: (newValue) {
-                      setState(() => notificationState = newValue);
-                    })
-              ],
-            ),
-          ),
-        ],
-      ),
-    ));
+        ));
   }
 }

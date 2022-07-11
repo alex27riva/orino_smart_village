@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'images.dart';
+import 'constants/images.dart';
 
 final List<String> imgList = [
   ImageConstants.roccaTramonto,

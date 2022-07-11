@@ -12,7 +12,7 @@ import 'package:orino_smart_village/cantine.dart';
 import 'package:orino_smart_village/contacts.dart';
 import 'package:orino_smart_village/login.dart';
 
-import 'images.dart';
+import 'constants/images.dart';
 
 void main() => runApp(const MyApp());
 
@@ -79,8 +79,8 @@ class _MainAppState extends State<MainApp> {
 
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.blueAccent,
+        selectedItemColor: Colors.blueAccent,
+        unselectedItemColor: Colors.blue,
         currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {
@@ -96,18 +96,18 @@ class _MainAppState extends State<MainApp> {
                 AssetImage(ImageConstants.scanIcon),
                 size: iconSize,
               ),
-              label: 'Scan'),
+              label: 'Codici QR'),
           BottomNavigationBarItem(
               icon: ImageIcon(AssetImage(ImageConstants.homeIcon), size: iconSize),
               label: 'Home'),
           BottomNavigationBarItem(
             icon: ImageIcon(AssetImage(ImageConstants.mapIcon), size: iconSize),
-            label: 'Map',
+            label: 'Mappa',
           ),
           BottomNavigationBarItem(
               icon:
                   ImageIcon(AssetImage(ImageConstants.profileIcon), size: iconSize),
-              label: 'Profile')
+              label: 'Profilo')
         ],
       ),
 
@@ -137,9 +137,9 @@ class _MainAppState extends State<MainApp> {
               },
             ),
             ListTile(
-              title: const Text('Su di noi'),
+              title: const Text('Impostazioni'),
               onTap: () {
-                Navigator.pushNamed(context, '/about');
+                Navigator.pushNamed(context, '/settings');
               },
             ),
             ListTile(
@@ -149,9 +149,9 @@ class _MainAppState extends State<MainApp> {
               },
             ),
             ListTile(
-              title: const Text('Impostazioni'),
+              title: const Text('Su di noi'),
               onTap: () {
-                Navigator.pushNamed(context, '/settings');
+                Navigator.pushNamed(context, '/about');
               },
             ),
           ],

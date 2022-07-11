@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:orino_smart_village/images.dart';
+import 'package:orino_smart_village/constants/images.dart';
 
 class About extends StatelessWidget {
   const About({Key? key}) : super(key: key);

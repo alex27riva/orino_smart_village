@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import 'images.dart';
+import 'constants/images.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -114,6 +114,7 @@ class _ProfileState extends State<Profile> {
             content: SizedBox(
               height: 100,
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
                   Text("Sei sicuro di voler eliminare l'account?")
                 ],
@@ -138,6 +139,7 @@ class _ProfileState extends State<Profile> {
         );
 
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Container(
             margin: const EdgeInsets.all(16.0),
             child: Column(children: <Widget>[
@@ -221,24 +223,26 @@ class _ProfileState extends State<Profile> {
                             thickness: 1,
                             indent: 20,
                             endIndent: 10),
-                        Center(
-                          child: Container(
-                            margin: const EdgeInsets.only(top: 20),
+                        // Logout text and icon
+                        Container(
+                          margin: const EdgeInsets.only(top: 20),
+                          child: InkWell(
                             child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                const Text('Logout'),
-                                IconButton(
-                                  icon: const Icon(Icons.exit_to_app),
-                                  tooltip: "Logout",
-                                  onPressed: () {
-                                    Navigator.pushNamed(context, '/login');
-                                  },
-                                ),
-                              ],
-                            ),
+                              mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: const [
+                                  Text('Logout'),
+                                  IconButton(
+                                    icon: Icon(Icons.exit_to_app),
+                                    onPressed: null,
+                                    disabledColor: Colors.black,
+                                  )
+                                ]),
+                            onTap: () {
+                              Navigator.pushNamed(context, '/login');
+                            },
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
