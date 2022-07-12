@@ -13,9 +13,9 @@ class Scanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(
-        child:  QRViewExample(),
-            ));
+        body: Center(
+      child: QRViewExample(),
+    ));
   }
 }
 
@@ -55,34 +55,26 @@ class _QRViewExampleState extends State<QRViewExample> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  if (result != null)
-                    Text(
-                        'Barcode Type: ${describeEnum(result!.format)}   Data: ${result!.code}')
-                  else
-                    const Text('Scansiona un codice QR'),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        margin: const EdgeInsets.all(8),
-                        child: ElevatedButton(
-                            onPressed: () async {
-                              await controller?.toggleFlash();
-                              setState(() {});
-                              if (await Vibration.hasVibrator() ?? false) {
-                                Vibration.vibrate(duration: 100);
-                              }
-                            },
-                            //  return Text('Flash: ${snapshot.data}
-                            child: FutureBuilder(
-                              future: controller?.getFlashStatus(),
-                              builder: (context, snapshot) {
-                                return Icon((snapshot.data == false ? Icons.flash_off : Icons.flash_on));
-                              },
-                            )),
-                      ),
-                    ],
+                  const Text('Scansiona un codice QR'),
+                  Container(
+                    margin: const EdgeInsets.all(8),
+                    child: ElevatedButton(
+                        onPressed: () async {
+                          await controller?.toggleFlash();
+                          setState(() {});
+                          if (await Vibration.hasVibrator() ?? false) {
+                            Vibration.vibrate(duration: 100);
+                          }
+                        },
+                        //  return Text('Flash: ${snapshot.data}
+                        child: FutureBuilder(
+                          future: controller?.getFlashStatus(),
+                          builder: (context, snapshot) {
+                            return Icon((snapshot.data == false
+                                ? Icons.flash_off
+                                : Icons.flash_on));
+                          },
+                        )),
                   ),
                 ],
               ),
@@ -93,59 +85,59 @@ class _QRViewExampleState extends State<QRViewExample> {
     );
   }
 
-
-Widget _buildQrView(BuildContext context) {
-  // For this example we check how width or tall the device is and change the scanArea and overlay accordingly.
-  var scanArea = (MediaQuery.of(context).size.width < 400 ||
-      MediaQuery.of(context).size.height < 400)
-      ? 150.0
-      : 300.0;
-  // To ensure the Scanner view is properly sizes after rotation
-  // we need to listen for Flutter SizeChanged notification and update controller
-  return QRView(
-    key: qrKey,
-    onQRViewCreated: _onQRViewCreated,
-    overlay: QrScannerOverlayShape(
-        borderColor: Colors.red,
-        borderRadius: 10,
-        borderLength: 30,
-        borderWidth: 10,
-        cutOutSize: scanArea),
-    onPermissionSet: (ctrl, p) => _onPermissionSet(context, ctrl, p),
-  );
-}
-
-void _onQRViewCreated(QRViewController controller) {
-  setState(() {
-    this.controller = controller;
-  });
-  controller.scannedDataStream.listen((scanData) {
-    setState(() {
-      result = scanData;
-    });
-    _launchURLBrowser(result!.code);
-  });
-}
-
-void _onPermissionSet(BuildContext context, QRViewController ctrl, bool p) {
-  log('${DateTime.now().toIso8601String()}_onPermissionSet $p');
-  if (!p) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('no Permission')),
+  Widget _buildQrView(BuildContext context) {
+    // For this example we check how width or tall the device is and change the scanArea and overlay accordingly.
+    var scanArea = (MediaQuery.of(context).size.width < 400 ||
+            MediaQuery.of(context).size.height < 400)
+        ? 150.0
+        : 300.0;
+    // To ensure the Scanner view is properly sizes after rotation
+    // we need to listen for Flutter SizeChanged notification and update controller
+    return QRView(
+      key: qrKey,
+      onQRViewCreated: _onQRViewCreated,
+      overlay: QrScannerOverlayShape(
+          borderColor: Colors.red,
+          borderRadius: 10,
+          borderLength: 30,
+          borderWidth: 10,
+          cutOutSize: scanArea),
+      onPermissionSet: (ctrl, p) => _onPermissionSet(context, ctrl, p),
     );
   }
-}
+
+  void _onQRViewCreated(QRViewController controller) {
+    setState(() {
+      this.controller = controller;
+    });
+    controller.scannedDataStream.listen((scanData) {
+      setState(() {
+        result = scanData;
+      });
+      _launchURLBrowser(result!.code);
+    });
+  }
+
+  void _onPermissionSet(BuildContext context, QRViewController ctrl, bool p) {
+    log('${DateTime.now().toIso8601String()}_onPermissionSet $p');
+    if (!p) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('no Permission')),
+      );
+    }
+  }
 
   _launchURLBrowser(scannedUrl) async {
     final Uri url = Uri.parse(scannedUrl);
-    Alert(message: url.toString(), shortDuration: true)
-        .show();
-    if (!await launchUrl(url)) throw 'Could not launch $url';
+    Alert(message: url.toString(), shortDuration: true).show();
+    if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $url';
+    }
   }
 
-@override
-void dispose() {
-  controller?.dispose();
-  super.dispose();
-}
+  @override
+  void dispose() {
+    controller?.dispose();
+    super.dispose();
+  }
 }

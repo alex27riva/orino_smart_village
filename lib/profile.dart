@@ -15,6 +15,9 @@ class _ProfileState extends State<Profile> {
   final newPassController = TextEditingController();
   final newPassRepeatController = TextEditingController();
 
+  final String namePlaceholder = 'Nome Cognome';
+  final String emailTemplate = 'nome.cognome@email.com';
+
   @override
   Widget build(BuildContext context) {
     void changePassword() {
@@ -152,18 +155,18 @@ class _ProfileState extends State<Profile> {
                         fit: BoxFit.fill,
                         height: 100),
                     RichText(
-                        text: const TextSpan(
-                      text: "Nome Cognome",
-                      style: TextStyle(
+                        text: TextSpan(
+                      text: namePlaceholder,
+                      style: const TextStyle(
                           color: Colors.black,
                           fontSize: 18,
                           fontWeight: FontWeight.normal,
                           decoration: TextDecoration.none),
                     )),
                     RichText(
-                        text: const TextSpan(
-                            text: "email@email.com",
-                            style: TextStyle(
+                        text: TextSpan(
+                            text: emailTemplate,
+                            style: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 13,
                                 fontWeight: FontWeight.w500,
