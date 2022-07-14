@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'utils/waypoint.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({Key? key}) : super(key: key);
@@ -50,14 +51,15 @@ class _MapPageState extends State<MapPage> {
               }
               List<dynamic> parsedJson = jsonDecode(snapshot.data);
               allMarkers = parsedJson.map((element) {
+                Waypoint currentWaypoint = Waypoint.fromJson(element);
                 return Marker(
                   infoWindow: InfoWindow(
-                    title: element['name'],
-                    snippet: element['desc']
+                    title: currentWaypoint.name,
+                    snippet: currentWaypoint.desc
                   ),
                     markerId: MarkerId(random.nextInt(100).toString()),
                     position:
-                        LatLng(element['latitude'], element['longitude']));
+                        LatLng(currentWaypoint.latitude, currentWaypoint.longitude));
               }).toList();
 
               return GoogleMap(
