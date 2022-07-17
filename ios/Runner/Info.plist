@@ -4,6 +4,11 @@
 	<dict>
 		<key>CFBundleDevelopmentRegion</key>
 		<string>$(DEVELOPMENT_LANGUAGE)</string>
+		<key>CFFBundleLocalizations</key>
+		<array>
+			<string>en</string>
+			<string>it</string>
+		</array>
 		<key>CFBundleDisplayName</key>
 		<string>Orino Smart Village</string>
 		<key>CFBundleExecutable</key>

@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'constants/images.dart';
 
@@ -32,27 +33,32 @@ class _ProfileState extends State<Profile> {
     Future openChangePasswordDialog() => showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: const Text('Cambio password'),
+            title:
+                Text(AppLocalizations.of(context)!.changePasswordDialogTitle),
             content: SizedBox(
               height: 200,
               child: Column(
                 children: [
                   TextField(
                     autofocus: true,
-                    decoration: const InputDecoration(
-                        hintText: 'Inserisci la password attuale'),
+                    // Current password
+                    decoration: InputDecoration(
+                        hintText:
+                            AppLocalizations.of(context)!.currentPasswordField),
                     controller: currentPassController,
                     obscureText: true,
                   ),
+                  // New password
                   TextField(
-                    decoration: const InputDecoration(
-                        hintText: 'Inserisci la nuova password'),
+                    decoration: InputDecoration(
+                        hintText:
+                            AppLocalizations.of(context)!.newPasswordField),
                     controller: newPassController,
                     obscureText: true,
                   ),
+                  // Repeat password
                   TextField(
-                    decoration:
-                        const InputDecoration(hintText: 'Ripeti password'),
+                    decoration: InputDecoration(hintText: AppLocalizations.of(context)!.repeatPasswordField),
                     controller: newPassRepeatController,
                     obscureText: true,
                   ),
@@ -64,12 +70,12 @@ class _ProfileState extends State<Profile> {
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: const Text('Annulla')),
+                  child: Text(AppLocalizations.of(context)!.cancelButtonText)),
               TextButton(
                   onPressed: () {
                     changeEmail();
                   },
-                  child: const Text('Conferma')),
+                  child: Text(AppLocalizations.of(context)!.confirmButtonText)),
             ],
           ),
         );
@@ -78,7 +84,7 @@ class _ProfileState extends State<Profile> {
     Future openChangeEmailDialog() => showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: const Text('Cambio email', textAlign: TextAlign.center),
+            title: Text(AppLocalizations.of(context)!.changeEmailDialogTitle, textAlign: TextAlign.center),
             //contentPadding: const EdgeInsets.fromLTRB(24.0, 0.0, 24.0, 24.0),
             content: SizedBox(
               height: 100,
@@ -87,24 +93,26 @@ class _ProfileState extends State<Profile> {
                 children: [
                   TextField(
                     autofocus: true,
-                    decoration: const InputDecoration(
-                        hintText: 'Inserisci la nuova email'),
+                    decoration: InputDecoration(
+                        hintText: AppLocalizations.of(context)!.newEmailField),
                     controller: currentPassController,
                   ),
                 ],
               ),
             ),
             actions: [
+              // Cancel
               TextButton(
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: const Text('Annulla')),
+                  child: Text(AppLocalizations.of(context)!.cancelButtonText)),
+              // Confirm
               TextButton(
                   onPressed: () {
                     changePassword();
                   },
-                  child: const Text('Conferma')),
+                  child: Text(AppLocalizations.of(context)!.confirmButtonText)),
             ],
           ),
         );
@@ -113,29 +121,31 @@ class _ProfileState extends State<Profile> {
     Future openDeleteProfileDialog() => showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: const Text('Eliminazione profilo'),
+            title: Text(AppLocalizations.of(context)!.deleteProfileDialogTitle),
             content: SizedBox(
               height: 100,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Text("Sei sicuro di voler eliminare l'account?")
+                children: [
+                  Text(AppLocalizations.of(context)!.deleteProfileConfirmation)
                 ],
               ),
             ),
             actions: [
+              // Cancel
               TextButton(
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: const Text('Annulla')),
+                  child: Text(AppLocalizations.of(context)!.cancelButtonText)),
+              // Delete
               TextButton(
                   onPressed: () {
                     changePassword();
                   },
-                  child: const Text(
-                    'Elimina',
-                    style: TextStyle(color: Colors.red),
+                  child: Text(
+                    AppLocalizations.of(context)!.deleteButtonText,
+                    style: const TextStyle(color: Colors.red),
                   )),
             ],
           ),
@@ -178,9 +188,11 @@ class _ProfileState extends State<Profile> {
                   child: Center(
                     child: Column(
                       children: <Widget>[
+                        // Change password
                         RichText(
                             text: TextSpan(
-                          text: 'Cambia password',
+                          text: AppLocalizations.of(context)!
+                              .profileChangePassword,
                           style: const TextStyle(
                             fontSize: 20,
                             color: Colors.black,
@@ -194,9 +206,11 @@ class _ProfileState extends State<Profile> {
                             thickness: 1,
                             indent: 20,
                             endIndent: 10),
+                        // Change email
                         RichText(
                             text: TextSpan(
-                          text: 'Cambia email',
+                          text:
+                              AppLocalizations.of(context)!.profileChangeEmail,
                           style: const TextStyle(
                             fontSize: 20,
                             color: Colors.black,
@@ -210,9 +224,11 @@ class _ProfileState extends State<Profile> {
                             thickness: 1,
                             indent: 20,
                             endIndent: 10),
+                        // Delete profiel
                         RichText(
                             text: TextSpan(
-                          text: 'Elimina profilo',
+                          text: AppLocalizations.of(context)!
+                              .profileDeleteProfile,
                           style: const TextStyle(
                             fontSize: 20,
                             color: Colors.red,
@@ -231,11 +247,12 @@ class _ProfileState extends State<Profile> {
                           margin: const EdgeInsets.only(top: 20),
                           child: InkWell(
                             child: Row(
-                              mainAxisSize: MainAxisSize.min,
+                                mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
-                                  Text('Logout'),
-                                  IconButton(
+                                children: [
+                                  Text(AppLocalizations.of(context)!
+                                      .profileLogoutButton),
+                                  const IconButton(
                                     icon: Icon(Icons.exit_to_app),
                                     onPressed: null,
                                     disabledColor: Colors.black,

@@ -11,8 +11,8 @@ import 'package:orino_smart_village/about.dart';
 import 'package:orino_smart_village/cantine.dart';
 import 'package:orino_smart_village/contacts.dart';
 import 'package:orino_smart_village/login.dart';
-
-import '360_view.dart';
+import 'package:orino_smart_village/360_view.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'constants/images.dart';
 
 void main() => runApp(const MyApp());
@@ -23,7 +23,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Orino Smart Village',
+        debugShowCheckedModeBanner: false,
+        onGenerateTitle: (context) => AppLocalizations.of(context)!.appTitle,
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
         theme: ThemeData(primarySwatch: Colors.blue),
         home: const MainApp(),
         initialRoute: '/register',
@@ -92,29 +95,29 @@ class _MainAppState extends State<MainApp> {
             _currentIndex = index;
           });
         },
-        items: const [
+        items: [
           BottomNavigationBarItem(
               icon:
-                  ImageIcon(AssetImage(ImageConstants.arIcon), size: iconSize),
-              label: 'AR'),
+                  const ImageIcon(AssetImage(ImageConstants.arIcon), size: iconSize),
+              label: AppLocalizations.of(context)!.navbarAR),
           BottomNavigationBarItem(
-              icon: ImageIcon(
+              icon: const ImageIcon(
                 AssetImage(ImageConstants.scanIcon),
                 size: iconSize,
               ),
-              label: 'Codici QR'),
+              label: AppLocalizations.of(context)!.navbarScanner),
           BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(ImageConstants.homeIcon),
+              icon: const ImageIcon(AssetImage(ImageConstants.homeIcon),
                   size: iconSize),
-              label: 'Home'),
+              label: AppLocalizations.of(context)!.navbarHome),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage(ImageConstants.mapIcon), size: iconSize),
-            label: 'Mappa',
+            icon: const ImageIcon(AssetImage(ImageConstants.mapIcon), size: iconSize),
+            label: AppLocalizations.of(context)!.navbarMap,
           ),
           BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(ImageConstants.profileIcon),
+              icon: const ImageIcon(AssetImage(ImageConstants.profileIcon),
                   size: iconSize),
-              label: 'Profilo')
+              label: AppLocalizations.of(context)!.navbarProfile)
         ],
       ),
 
@@ -132,31 +135,31 @@ class _MainAppState extends State<MainApp> {
               child: Text('Menu'),
             ),
             ListTile(
-              title: const Text('Registrati'),
+              title: Text(AppLocalizations.of(context)!.registrationTitle),
               onTap: () {
                 Navigator.pushNamed(context, '/register');
               },
             ),
             ListTile(
-              title: const Text('Accedi'),
+              title: Text(AppLocalizations.of(context)!.loginTitle),
               onTap: () {
                 Navigator.pushNamed(context, '/login');
               },
             ),
             ListTile(
-              title: const Text('Impostazioni'),
+              title: Text(AppLocalizations.of(context)!.settingsTitle),
               onTap: () {
                 Navigator.pushNamed(context, '/settings');
               },
             ),
             ListTile(
-              title: const Text('Contatti'),
+              title: Text(AppLocalizations.of(context)!.contactsTitle),
               onTap: () {
                 Navigator.pushNamed(context, '/contacts');
               },
             ),
             ListTile(
-              title: const Text('Su di noi'),
+              title: Text(AppLocalizations.of(context)!.aboutTitle),
               onTap: () {
                 Navigator.pushNamed(context, '/about');
               },

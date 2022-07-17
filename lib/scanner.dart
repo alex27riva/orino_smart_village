@@ -1,11 +1,11 @@
 import 'dart:developer';
 import 'dart:io';
 import 'package:alert/alert.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:vibration/vibration.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Scanner extends StatelessWidget {
   const Scanner({Key? key}) : super(key: key);
@@ -55,7 +55,7 @@ class _QRViewExampleState extends State<QRViewExample> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  const Text('Scansiona un codice QR'),
+                  Text(AppLocalizations.of(context)!.scannerSubtitle),
                   Container(
                     margin: const EdgeInsets.all(8),
                     child: ElevatedButton(

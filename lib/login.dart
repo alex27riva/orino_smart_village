@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:orino_smart_village/simple_round_button.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);
@@ -7,8 +8,9 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
-        title: const Text('Accedi'),
+        title: Text(AppLocalizations.of(context)!.loginTitle),
       ),
       body: Container(
           padding: const EdgeInsets.all(16),
@@ -17,9 +19,9 @@ class Login extends StatelessWidget {
                 margin: const EdgeInsets.only(top: 10, bottom: 20),
                 child: RichText(
                   textAlign: TextAlign.justify,
-                  text: const TextSpan(
-                    text: "Accedi con il tuo account",
-                    style: TextStyle(
+                  text: TextSpan(
+                    text: AppLocalizations.of(context)!.loginSubtitle,
+                    style: const TextStyle(
                         color: Colors.black,
                         fontSize: 28,
                         fontFamily: 'Roboto',
@@ -30,13 +32,13 @@ class Login extends StatelessWidget {
             Container(
               margin: const EdgeInsets.only(bottom: 16.0),
               child: Row(
-                children: const <Widget>[
+                children: <Widget>[
                   Flexible(
                     child: TextField(
                       decoration: InputDecoration(
-                          labelText: "Indirizzo email",
-                          hintText: "Inserisci l'indirizzo email",
-                          border: OutlineInputBorder(
+                          labelText: AppLocalizations.of(context)!.emailFieldText,
+                          hintText: AppLocalizations.of(context)!.emailFieldHint,
+                          border: const OutlineInputBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20)),
                               borderSide:
@@ -48,13 +50,13 @@ class Login extends StatelessWidget {
             ),
             Container(
               margin: const EdgeInsets.only(bottom: 16.0),
-              child: Row(children: const <Widget>[
+              child: Row(children: <Widget>[
                 Flexible(
                   child: TextField(
                       decoration: InputDecoration(
-                          labelText: "Password",
-                          hintText: "Inserisci una password",
-                          border: OutlineInputBorder(
+                          labelText: AppLocalizations.of(context)!.passwordFieldText,
+                          hintText: AppLocalizations.of(context)!.passwordFieldText,
+                          border: const OutlineInputBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20)),
                               borderSide:
@@ -68,9 +70,9 @@ class Login extends StatelessWidget {
                 Navigator.pushNamed(context, '/home');
               },
               backgroundColor: const Color(0xffe04d4d),
-              buttonText: const Text(
-                "Login",
-                style: TextStyle(color: Colors.black),
+              buttonText: Text(
+                AppLocalizations.of(context)!.loginSubmitText,
+                style: const TextStyle(color: Colors.black),
               ),
             ),
           ])),
