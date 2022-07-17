@@ -2,7 +2,7 @@
     package="com.orinosmartvillage.orino_smart_village">
     <uses-permission android:name="android.permission.VIBRATE"/>
    <application
-        android:label="orino_smart_village"
+        android:label="Orino Smart Village"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
        <meta-data
