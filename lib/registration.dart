@@ -9,7 +9,7 @@ class Registration extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Registrazione'),
+        title: Text(AppLocalizations.of(context)!.registrationTitle),
       ),
       body: Container(
           padding: const EdgeInsets.all(16),

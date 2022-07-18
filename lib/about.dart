@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:orino_smart_village/constants/images.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class About extends StatelessWidget {
   const About({Key? key}) : super(key: key);
@@ -8,7 +9,7 @@ class About extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Su di noi"),
+          title: Text(AppLocalizations.of(context)!.aboutTitle),
         ),
         body: Container(
             margin: const EdgeInsets.all(20.0),

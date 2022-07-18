@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'constants/images.dart';
 
@@ -14,7 +15,7 @@ class Contacts extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Contatti"),
+          title: Text(AppLocalizations.of(context)!.contactsTitle),
         ),
         body: Container(
       margin: const EdgeInsets.only(left: 40, right: 40),

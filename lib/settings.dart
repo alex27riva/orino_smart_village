@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dropdown/flutter_dropdown.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class _SettingsState extends State<Settings> {
     const double lineThickness = 0.7;
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Impostazioni"),
+          title: Text(AppLocalizations.of(context)!.settingsTitle),
         ),
         body: Container(
           margin: const EdgeInsets.all(20.0),
