@@ -28,10 +28,10 @@ class About extends StatelessWidget {
                     children: <Widget>[
                       RichText(
                         textAlign: TextAlign.justify,
-                        text: const TextSpan(
+                        text: TextSpan(
                           text:
-                          'Progetto sviluppato dall’Università dell’Insubria e dal Comune di Orino, finanziato da Fondazione Cariplo.',
-                          style: TextStyle(
+                          AppLocalizations.of(context)!.aboutFirstParagraph,
+                          style: const TextStyle(
                               leadingDistribution: TextLeadingDistribution.even,
                               color: Colors.black,
                               fontSize: 14,
@@ -41,10 +41,10 @@ class About extends StatelessWidget {
                       ),
                       RichText(
                         textAlign: TextAlign.justify,
-                        text: const TextSpan(
+                        text: TextSpan(
                           text:
-                          'Patrimonio storico-naturalistico e nella ricerca di soluzioni innovative per progettare lo sviluppo sostenibile del territorio.',
-                          style: TextStyle(
+                          AppLocalizations.of(context)!.aboutSecondParagraph,
+                          style: const TextStyle(
                               color: Colors.black,
                               fontSize: 14,
                               fontWeight: FontWeight.normal,

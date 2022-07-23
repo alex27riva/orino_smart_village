@@ -11,11 +11,45 @@
     -->
     <preset_collections/>
     <framework>arb</framework>
-    <filename>osm_translation.babel</filename>
+    <filename>translation.babel</filename>
     <source_root_dir>orino_smart_village</source_root_dir>
     <folder_node>
         <name/>
         <children>
+            <concept_node>
+                <name>aboutFirstParagraph</name>
+                <definition_loaded>false</definition_loaded>
+                <description/>
+                <comment/>
+                <default_text/>
+                <translations>
+                    <translation>
+                        <language>en-US</language>
+                        <approved>false</approved>
+                    </translation>
+                    <translation>
+                        <language>it-IT</language>
+                        <approved>false</approved>
+                    </translation>
+                </translations>
+            </concept_node>
+            <concept_node>
+                <name>aboutSecondParagraph</name>
+                <definition_loaded>false</definition_loaded>
+                <description/>
+                <comment/>
+                <default_text/>
+                <translations>
+                    <translation>
+                        <language>en-US</language>
+                        <approved>false</approved>
+                    </translation>
+                    <translation>
+                        <language>it-IT</language>
+                        <approved>false</approved>
+                    </translation>
+                </translations>
+            </concept_node>
             <concept_node>
                 <name>aboutTitle</name>
                 <definition_loaded>false</definition_loaded>
@@ -255,6 +289,125 @@
                 </translations>
             </concept_node>
             <concept_node>
+                <name>fortressDescription</name>
+                <definition_loaded>false</definition_loaded>
+                <description/>
+                <comment/>
+                <default_text/>
+                <translations>
+                    <translation>
+                        <language>en-US</language>
+                        <approved>false</approved>
+                    </translation>
+                    <translation>
+                        <language>it-IT</language>
+                        <approved>false</approved>
+                    </translation>
+                </translations>
+            </concept_node>
+            <concept_node>
+                <name>fortressOfOrino</name>
+                <definition_loaded>false</definition_loaded>
+                <description/>
+                <comment/>
+                <default_text/>
+                <translations>
+                    <translation>
+                        <language>en-US</language>
+                        <approved>false</approved>
+                    </translation>
+                    <translation>
+                        <language>it-IT</language>
+                        <approved>false</approved>
+                    </translation>
+                </translations>
+            </concept_node>
+            <concept_node>
+                <name>homeButtonCellars</name>
+                <definition_loaded>false</definition_loaded>
+                <description/>
+                <comment/>
+                <default_text/>
+                <translations>
+                    <translation>
+                        <language>en-US</language>
+                        <approved>false</approved>
+                    </translation>
+                    <translation>
+                        <language>it-IT</language>
+                        <approved>false</approved>
+                    </translation>
+                </translations>
+            </concept_node>
+            <concept_node>
+                <name>homeButtonEcomuseum</name>
+                <definition_loaded>false</definition_loaded>
+                <description/>
+                <comment/>
+                <default_text/>
+                <translations>
+                    <translation>
+                        <language>en-US</language>
+                        <approved>false</approved>
+                    </translation>
+                    <translation>
+                        <language>it-IT</language>
+                        <approved>false</approved>
+                    </translation>
+                </translations>
+            </concept_node>
+            <concept_node>
+                <name>homeButtonEcoturism</name>
+                <definition_loaded>false</definition_loaded>
+                <description/>
+                <comment/>
+                <default_text/>
+                <translations>
+                    <translation>
+                        <language>en-US</language>
+                        <approved>false</approved>
+                    </translation>
+                    <translation>
+                        <language>it-IT</language>
+                        <approved>false</approved>
+                    </translation>
+                </translations>
+            </concept_node>
+            <concept_node>
+                <name>homeButtonFortress</name>
+                <definition_loaded>false</definition_loaded>
+                <description/>
+                <comment/>
+                <default_text/>
+                <translations>
+                    <translation>
+                        <language>en-US</language>
+                        <approved>false</approved>
+                    </translation>
+                    <translation>
+                        <language>it-IT</language>
+                        <approved>false</approved>
+                    </translation>
+                </translations>
+            </concept_node>
+            <concept_node>
+                <name>languageText</name>
+                <definition_loaded>false</definition_loaded>
+                <description/>
+                <comment/>
+                <default_text/>
+                <translations>
+                    <translation>
+                        <language>en-US</language>
+                        <approved>false</approved>
+                    </translation>
+                    <translation>
+                        <language>it-IT</language>
+                        <approved>false</approved>
+                    </translation>
+                </translations>
+            </concept_node>
+            <concept_node>
                 <name>loginSubmitText</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
@@ -409,6 +562,23 @@
             </concept_node>
             <concept_node>
                 <name>newPasswordField</name>
+                <definition_loaded>false</definition_loaded>
+                <description/>
+                <comment/>
+                <default_text/>
+                <translations>
+                    <translation>
+                        <language>en-US</language>
+                        <approved>false</approved>
+                    </translation>
+                    <translation>
+                        <language>it-IT</language>
+                        <approved>false</approved>
+                    </translation>
+                </translations>
+            </concept_node>
+            <concept_node>
+                <name>notificationText</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -730,6 +900,40 @@
                     </translation>
                 </translations>
             </concept_node>
+            <concept_node>
+                <name>showOnMapButton</name>
+                <definition_loaded>false</definition_loaded>
+                <description/>
+                <comment/>
+                <default_text/>
+                <translations>
+                    <translation>
+                        <language>en-US</language>
+                        <approved>false</approved>
+                    </translation>
+                    <translation>
+                        <language>it-IT</language>
+                        <approved>false</approved>
+                    </translation>
+                </translations>
+            </concept_node>
+            <concept_node>
+                <name>themeText</name>
+                <definition_loaded>false</definition_loaded>
+                <description/>
+                <comment/>
+                <default_text/>
+                <translations>
+                    <translation>
+                        <language>en-US</language>
+                        <approved>false</approved>
+                    </translation>
+                    <translation>
+                        <language>it-IT</language>
+                        <approved>false</approved>
+                    </translation>
+                </translations>
+            </concept_node>
         </children>
     </folder_node>
     <isTemplateProject>false</isTemplateProject>
@@ -737,20 +941,20 @@
         <language>
             <code>en-US</code>
             <source_id/>
-            <source_file>orino_smart_village/lib/l10n/app_en.arb</source_file>
+            <source_file>lib/l10n/app_en.arb</source_file>
         </language>
         <language>
             <code>it-IT</code>
             <source_id/>
-            <source_file>orino_smart_village/lib/l10n/app_it.arb</source_file>
+            <source_file>lib/l10n/app_it.arb</source_file>
         </language>
     </languages>
     <translation_files>
         <translation_file>
-            <file>orino_smart_village/lib/l10n/app_en.arb</file>
+            <file>lib/l10n/app_en.arb</file>
         </translation_file>
         <translation_file>
-            <file>orino_smart_village/lib/l10n/app_it.arb</file>
+            <file>lib/l10n/app_it.arb</file>
         </translation_file>
     </translation_files>
     <editor_configuration>

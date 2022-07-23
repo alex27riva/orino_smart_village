@@ -33,7 +33,7 @@ class _SettingsState extends State<Settings> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      const Text("Lingua"),
+                      Text(AppLocalizations.of(context)!.languageText),
                       DropDown(
                         items: const ["Italiano", "English"],
                         hint: const Text("Italiano"),
@@ -63,7 +63,7 @@ class _SettingsState extends State<Settings> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      const Text("Tema scuro"),
+                      Text(AppLocalizations.of(context)!.themeText),
                       Switch(
                           value: darkThemeState,
                           onChanged: (newValue) {
@@ -88,7 +88,7 @@ class _SettingsState extends State<Settings> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      const Text("Notifiche"),
+                      Text(AppLocalizations.of(context)!.notificationText),
                       Switch(
                           value: notificationState,
                           onChanged: (newValue) {

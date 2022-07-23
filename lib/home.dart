@@ -2,6 +2,7 @@ import 'package:alert/alert.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'constants/images.dart';
 
@@ -61,12 +62,12 @@ class Home extends StatelessWidget {
                     },
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
+                        children: [
                           //FaIcon(FontAwesomeIcons.fortAwesome, size: 75),
-                          Text('Ecomuseo',
+                          Text(AppLocalizations.of(context)!.homeButtonEcomuseum,
                               textAlign: TextAlign.end,
                               style:
-                                  TextStyle(fontSize: 15, color: Colors.black)),
+                                  const TextStyle(fontSize: 15, color: Colors.black)),
                         ]),
                   ),
                   // Rocca di Orino
@@ -82,16 +83,16 @@ class Home extends StatelessWidget {
                     },
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
-                          FaIcon(
+                        children: [
+                          const FaIcon(
                             FontAwesomeIcons.fortAwesome,
                             size: 75,
                             color: buttonForeground,
                           ),
-                          Text('Rocca di Orino',
+                          Text(AppLocalizations.of(context)!.homeButtonFortress,
                               textAlign: TextAlign.center,
                               style:
-                                  TextStyle(fontSize: 15, color: Colors.black)),
+                                  const TextStyle(fontSize: 13.5, color: Colors.black)),
                         ]),
                   ),
                 ],
@@ -117,13 +118,13 @@ class Home extends StatelessWidget {
                   },
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const [
-                        FaIcon(FontAwesomeIcons.leaf,
+                      children: [
+                        const FaIcon(FontAwesomeIcons.leaf,
                             size: 75, color: buttonForeground),
-                        Text('Ecoturismo',
+                        Text(AppLocalizations.of(context)!.homeButtonEcoturism,
                             textAlign: TextAlign.end,
                             style:
-                                TextStyle(fontSize: 15, color: Colors.black)),
+                                const TextStyle(fontSize: 15, color: Colors.black)),
                       ]),
                 ),
                 // Cantine
@@ -139,16 +140,16 @@ class Home extends StatelessWidget {
                   },
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const [
-                        FaIcon(
+                      children: [
+                        const FaIcon(
                           FontAwesomeIcons.dungeon,
                           size: 75,
                           color: buttonForeground,
                         ),
-                        Text('Cantine',
+                        Text(AppLocalizations.of(context)!.homeButtonCellars,
                             textAlign: TextAlign.center,
                             style:
-                                TextStyle(fontSize: 15, color: Colors.black)),
+                                const TextStyle(fontSize: 15, color: Colors.black)),
                       ]),
                 ),
               ],

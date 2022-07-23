@@ -40,5 +40,17 @@
 	"repeatPasswordField": "Repeat password",
 	"deleteProfileConfirmation": "Are you sure you want to delete the account?",
 	"deleteButtonText": "Delete",
-	"deleteProfileDialogTitle": "Profile deletion"
+	"deleteProfileDialogTitle": "Profile deletion",
+	"aboutFirstParagraph": "Project developed by the University of Insubria and the Municipality of Orino, funded by Cariplo Foundation.",
+	"aboutSecondParagraph": "Natural-historical heritage and in the search for innovative solutions to design the sustainable development of the territory.",
+	"homeButtonEcomuseum": "Ecomuseum",
+	"fortressOfOrino": "Fortress of Orino",
+	"homeButtonCellars": "Cellars",
+	"homeButtonEcoturism": "Ecoturism",
+	"homeButtonFortress": "Fortress of Orino",
+	"showOnMapButton": "  Show on map",
+	"fortressDescription": "The Rocca di Orino is an ancient fortress, located northeast of the municipality, at an altitude of 540 meters.\nIt lies on a rocky outcrop that provides excellent visibility over the entire Valcuvia.",
+	"languageText": "Language",
+	"themeText": "Dark theme",
+	"notificationText": "Notifications"
 }
