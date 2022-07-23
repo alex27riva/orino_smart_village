@@ -58,7 +58,9 @@ class _ProfileState extends State<Profile> {
                   ),
                   // Repeat password
                   TextField(
-                    decoration: InputDecoration(hintText: AppLocalizations.of(context)!.repeatPasswordField),
+                    decoration: InputDecoration(
+                        hintText:
+                            AppLocalizations.of(context)!.repeatPasswordField),
                     controller: newPassRepeatController,
                     obscureText: true,
                   ),
@@ -84,7 +86,8 @@ class _ProfileState extends State<Profile> {
     Future openChangeEmailDialog() => showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: Text(AppLocalizations.of(context)!.changeEmailDialogTitle, textAlign: TextAlign.center),
+            title: Text(AppLocalizations.of(context)!.changeEmailDialogTitle,
+                textAlign: TextAlign.center),
             //contentPadding: const EdgeInsets.fromLTRB(24.0, 0.0, 24.0, 24.0),
             content: SizedBox(
               height: 100,
@@ -156,35 +159,38 @@ class _ProfileState extends State<Profile> {
         body: Container(
             margin: const EdgeInsets.all(16.0),
             child: Column(children: <Widget>[
-              Container(
-                  margin: const EdgeInsets.only(bottom: 16.0),
-                  child: Column(children: <Widget>[
-                    const Image(
-                        image: AssetImage(ImageConstants.profilePlaceholder),
-                        width: 100,
-                        fit: BoxFit.fill,
-                        height: 100),
-                    RichText(
-                        text: TextSpan(
-                      text: namePlaceholder,
-                      style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontWeight: FontWeight.normal,
-                          decoration: TextDecoration.none),
-                    )),
-                    RichText(
-                        text: TextSpan(
-                            text: emailTemplate,
-                            style: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 13,
-                                fontWeight: FontWeight.w500,
-                                decoration: TextDecoration.none))),
-                  ])),
-              Container(
-                margin: const EdgeInsets.only(top: 80.0),
-                child: Flexible(
+              Expanded(
+                child: Container(
+                    margin: const EdgeInsets.only(bottom: 16.0),
+                    child: Column(children: <Widget>[
+                      const Image(
+                          image: AssetImage(ImageConstants.profilePlaceholder),
+                          width: 100,
+                          fit: BoxFit.fill,
+                          height: 100),
+                      RichText(
+                          text: TextSpan(
+                        text: namePlaceholder,
+                        style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 18,
+                            fontWeight: FontWeight.normal,
+                            decoration: TextDecoration.none),
+                      )),
+                      RichText(
+                          text: TextSpan(
+                              text: emailTemplate,
+                              style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w500,
+                                  decoration: TextDecoration.none))),
+                    ])),
+              ),
+              Expanded(
+                flex: 2,
+                child: Container(
+                  margin: const EdgeInsets.only(top: 80.0),
                   child: Center(
                     child: Column(
                       children: <Widget>[
@@ -243,24 +249,26 @@ class _ProfileState extends State<Profile> {
                             indent: 20,
                             endIndent: 10),
                         // Logout text and icon
-                        Container(
-                          margin: const EdgeInsets.only(top: 20),
-                          child: InkWell(
-                            child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(AppLocalizations.of(context)!
-                                      .profileLogoutButton),
-                                  const IconButton(
-                                    icon: Icon(Icons.exit_to_app),
-                                    onPressed: null,
-                                    disabledColor: Colors.black,
-                                  )
-                                ]),
-                            onTap: () {
-                              Navigator.pushNamed(context, '/login');
-                            },
+                        Expanded(
+                          child: Container(
+                            margin: const EdgeInsets.only(top: 20),
+                            child: InkWell(
+                              child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(AppLocalizations.of(context)!
+                                        .profileLogoutButton),
+                                    const IconButton(
+                                      icon: Icon(Icons.exit_to_app),
+                                      onPressed: null,
+                                      disabledColor: Colors.black,
+                                    )
+                                  ]),
+                              onTap: () {
+                                Navigator.pushNamed(context, '/login');
+                              },
+                            ),
                           ),
                         ),
                       ],

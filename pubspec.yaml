@@ -44,6 +44,7 @@ dependencies:
   flutter_native_splash: ^2.2.4
   google_maps_flutter: ^2.1.8
   panorama: ^0.4.1
+  http: ^0.13.4
 
   flutter_localizations:
     sdk: flutter

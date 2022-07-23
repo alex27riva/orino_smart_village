@@ -31,41 +31,35 @@ class Registration extends StatelessWidget {
             )),
             Container(
               margin: const EdgeInsets.only(bottom: 16.0),
-              child: Flexible(
-                child: TextField(
-                    decoration: InputDecoration(
-                        labelText: AppLocalizations.of(context)!.registrationName,
-                        hintText: AppLocalizations.of(context)!.registrationNameHint,
-                        border: const OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))))),
-              ),
+              child: TextField(
+                  decoration: InputDecoration(
+                      labelText: AppLocalizations.of(context)!.registrationName,
+                      hintText: AppLocalizations.of(context)!.registrationNameHint,
+                      border: const OutlineInputBorder(
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(20))))),
             ),
             Container(
                 margin: const EdgeInsets.only(bottom: 16.0),
-                child: Flexible(
-                  child: TextField(
-                      decoration: InputDecoration(
-                          labelText: AppLocalizations.of(context)!.emailFieldText,
-                          hintText: AppLocalizations.of(context)!.emailFieldText,
-                          border: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20))))),
-                )),
+                child: TextField(
+                    decoration: InputDecoration(
+                        labelText: AppLocalizations.of(context)!.emailFieldText,
+                        hintText: AppLocalizations.of(context)!.emailFieldText,
+                        border: const OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20)))))),
             Container(
                 margin: const EdgeInsets.only(bottom: 16.0),
-                child: Flexible(
-                  child: TextField(
-                      decoration: InputDecoration(
-                          labelText: AppLocalizations.of(context)!.passwordFieldText,
-                          hintText: AppLocalizations.of(context)!.passwordFieldHint,
-                          border: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                              borderSide:
-                                  BorderSide(color: Colors.black, width: 3))),
-                      obscureText: true),
-                )),
+                child: TextField(
+                    decoration: InputDecoration(
+                        labelText: AppLocalizations.of(context)!.passwordFieldText,
+                        hintText: AppLocalizations.of(context)!.passwordFieldHint,
+                        border: const OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20)),
+                            borderSide:
+                                BorderSide(color: Colors.black, width: 3))),
+                    obscureText: true)),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[

@@ -15,4 +15,4 @@ Follow this guide to install Flutter on your computer: [Link](https://docs.flutt
 
 ## Screenshots
 
-![Homepage](.github/app-home.jpg)
+<img alt="Homepage" src=".github/app-home.jpg" width="400"/>
