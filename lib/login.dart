@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:orino_smart_village/simple_round_button.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Login extends StatelessWidget {
@@ -65,14 +64,12 @@ class Login extends StatelessWidget {
                 ),
               ]),
             ),
-            SimpleRoundButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/home');
               },
-              backgroundColor: const Color(0xffe04d4d),
-              buttonText: Text(
+              child: Text(
                 AppLocalizations.of(context)!.loginSubmitText,
-                style: const TextStyle(color: Colors.black),
               ),
             ),
           ])),
