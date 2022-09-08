@@ -49,6 +49,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: ^0.17.0
+  ar_flutter_plugin: ^0.7.1
 
 dev_dependencies:
   flutter_test:
