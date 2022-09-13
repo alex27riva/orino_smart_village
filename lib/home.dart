@@ -31,32 +31,53 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  List<String> featuredImages = <String>[];
   late Future<PostList> futurePost;
   @override
   void initState() {
     super.initState();
     futurePost = ApiService.getPosts();
-    futurePost.then((value) => Alert(message: value.getFirst().getMediaUrl(), shortDuration: false) );
   }
   @override
   Widget build(BuildContext context) {
-    ApiService.getPosts();
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.all(16),
         child: Column(children: <Widget>[
-          CarouselSlider(
-            options: CarouselOptions(),
-            items: imgList
-                .map((item) => Center(
-                        child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20.0),
-                      child: Image(
-                        image: AssetImage(item),
-                      ),
-                    )))
-                .toList(),
+          FutureBuilder<PostList>(
+            future: futurePost,
+              builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return CarouselSlider(
+                  options: CarouselOptions(),
+                  items: snapshot.data!.posts.where((element) => element.featuredMediaUrl != false)
+                      .map((item) => Center(
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20.0),
+                        child: Image.network(item.featuredMediaUrl, fit: BoxFit.cover, width: 500,))
+                  ))
+                      .toList(),
+                );
+              }
+              else if (snapshot.hasError) {
+                return Text('${snapshot.error}');
+              }
+              return const CircularProgressIndicator();
+
+              }
           ),
+          // CarouselSlider(
+          //   options: CarouselOptions(),
+          //   items: imgList
+          //       .map((item) => Center(
+          //               child: ClipRRect(
+          //             borderRadius: BorderRadius.circular(20.0),
+          //             child: Image(
+          //               image: AssetImage(item),
+          //             ),
+          //           )))
+          //       .toList(),
+          // ),
           Container(
               margin: const EdgeInsets.only(top: 50.0),
               child: Row(

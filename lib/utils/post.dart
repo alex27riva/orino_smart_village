@@ -7,7 +7,6 @@ class Post {
     required this.id,
     required this.title,
     required this.featuredMediaUrl,
-
   });
 
   getMediaUrl() {
@@ -18,7 +17,7 @@ class Post {
     return Post(
       id: json['id'] as int,
       title: json['title']['rendered'] as String,
-      featuredMediaUrl: json['featured_media_url'] as dynamic,
+      featuredMediaUrl: json['featured_media_url'] as dynamic, // String or boolean
     );
   }
 }

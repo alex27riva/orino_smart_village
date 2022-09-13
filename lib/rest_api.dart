@@ -21,7 +21,7 @@ class ApiService {
   // }
 
   static Future<PostList> getPosts() async {
-    final response = await http.get((Uri.parse('https://www.orinosmartvillage.it/wp-json/wp/v2/posts?_embed&per_page=5')));
+    final response = await http.get((Uri.parse('https://www.orinosmartvillage.it/wp-json/wp/v2/posts?_embed&per_page=6')));
     if (response.statusCode == 200) {
       return PostList.fromJson(json.decode(response.body));
     }
