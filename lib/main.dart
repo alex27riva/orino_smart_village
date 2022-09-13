@@ -62,7 +62,7 @@ class _MainAppState extends State<MainApp> {
   final List _screens = [
     const ArView(),
     const Scanner(),
-    const Home(),
+    Home(),
     const MapPage(),
     const Profile()
   ];

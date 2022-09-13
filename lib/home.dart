@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:orino_smart_village/rest_api.dart';
+import 'package:orino_smart_village/utils/post_list.dart';
 
 import 'constants/images.dart';
 
@@ -21,11 +23,24 @@ RoundedRectangleBorder buttonBorder = RoundedRectangleBorder(
         color: Colors.black, width: 1.2, style: BorderStyle.solid),
     borderRadius: BorderRadius.circular(15));
 
-class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  Home({Key? key}) : super(key: key);
 
   @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  late Future<PostList> futurePost;
+  @override
+  void initState() {
+    super.initState();
+    futurePost = ApiService.getPosts();
+    futurePost.then((value) => Alert(message: value.getFirst().getMediaUrl(), shortDuration: false) );
+  }
+  @override
   Widget build(BuildContext context) {
+    ApiService.getPosts();
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.all(16),
