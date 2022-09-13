@@ -33,11 +33,13 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   List<String> featuredImages = <String>[];
   late Future<PostList> futurePost;
+
   @override
   void initState() {
     super.initState();
     futurePost = ApiService.getPosts();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,27 +47,28 @@ class _HomeState extends State<Home> {
         padding: const EdgeInsets.all(16),
         child: Column(children: <Widget>[
           FutureBuilder<PostList>(
-            future: futurePost,
+              future: futurePost,
               builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return CarouselSlider(
-                  options: CarouselOptions(),
-                  items: snapshot.data!.posts.where((element) => element.featuredMediaUrl != false)
-                      .map((item) => Center(
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(20.0),
-                        child: Image.network(item.featuredMediaUrl, fit: BoxFit.cover, width: 500,))
-                  ))
-                      .toList(),
-                );
-              }
-              else if (snapshot.hasError) {
-                return Text('${snapshot.error}');
-              }
-              return const CircularProgressIndicator();
-
-              }
-          ),
+                if (snapshot.hasData) {
+                  return CarouselSlider(
+                    options: CarouselOptions(),
+                    items: snapshot.data!.posts
+                        .where((curPost) => curPost.featuredMediaUrl != false)
+                        .map((item) => Center(
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(20.0),
+                                child: Image.network(
+                                  item.featuredMediaUrl,
+                                  fit: BoxFit.cover,
+                                  width: 500,
+                                ))))
+                        .toList(),
+                  );
+                } else if (snapshot.hasError) {
+                  return Text('${snapshot.error}');
+                }
+                return const CircularProgressIndicator();
+              }),
           // CarouselSlider(
           //   options: CarouselOptions(),
           //   items: imgList
@@ -100,10 +103,11 @@ class _HomeState extends State<Home> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           //FaIcon(FontAwesomeIcons.fortAwesome, size: 75),
-                          Text(AppLocalizations.of(context)!.homeButtonEcomuseum,
+                          Text(
+                              AppLocalizations.of(context)!.homeButtonEcomuseum,
                               textAlign: TextAlign.end,
-                              style:
-                                  const TextStyle(fontSize: 15, color: Colors.black)),
+                              style: const TextStyle(
+                                  fontSize: 15, color: Colors.black)),
                         ]),
                   ),
                   // Rocca di Orino
@@ -127,8 +131,8 @@ class _HomeState extends State<Home> {
                           ),
                           Text(AppLocalizations.of(context)!.homeButtonFortress,
                               textAlign: TextAlign.center,
-                              style:
-                                  const TextStyle(fontSize: 13.5, color: Colors.black)),
+                              style: const TextStyle(
+                                  fontSize: 13.5, color: Colors.black)),
                         ]),
                   ),
                 ],
@@ -159,8 +163,8 @@ class _HomeState extends State<Home> {
                             size: 75, color: buttonForeground),
                         Text(AppLocalizations.of(context)!.homeButtonEcoturism,
                             textAlign: TextAlign.end,
-                            style:
-                                const TextStyle(fontSize: 15, color: Colors.black)),
+                            style: const TextStyle(
+                                fontSize: 15, color: Colors.black)),
                       ]),
                 ),
                 // Cantine
@@ -184,8 +188,8 @@ class _HomeState extends State<Home> {
                         ),
                         Text(AppLocalizations.of(context)!.homeButtonCellars,
                             textAlign: TextAlign.center,
-                            style:
-                                const TextStyle(fontSize: 15, color: Colors.black)),
+                            style: const TextStyle(
+                                fontSize: 15, color: Colors.black)),
                       ]),
                 ),
               ],
