@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         supportedLocales: AppLocalizations.supportedLocales,
         theme: ThemeData(primarySwatch: Colors.blue),
         home: const MainApp(),
-        initialRoute: '/register',
+        initialRoute: '/home',
         routes: {
           '/login': (_) => const Login(),
           '/register': (_) => const Registration(),
@@ -78,9 +78,11 @@ class _MainAppState extends State<MainApp> {
                 Navigator.pushNamed(context, '/about');
               },
               icon: const Icon(Icons.help)),
-          IconButton(onPressed: () {
-            Navigator.pushNamed(context, '/360');
-          }, icon: const Icon(Icons.panorama_fish_eye))
+          IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/360');
+              },
+              icon: const Icon(Icons.panorama_fish_eye))
         ],
       ),
       body: _screens[_currentIndex],
@@ -97,8 +99,8 @@ class _MainAppState extends State<MainApp> {
         },
         items: [
           BottomNavigationBarItem(
-              icon:
-                  const ImageIcon(AssetImage(ImageConstants.arIcon), size: iconSize),
+              icon: const ImageIcon(AssetImage(ImageConstants.arIcon),
+                  size: iconSize),
               label: AppLocalizations.of(context)!.navbarAR),
           BottomNavigationBarItem(
               icon: const ImageIcon(
@@ -111,7 +113,8 @@ class _MainAppState extends State<MainApp> {
                   size: iconSize),
               label: AppLocalizations.of(context)!.navbarHome),
           BottomNavigationBarItem(
-            icon: const ImageIcon(AssetImage(ImageConstants.mapIcon), size: iconSize),
+            icon: const ImageIcon(AssetImage(ImageConstants.mapIcon),
+                size: iconSize),
             label: AppLocalizations.of(context)!.navbarMap,
           ),
           BottomNavigationBarItem(
@@ -134,18 +137,18 @@ class _MainAppState extends State<MainApp> {
               ),
               child: Text('Menu'),
             ),
-            ListTile(
-              title: Text(AppLocalizations.of(context)!.registrationTitle),
-              onTap: () {
-                Navigator.pushNamed(context, '/register');
-              },
-            ),
-            ListTile(
-              title: Text(AppLocalizations.of(context)!.loginTitle),
-              onTap: () {
-                Navigator.pushNamed(context, '/login');
-              },
-            ),
+            // ListTile(
+            //   title: Text(AppLocalizations.of(context)!.registrationTitle),
+            //   onTap: () {
+            //     Navigator.pushNamed(context, '/register');
+            //   },
+            // ),
+            // ListTile(
+            //   title: Text(AppLocalizations.of(context)!.loginTitle),
+            //   onTap: () {
+            //     Navigator.pushNamed(context, '/login');
+            //   },
+            // ),
             ListTile(
               title: Text(AppLocalizations.of(context)!.settingsTitle),
               onTap: () {

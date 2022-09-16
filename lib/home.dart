@@ -6,7 +6,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:orino_smart_village/rest_api.dart';
 import 'package:orino_smart_village/utils/post_list.dart';
 import 'package:orino_smart_village/widgets/home_button.dart';
-
 import 'constants/images.dart';
 
 final List<String> imgList = [
@@ -22,13 +21,12 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<String> featuredImages = <String>[];
   late Future<PostList> futurePost;
 
   @override
   void initState() {
-    super.initState();
     futurePost = ApiService.getPosts();
+    super.initState();
   }
 
   @override
@@ -116,7 +114,6 @@ class _HomeState extends State<Home> {
                         },
                     15,
                     icon: FontAwesomeIcons.leaf),
-
                 // Cantine
                 HomeButton(
                     AppLocalizations.of(context)!.homeButtonCellars,
