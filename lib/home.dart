@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:orino_smart_village/rest_api.dart';
 import 'package:orino_smart_village/utils/post_list.dart';
+import 'package:orino_smart_village/widgets/home_button.dart';
 
 import 'constants/images.dart';
 
@@ -12,16 +13,6 @@ final List<String> imgList = [
   ImageConstants.roccaTramonto,
   ImageConstants.territorio,
 ];
-
-const buttonForeground = Color(0xff304d85);
-const buttonBackground = Color(0xff90a955);
-const buttonSize = Size(120, 120);
-
-//button border
-RoundedRectangleBorder buttonBorder = RoundedRectangleBorder(
-    side: const BorderSide(
-        color: Colors.black, width: 1.2, style: BorderStyle.solid),
-    borderRadius: BorderRadius.circular(15));
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -88,53 +79,24 @@ class _HomeState extends State<Home> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   // Ecomuseo
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      textStyle: const TextStyle(fontSize: 20),
-                      backgroundColor: buttonBackground,
-                      fixedSize: buttonSize,
-                      shape: buttonBorder,
-                    ),
-                    onPressed: () {
-                      Alert(message: 'Prossimamente!', shortDuration: true)
-                          .show();
-                    },
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          //FaIcon(FontAwesomeIcons.fortAwesome, size: 75),
-                          Text(
-                              AppLocalizations.of(context)!.homeButtonEcomuseum,
-                              textAlign: TextAlign.end,
-                              style: const TextStyle(
-                                  fontSize: 15, color: Colors.black)),
-                        ]),
-                  ),
-                  // Rocca di Orino
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      textStyle: const TextStyle(fontSize: 20),
-                      backgroundColor: buttonBackground,
-                      fixedSize: buttonSize,
-                      shape: buttonBorder,
-                    ),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/rocca');
-                    },
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          const FaIcon(
-                            FontAwesomeIcons.fortAwesome,
-                            size: 75,
-                            color: buttonForeground,
-                          ),
-                          Text(AppLocalizations.of(context)!.homeButtonFortress,
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                  fontSize: 13.5, color: Colors.black)),
-                        ]),
-                  ),
+                  HomeButton(
+                      AppLocalizations.of(context)!.homeButtonEcomuseum,
+                      buttonBackground,
+                      () => {
+                            Alert(
+                                    message: 'Prossimamente!',
+                                    shortDuration: true)
+                                .show()
+                          },
+                      15,
+                      icon: FontAwesomeIcons.buildingColumns),
+                  // Rocca di orino
+                  HomeButton(
+                      AppLocalizations.of(context)!.homeButtonFortress,
+                      buttonBackground,
+                      () => {Navigator.pushNamed(context, '/rocca')},
+                      15,
+                      icon: FontAwesomeIcons.fortAwesome),
                 ],
               )),
           // Second Row
@@ -145,53 +107,23 @@ class _HomeState extends State<Home> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 // Ecoturismo
-                TextButton(
-                  style: TextButton.styleFrom(
-                    textStyle: const TextStyle(fontSize: 20),
-                    backgroundColor: buttonBackground,
-                    fixedSize: buttonSize,
-                    shape: buttonBorder,
-                  ),
-                  onPressed: () {
-                    Alert(message: 'Prossimamente!', shortDuration: true)
-                        .show();
-                  },
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        const FaIcon(FontAwesomeIcons.leaf,
-                            size: 75, color: buttonForeground),
-                        Text(AppLocalizations.of(context)!.homeButtonEcoturism,
-                            textAlign: TextAlign.end,
-                            style: const TextStyle(
-                                fontSize: 15, color: Colors.black)),
-                      ]),
-                ),
+                HomeButton(
+                    AppLocalizations.of(context)!.homeButtonEcoturism,
+                    buttonBackground,
+                    () => {
+                          Alert(message: 'Prossimamente!', shortDuration: true)
+                              .show()
+                        },
+                    15,
+                    icon: FontAwesomeIcons.leaf),
+
                 // Cantine
-                TextButton(
-                  style: TextButton.styleFrom(
-                    textStyle: const TextStyle(fontSize: 20),
-                    backgroundColor: buttonBackground,
-                    fixedSize: buttonSize,
-                    shape: buttonBorder,
-                  ),
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/cantine');
-                  },
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        const FaIcon(
-                          FontAwesomeIcons.dungeon,
-                          size: 75,
-                          color: buttonForeground,
-                        ),
-                        Text(AppLocalizations.of(context)!.homeButtonCellars,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                                fontSize: 15, color: Colors.black)),
-                      ]),
-                ),
+                HomeButton(
+                    AppLocalizations.of(context)!.homeButtonCellars,
+                    buttonBackground,
+                    () => {Navigator.pushNamed(context, '/cantine')},
+                    15,
+                    icon: FontAwesomeIcons.dungeon),
               ],
             ),
           )
