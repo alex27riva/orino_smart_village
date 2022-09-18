@@ -15,7 +15,7 @@ class HomeButton extends StatelessWidget {
   final String text;
   final int textSize;
   final Color backColor;
-  final Function onPress;
+  final VoidCallback onPress;
   final IconData icon;
 
   const HomeButton(this.text, this.backColor, this.onPress, this.textSize,

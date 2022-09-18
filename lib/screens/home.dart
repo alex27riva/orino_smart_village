@@ -6,7 +6,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:orino_smart_village/rest_api.dart';
 import 'package:orino_smart_village/utils/post_list.dart';
 import 'package:orino_smart_village/widgets/home_button.dart';
-import 'constants/images.dart';
+import '../constants/images.dart';
 
 final List<String> imgList = [
   ImageConstants.roccaTramonto,

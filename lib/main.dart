@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:orino_smart_village/ar.dart';
-import 'package:orino_smart_village/map.dart';
-import 'package:orino_smart_village/profile.dart';
+import 'package:orino_smart_village/screens/ar.dart';
+import 'package:orino_smart_village/screens/map.dart';
+import 'package:orino_smart_village/screens/profile.dart';
 import 'package:orino_smart_village/registration.dart';
 import 'package:orino_smart_village/rocca.dart';
-import 'package:orino_smart_village/scanner.dart';
-import 'package:orino_smart_village/home.dart';
+import 'package:orino_smart_village/screens/scanner.dart';
+import 'package:orino_smart_village/screens/home.dart';
 import 'package:orino_smart_village/settings.dart';
 import 'package:orino_smart_village/about.dart';
 import 'package:orino_smart_village/cantine.dart';
@@ -57,14 +57,25 @@ class MainApp extends StatefulWidget {
 class _MainAppState extends State<MainApp> {
   // Home = 2
   int _currentIndex = 2;
+  final PageStorageBucket bucket = PageStorageBucket();
 
   static const double iconSize = 50;
-  final List _screens = [
-    const ArView(),
-    const Scanner(),
-    Home(),
-    const MapPage(),
-    const Profile()
+  final List<Widget> _screens = [
+    const ArView(
+      key: PageStorageKey('ar'),
+    ),
+    const Scanner(
+      key: PageStorageKey('scanner'),
+    ),
+    Home(
+      key: const PageStorageKey('home'),
+    ),
+    const MapPage(
+      key: PageStorageKey('map'),
+    ),
+    const Profile(
+      key: PageStorageKey('profile'),
+    )
   ];
 
   @override
@@ -85,7 +96,11 @@ class _MainAppState extends State<MainApp> {
               icon: const Icon(Icons.panorama_fish_eye))
         ],
       ),
-      body: _screens[_currentIndex],
+      //body: _screens[_currentIndex],
+      body: PageStorage(
+        bucket: bucket,
+        child: _screens[_currentIndex],
+      ),
 
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
@@ -123,8 +138,6 @@ class _MainAppState extends State<MainApp> {
               label: AppLocalizations.of(context)!.navbarProfile)
         ],
       ),
-
-      //floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
 
       drawer: Drawer(
         child: ListView(
