@@ -42,12 +42,12 @@ class _HomeState extends State<Home> {
                   return CarouselSlider(
                     options: CarouselOptions(),
                     items: snapshot.data!.posts
-                        .where((curPost) => curPost.featuredMediaUrl != false)
+                        .where((curPost) => curPost.hasImageAvailable)
                         .map((item) => Center(
                             child: ClipRRect(
                                 borderRadius: BorderRadius.circular(20.0),
                                 child: Image.network(
-                                  item.featuredMediaUrl,
+                                  item.featuredImage,
                                   fit: BoxFit.cover,
                                   width: 500,
                                 ))))

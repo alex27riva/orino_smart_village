@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:orino_smart_village/screens/ar.dart';
+import 'package:orino_smart_village/screens/feed.dart';
 import 'package:orino_smart_village/screens/map.dart';
 import 'package:orino_smart_village/screens/profile.dart';
 import 'package:orino_smart_village/registration.dart';
@@ -73,9 +74,12 @@ class _MainAppState extends State<MainApp> {
     const MapPage(
       key: PageStorageKey('map'),
     ),
-    const Profile(
-      key: PageStorageKey('profile'),
-    )
+    Feed(
+      key: const PageStorageKey('feed'),
+    ),
+    // const Profile(
+    //   key: PageStorageKey('profile'),
+    // )
   ];
 
   @override
@@ -132,10 +136,9 @@ class _MainAppState extends State<MainApp> {
                 size: iconSize),
             label: AppLocalizations.of(context)!.navbarMap,
           ),
-          BottomNavigationBarItem(
-              icon: const ImageIcon(AssetImage(ImageConstants.profileIcon),
-                  size: iconSize),
-              label: AppLocalizations.of(context)!.navbarProfile)
+          const BottomNavigationBarItem(
+              icon: Icon(Icons.feed, size: iconSize),
+              label: 'Feed'),
         ],
       ),
 
