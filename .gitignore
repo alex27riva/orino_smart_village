@@ -31,9 +31,12 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+pubspec.lock
+
+# Generated files
 linux/flutter/generated_*
 windows/flutter/generated_*
-pubspec.lock
+macos/Flutter/GeneratedPluginRegistrant.swift
 
 # Web related
 lib/generated_plugin_registrant.dart
