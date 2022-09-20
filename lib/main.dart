@@ -2,19 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:orino_smart_village/screens/ar.dart';
 import 'package:orino_smart_village/screens/feed.dart';
 import 'package:orino_smart_village/screens/map.dart';
-import 'package:orino_smart_village/screens/profile.dart';
-import 'package:orino_smart_village/registration.dart';
-import 'package:orino_smart_village/rocca.dart';
+import 'package:orino_smart_village/pages/registration.dart';
+import 'package:orino_smart_village/pages/rocca.dart';
 import 'package:orino_smart_village/screens/scanner.dart';
 import 'package:orino_smart_village/screens/home.dart';
-import 'package:orino_smart_village/settings.dart';
-import 'package:orino_smart_village/about.dart';
-import 'package:orino_smart_village/cantine.dart';
-import 'package:orino_smart_village/contacts.dart';
-import 'package:orino_smart_village/login.dart';
-import 'package:orino_smart_village/360_view.dart';
+import 'package:orino_smart_village/pages/settings.dart';
+import 'package:orino_smart_village/pages/about.dart';
+import 'package:orino_smart_village/pages/cantine.dart';
+import 'package:orino_smart_village/pages/contacts.dart';
+import 'package:orino_smart_village/pages/login.dart';
+import 'package:orino_smart_village/widgets/360_view.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'constants/images.dart';
+import 'package:orino_smart_village/constants/images.dart';
 
 void main() => runApp(const MyApp());
 

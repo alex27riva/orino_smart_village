@@ -1,4 +1,4 @@
-import 'package:orino_smart_village/utils/post.dart';
+import 'package:orino_smart_village/models/post.dart';
 
 class PostList {
   late final List<Post> posts;

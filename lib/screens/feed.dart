@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../rest_api.dart';
-import '../utils/post_list.dart';
-import '../widgets/feed_item.dart';
+import 'package:orino_smart_village/utils/rest_api.dart';
+import 'package:orino_smart_village/models/post_list.dart';
+import 'package:orino_smart_village/widgets/feed_item.dart';
 
 class Feed extends StatefulWidget {
   Feed({Key? key}) : super(key: key);

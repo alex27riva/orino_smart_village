@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:orino_smart_village/rest_api.dart';
-import 'package:orino_smart_village/utils/post_list.dart';
+import 'package:orino_smart_village/constants/images.dart';
+import 'package:orino_smart_village/utils/rest_api.dart';
+import 'package:orino_smart_village/models/post_list.dart';
 import 'package:orino_smart_village/widgets/home_button.dart';
-import '../constants/images.dart';
 
 final List<String> imgList = [
   ImageConstants.roccaTramonto,
