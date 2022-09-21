@@ -103,7 +103,7 @@ class _ArViewState extends State<ArView> {
         // Add note to anchor
         var newNode = ARNode(
             type: NodeType.webGLB,
-            uri:  'https://github.com/alex27riva/3d-models/blob/main/vase.glb',
+            uri:  'https://github.com/alex27riva/3d-models/blob/main/vase.glb?raw=true',
             scale: Vector3(0.2, 0.2, 0.2),
             position: Vector3(0.0, 0.0, 0.0),
             rotation: Vector4(1.0, 0.0, 0.0, 0.0));

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:orino_smart_village/utils/utils.dart';
 
 import 'package:orino_smart_village/constants/images.dart';
 
@@ -25,10 +25,6 @@ class Cantine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    void openUrl (url) {
-      launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
-
-    }
     return Scaffold(
         appBar: AppBar(
           title: const Text("Cantine"),
@@ -49,7 +45,7 @@ class Cantine extends StatelessWidget {
                       shape: buttonBorder,
                     ),
                     onPressed: () {
-                      openUrl(burgettUrl);
+                      Utils.openUrl(burgettUrl);
                     },
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -75,7 +71,7 @@ class Cantine extends StatelessWidget {
                       shape: buttonBorder,
                     ),
                     onPressed: () {
-                      openUrl(gesaUrl);
+                      Utils.openUrl(gesaUrl);
                     },
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -108,7 +104,7 @@ class Cantine extends StatelessWidget {
                       shape: buttonBorder,
                     ),
                     onPressed: () {
-                      openUrl(marianaUrl);
+                      Utils.openUrl(marianaUrl);
                     },
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -136,7 +132,7 @@ class Cantine extends StatelessWidget {
                       shape: buttonBorder,
                     ),
                     onPressed: () {
-                      openUrl(faelUrl);
+                      Utils.openUrl(faelUrl);
                     },
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -160,4 +156,3 @@ class Cantine extends StatelessWidget {
         ));
   }
 }
-

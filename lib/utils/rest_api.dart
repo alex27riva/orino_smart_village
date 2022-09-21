@@ -21,9 +21,9 @@ class ApiService {
   //   }
   // }
 
-  static Future<PostList> getPosts() async {
+  static Future<PostList> getPosts({int perPage = 5}) async {
     final response = await http.get(
-        (Uri.parse('${URLS.baseUrl}${URLS.postsEndpoint}?_embed&per_page=5')));
+        (Uri.parse('${URLS.baseUrl}${URLS.postsEndpoint}?_embed&per_page=$perPage')));
     if (response.statusCode == 200) {
       return PostList.fromJson(json.decode(response.body));
     } else {

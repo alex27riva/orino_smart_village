@@ -15,7 +15,7 @@ class _FeedState extends State<Feed> {
 
   @override
   void initState() {
-    futurePost = ApiService.getPosts();
+    futurePost = ApiService.getPosts(perPage: 10);
     super.initState();
   }
 
@@ -31,10 +31,11 @@ class _FeedState extends State<Feed> {
                     itemCount: snapshot.data!.posts.length,
                     itemBuilder: (context, index) {
                       return FeedItem(
-                        title: snapshot.data!.posts[index].title,
-                        content: snapshot.data!.posts[index].content,
-                        image: snapshot.data!.posts[index].featuredImage,
-                        link: snapshot.data!.posts[index].link,
+                        post: snapshot.data!.posts[index],
+                        // title: snapshot.data!.posts[index],
+                        // content: snapshot.data!.posts[index],
+                        // image: snapshot.data!.posts[index].featuredImage,
+                        // link: snapshot.data!.posts[index].link,
                       );
                     });
               } else if (snapshot.hasError) {
