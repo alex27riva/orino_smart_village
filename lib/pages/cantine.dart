@@ -79,7 +79,7 @@ class Cantine extends StatelessWidget {
                           Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Image(
-                              image: AssetImage(ImageConstants.cantina_gesa),
+                              image: AssetImage(ImageConstants.cantinaGesa),
                               width: 90,
                               height: 90,
                             ),
@@ -112,7 +112,7 @@ class Cantine extends StatelessWidget {
                           Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Image(
-                              image: AssetImage(ImageConstants.cantina_mariana),
+                              image: AssetImage(ImageConstants.cantinaMariana),
                               width: 90,
                               height: 90,
                             ),

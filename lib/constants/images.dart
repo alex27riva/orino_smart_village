@@ -1,14 +1,15 @@
 class ImageConstants {
 // navbar icons
-  static const arIcon = 'assets/images/ar-icon.png';
-  static const scanIcon = 'assets/images/scan-icon.png';
-  static const homeIcon = 'assets/images/home-icon.png';
-  static const mapIcon = 'assets/images/map-icon.png';
-  static const profileIcon = 'assets/images/profile-icon.png';
+  static const arIcon = 'assets/images/navbar/ar-icon.png';
+  static const scanIcon = 'assets/images/navbar/scan-icon.png';
+  static const homeIcon = 'assets/images/navbar/home-icon.png';
+  static const mapIcon = 'assets/images/navbar/map-icon.png';
+  static const profileIcon = 'assets/images/navbar/profile-icon.png';
 
 // about page
-  static const cariplo = 'assets/images/fondazione-cariplo-logo.png';
-  static const insubria = 'assets/images/insubria-logo.png';
+  static const cariplo = 'assets/images/logos/fondazione-cariplo-logo.png';
+  static const insubria = 'assets/images/logos/insubria-logo.png';
+  static const comuneOrino = 'assets/images/logos/comune-orino.png';
 
 // Profile
   static const profilePlaceholder = 'assets/images/profile-placeholder.png';
@@ -22,7 +23,7 @@ class ImageConstants {
 
 // Cantine
   static const burgett = 'assets/images/cantine/burgett.jpg';
-  static const cantina_gesa = 'assets/images/cantine/cantina-gesa.jpg';
-  static const cantina_mariana = 'assets/images/cantine/cantina-mariana.jpg';
+  static const cantinaGesa = 'assets/images/cantine/cantina-gesa.jpg';
+  static const cantinaMariana = 'assets/images/cantine/cantina-mariana.jpg';
   static const fael = 'assets/images/cantine/fael.jpg';
 }
