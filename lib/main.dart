@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:orino_smart_village/pages/webview.dart';
 import 'package:orino_smart_village/screens/ar.dart';
 import 'package:orino_smart_village/screens/feed.dart';
 import 'package:orino_smart_village/screens/map.dart';
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
           '/settings': (_) => const Settings(),
           '/cantine': (_) => const Cantine(),
           '/360': (_) => const View360(),
+          '/webview': (_) => const WebViewPage(),
         });
   }
 }

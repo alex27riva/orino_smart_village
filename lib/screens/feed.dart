@@ -32,16 +32,12 @@ class _FeedState extends State<Feed> {
                     itemBuilder: (context, index) {
                       return FeedItem(
                         post: snapshot.data!.posts[index],
-                        // title: snapshot.data!.posts[index],
-                        // content: snapshot.data!.posts[index],
-                        // image: snapshot.data!.posts[index].featuredImage,
-                        // link: snapshot.data!.posts[index].link,
                       );
                     });
               } else if (snapshot.hasError) {
                 return Text('${snapshot.error}');
               }
-              return const CircularProgressIndicator();
+              return const Center(child: CircularProgressIndicator());
             }));
   }
 }

@@ -48,6 +48,7 @@ dependencies:
   ar_flutter_plugin: ^0.7.1
   flutter_html: ^3.0.0-alpha.5
   path_provider: ^2.0.11
+  webview_flutter: ^3.0.4
 
   flutter_localizations:
     sdk: flutter
