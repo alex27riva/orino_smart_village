@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:orino_smart_village/pages/onboarding.dart';
 import 'package:orino_smart_village/pages/webview.dart';
 import 'package:orino_smart_village/screens/ar.dart';
 import 'package:orino_smart_village/screens/feed.dart';
@@ -15,8 +16,16 @@ import 'package:orino_smart_village/pages/login.dart';
 import 'package:orino_smart_village/widgets/360_view.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:orino_smart_village/constants/images.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() => runApp(const MyApp());
+int? isViewed;
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  isViewed = prefs.getInt('onBoard');
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -29,8 +38,7 @@ class MyApp extends StatelessWidget {
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
         theme: ThemeData(primarySwatch: Colors.blue),
-        home: const MainApp(),
-        initialRoute: '/home',
+        home: isViewed != 0 ? const OnBoardingPage() : const MainApp(),
         routes: {
           '/login': (_) => const Login(),
           '/register': (_) => const Registration(),
@@ -43,6 +51,7 @@ class MyApp extends StatelessWidget {
           '/cantine': (_) => const Cantine(),
           '/360': (_) => const View360(),
           '/webview': (_) => const WebViewPage(),
+          '/onboarding': (_) => const OnBoardingPage(),
         });
   }
 }
@@ -166,6 +175,12 @@ class _MainAppState extends State<MainApp> {
             //     Navigator.pushNamed(context, '/login');
             //   },
             // ),
+            ListTile(
+              title: const Text("introduzione"),
+              onTap: () {
+                Navigator.pushNamed(context, '/onboarding');
+              },
+            ),
             ListTile(
               title: Text(AppLocalizations.of(context)!.settingsTitle),
               onTap: () {
