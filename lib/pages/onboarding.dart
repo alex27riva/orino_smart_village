@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:orino_smart_village/main.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OnBoardingPage extends StatelessWidget {
   const OnBoardingPage({Key? key}) : super(key: key);
+
+  _storeOnboardInfo() async {
+    int isViewed = 0;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setInt('onBoard', isViewed);
+  }
 
   @override
   Widget build(BuildContext context) => SafeArea(
@@ -11,7 +18,8 @@ class OnBoardingPage extends StatelessWidget {
           pages: [
             PageViewModel(
               title: 'Esplora le bellezze del territorio',
-              body: '',
+              body:
+                  'Alla scoperta del territorio tra storia, natura e leggenda',
               image: buildImage('assets/images/onboarding/montain-tourist.jpg'),
               decoration: getPageDecoration(),
             ),
@@ -32,7 +40,10 @@ class OnBoardingPage extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
                 ),
-                onPressed: () => goToHome(context),
+                onPressed: () {
+                  _storeOnboardInfo();
+                  goToHome(context);
+                },
                 child: const Text("Inizia"),
               ),
               image:
@@ -40,9 +51,13 @@ class OnBoardingPage extends StatelessWidget {
               decoration: getPageDecoration(),
             ),
           ],
-          done:
-              const Text('Read', style: TextStyle(fontWeight: FontWeight.w600)),
-          onDone: () => goToHome(context),
+          done: const Text('Inizia',
+              style:
+                  TextStyle(fontWeight: FontWeight.w600, color: Colors.white)),
+          onDone: () {
+            _storeOnboardInfo();
+            goToHome(context);
+          },
           showSkipButton: true,
           skip: const Text('Salta', style: TextStyle(color: Colors.white)),
           onSkip: () => goToHome(context),
@@ -62,7 +77,7 @@ class OnBoardingPage extends StatelessWidget {
 
   DotsDecorator getDotDecoration() => DotsDecorator(
         color: const Color(0xFFBDBDBD),
-        //activeColor: Colors.orange,
+        activeColor: Colors.white,
         size: const Size(10, 10),
         activeSize: const Size(22, 10),
         activeShape: RoundedRectangleBorder(
