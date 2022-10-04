@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:orino_smart_village/pages/onboarding.dart';
 import 'package:orino_smart_village/pages/webview.dart';
 import 'package:orino_smart_village/screens/ar.dart';
 import 'package:orino_smart_village/screens/feed.dart';
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
           '/cantine': (_) => const Cantine(),
           '/360': (_) => const View360(),
           '/webview': (_) => const WebViewPage(),
+          '/onboarding': (_) => const OnBoardingPage(),
         });
   }
 }
@@ -166,6 +168,12 @@ class _MainAppState extends State<MainApp> {
             //     Navigator.pushNamed(context, '/login');
             //   },
             // ),
+            ListTile(
+              title: Text("introduzione"),
+              onTap: () {
+                Navigator.pushNamed(context, '/onboarding');
+              },
+            ),
             ListTile(
               title: Text(AppLocalizations.of(context)!.settingsTitle),
               onTap: () {

@@ -48,6 +48,7 @@ dependencies:
   flutter_html: ^3.0.0-alpha.5
   path_provider: ^2.0.11
   webview_flutter: ^3.0.4
+  introduction_screen: ^3.0.1
 
   flutter_localizations:
     sdk: flutter
@@ -83,6 +84,7 @@ flutter:
     - assets/images/carousel/
     - assets/images/logos/
     - assets/images/cantine/
+    - assets/images/onboarding/
     - assets/images/profile-placeholder.png
     - assets/images/contacts.png
     - assets/percorso1.json
