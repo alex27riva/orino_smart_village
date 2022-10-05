@@ -25,7 +25,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
 
   @override
   void initState() {
-    futurePost = ApiService.getPosts();
+    futurePost = ApiService.getPosts(perPage: 7);
     super.initState();
   }
 
