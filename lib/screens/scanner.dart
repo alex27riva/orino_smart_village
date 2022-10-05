@@ -1,11 +1,12 @@
 import 'dart:developer';
 import 'dart:io';
-import 'package:alert/alert.dart';
 import 'package:flutter/material.dart';
+import 'package:orino_smart_village/pages/webview.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:vibration/vibration.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+DateTime? lastScan;
 
 class Scanner extends StatelessWidget {
   const Scanner({Key? key}) : super(key: key);
@@ -118,7 +119,12 @@ class _ScannerViewState extends State<ScannerView>
       setState(() {
         result = scanData;
       });
-      _launchURLBrowser(result!.code);
+      final currentScan = DateTime.now();
+      if (lastScan == null ||
+          currentScan.difference(lastScan!) > const Duration(seconds: 1)) {
+        lastScan = currentScan;
+        _launchURLBrowser(result!.code);
+      }
     });
   }
 
@@ -132,11 +138,11 @@ class _ScannerViewState extends State<ScannerView>
   }
 
   _launchURLBrowser(scannedUrl) async {
-    final Uri url = Uri.parse(scannedUrl);
-    Alert(message: url.toString(), shortDuration: true).show();
-    if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
-      throw 'Could not launch $url';
-    }
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => WebViewPage(
+              url: scannedUrl,
+              title: Uri.parse(scannedUrl).host,
+            )));
   }
 
   @override
