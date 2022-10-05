@@ -68,29 +68,29 @@ class MainApp extends StatefulWidget {
 class _MainAppState extends State<MainApp> {
   // Home = 2
   int _currentIndex = 2;
-  final PageStorageBucket bucket = PageStorageBucket();
+  late PageController _pageController;
+  late List<Widget> _screens;
 
   static const double iconSize = 50;
-  final List<Widget> _screens = [
-    const ArView(
-      key: PageStorageKey('ar'),
-    ),
-    const Scanner(
-      key: PageStorageKey('scanner'),
-    ),
-    Home(
-      key: const PageStorageKey('home'),
-    ),
-    const MapPage(
-      key: PageStorageKey('map'),
-    ),
-    Feed(
-      key: const PageStorageKey('feed'),
-    ),
-    // const Profile(
-    //   key: PageStorageKey('profile'),
-    // )
-  ];
+
+  @override
+  void initState() {
+    super.initState();
+    _screens = [
+      const ArView(),
+      const Scanner(),
+      Home(),
+      const MapPage(),
+      Feed(),
+    ];
+    _pageController = PageController(initialPage: _currentIndex);
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -110,10 +110,11 @@ class _MainAppState extends State<MainApp> {
               icon: const Icon(Icons.panorama_fish_eye))
         ],
       ),
-      //body: _screens[_currentIndex],
-      body: PageStorage(
-        bucket: bucket,
-        child: _screens[_currentIndex],
+      body: PageView(
+        controller: _pageController,
+        // disable scrolling
+        physics: const NeverScrollableScrollPhysics(),
+        children: _screens,
       ),
 
       bottomNavigationBar: BottomNavigationBar(
@@ -124,6 +125,7 @@ class _MainAppState extends State<MainApp> {
         onTap: (index) {
           setState(() {
             _currentIndex = index;
+            _pageController.jumpToPage(index);
           });
         },
         items: [
@@ -147,8 +149,7 @@ class _MainAppState extends State<MainApp> {
             label: AppLocalizations.of(context)!.navbarMap,
           ),
           const BottomNavigationBarItem(
-              icon: Icon(Icons.feed, size: iconSize),
-              label: 'Feed'),
+              icon: Icon(Icons.feed, size: iconSize), label: 'Feed'),
         ],
       ),
 
@@ -163,18 +164,6 @@ class _MainAppState extends State<MainApp> {
               ),
               child: Text('Menu'),
             ),
-            // ListTile(
-            //   title: Text(AppLocalizations.of(context)!.registrationTitle),
-            //   onTap: () {
-            //     Navigator.pushNamed(context, '/register');
-            //   },
-            // ),
-            // ListTile(
-            //   title: Text(AppLocalizations.of(context)!.loginTitle),
-            //   onTap: () {
-            //     Navigator.pushNamed(context, '/login');
-            //   },
-            // ),
             ListTile(
               title: const Text("introduzione"),
               onTap: () {
