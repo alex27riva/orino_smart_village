@@ -20,7 +20,7 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
   late Future<PostList> futurePost;
 
   @override
@@ -28,6 +28,9 @@ class _HomeState extends State<Home> {
     futurePost = ApiService.getPosts();
     super.initState();
   }
+
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   Widget build(BuildContext context) {

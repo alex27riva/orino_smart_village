@@ -13,7 +13,7 @@ class MapPage extends StatefulWidget {
   State<MapPage> createState() => _MapPageState();
 }
 
-class _MapPageState extends State<MapPage> {
+class _MapPageState extends State<MapPage> with AutomaticKeepAliveClientMixin<MapPage> {
   late GoogleMapController mapController;
   final LatLng _center = const LatLng(45.8876175, 8.7261915);
 
@@ -29,10 +29,12 @@ class _MapPageState extends State<MapPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _future = loadString();
   }
+
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   Widget build(BuildContext context) {

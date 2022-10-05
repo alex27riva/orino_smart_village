@@ -10,7 +10,7 @@ class Feed extends StatefulWidget {
   State<Feed> createState() => _FeedState();
 }
 
-class _FeedState extends State<Feed> {
+class _FeedState extends State<Feed> with AutomaticKeepAliveClientMixin<Feed> {
   late Future<PostList> futurePost;
 
   @override
@@ -18,6 +18,9 @@ class _FeedState extends State<Feed> {
     futurePost = ApiService.getPosts(perPage: 10);
     super.initState();
   }
+
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   Widget build(BuildContext context) {

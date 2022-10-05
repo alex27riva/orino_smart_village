@@ -14,19 +14,20 @@ class Scanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
         body: Center(
-      child: QRViewExample(),
+      child: ScannerView(),
     ));
   }
 }
 
-class QRViewExample extends StatefulWidget {
-  const QRViewExample({Key? key}) : super(key: key);
+class ScannerView extends StatefulWidget {
+  const ScannerView({Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _QRViewExampleState();
+  State<StatefulWidget> createState() => _ScannerViewState();
 }
 
-class _QRViewExampleState extends State<QRViewExample> {
+class _ScannerViewState extends State<ScannerView>
+    with AutomaticKeepAliveClientMixin<ScannerView> {
   Barcode? result;
   QRViewController? controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
@@ -41,6 +42,9 @@ class _QRViewExampleState extends State<QRViewExample> {
     }
     controller!.resumeCamera();
   }
+
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   Widget build(BuildContext context) {

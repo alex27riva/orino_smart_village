@@ -19,7 +19,7 @@ class ArView extends StatefulWidget {
   State<ArView> createState() => _ArViewState();
 }
 
-class _ArViewState extends State<ArView> {
+class _ArViewState extends State<ArView> { //with AutomaticKeepAliveClientMixin<ArView> {
   late ARSessionManager arSessionManager;
   late ARObjectManager arObjectManager;
   late ARAnchorManager arAnchorManager;
@@ -32,6 +32,9 @@ class _ArViewState extends State<ArView> {
     super.dispose();
     arSessionManager.dispose();
   }
+
+  // @override
+  // bool get wantKeepAlive => true;
 
   @override
   Widget build(BuildContext context) {
