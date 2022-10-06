@@ -52,5 +52,6 @@
 	"fortressDescription": "The Rocca di Orino is an ancient fortress, located northeast of the municipality, at an altitude of 540 meters.\nIt lies on a rocky outcrop that provides excellent visibility over the entire Valcuvia.",
 	"languageText": "Language",
 	"themeText": "Dark theme",
-	"notificationText": "Notifications"
+	"notificationText": "Notifications",
+	"openExternalBrowser": "Open in browser"
 }

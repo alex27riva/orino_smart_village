@@ -52,5 +52,6 @@
 	"fortressDescription": "La Rocca di Orino è un'antica fortezza, situata a nord-est del comune, a 540 metri di altitudine.\nEssa giace su di uno sperone roccioso che garantisce un'ottima visibilità su tutta la Valcuvia.",
 	"languageText": "Lingua",
 	"themeText": "Tema scuro",
-	"notificationText": "Notifiche"
+	"notificationText": "Notifiche",
+	"openExternalBrowser": "Apri nel browser"
 }
