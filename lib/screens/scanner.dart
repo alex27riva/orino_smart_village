@@ -49,44 +49,42 @@ class _ScannerViewState extends State<ScannerView>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: <Widget>[
-          Expanded(flex: 4, child: _buildQrView(context)),
-          Expanded(
-            flex: 1,
-            child: FittedBox(
-              fit: BoxFit.contain,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Text(AppLocalizations.of(context)!.scannerSubtitle),
-                  Container(
-                    margin: const EdgeInsets.all(8),
-                    child: ElevatedButton(
-                        onPressed: () async {
-                          await controller?.toggleFlash();
-                          setState(() {});
-                          if (await Vibration.hasVibrator() ?? false) {
-                            Vibration.vibrate(duration: 100);
-                          }
+    return Column(
+      children: <Widget>[
+        Expanded(flex: 4, child: _buildQrView(context)),
+        Expanded(
+          flex: 1,
+          child: FittedBox(
+            fit: BoxFit.contain,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Text(AppLocalizations.of(context)!.scannerSubtitle),
+                Container(
+                  margin: const EdgeInsets.all(8),
+                  child: ElevatedButton(
+                      onPressed: () async {
+                        await controller?.toggleFlash();
+                        setState(() {});
+                        if (await Vibration.hasVibrator() ?? false) {
+                          Vibration.vibrate(duration: 100);
+                        }
+                      },
+                      //  return Text('Flash: ${snapshot.data}
+                      child: FutureBuilder(
+                        future: controller?.getFlashStatus(),
+                        builder: (context, snapshot) {
+                          return Icon((snapshot.data == false
+                              ? Icons.flash_off
+                              : Icons.flash_on));
                         },
-                        //  return Text('Flash: ${snapshot.data}
-                        child: FutureBuilder(
-                          future: controller?.getFlashStatus(),
-                          builder: (context, snapshot) {
-                            return Icon((snapshot.data == false
-                                ? Icons.flash_off
-                                : Icons.flash_on));
-                          },
-                        )),
-                  ),
-                ],
-              ),
+                      )),
+                ),
+              ],
             ),
-          )
-        ],
-      ),
+          ),
+        )
+      ],
     );
   }
 

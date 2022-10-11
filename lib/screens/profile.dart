@@ -153,128 +153,123 @@ class _ProfileState extends State<Profile> {
           ),
         );
 
-    return Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: Container(
-            margin: const EdgeInsets.all(16.0),
-            child: Column(children: <Widget>[
-              Expanded(
-                child: Container(
-                    margin: const EdgeInsets.only(bottom: 16.0),
-                    child: Column(children: <Widget>[
-                      const Image(
-                          image: AssetImage(ImageConstants.profilePlaceholder),
-                          width: 100,
-                          fit: BoxFit.fill,
-                          height: 100),
-                      RichText(
-                          text: TextSpan(
-                        text: namePlaceholder,
-                        style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                            fontWeight: FontWeight.normal,
-                            decoration: TextDecoration.none),
-                      )),
-                      RichText(
-                          text: TextSpan(
-                              text: emailTemplate,
-                              style: const TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.w500,
-                                  decoration: TextDecoration.none))),
-                    ])),
-              ),
-              Expanded(
-                flex: 2,
-                child: Container(
-                  margin: const EdgeInsets.only(top: 80.0),
-                  child: Center(
-                    child: Column(
-                      children: <Widget>[
-                        // Change password
-                        RichText(
-                            text: TextSpan(
-                          text: AppLocalizations.of(context)!
-                              .profileChangePassword,
+    return Container(
+        margin: const EdgeInsets.all(16.0),
+        child: Column(children: <Widget>[
+          Expanded(
+            child: Container(
+                margin: const EdgeInsets.only(bottom: 16.0),
+                child: Column(children: <Widget>[
+                  const Image(
+                      image: AssetImage(ImageConstants.profilePlaceholder),
+                      width: 100,
+                      fit: BoxFit.fill,
+                      height: 100),
+                  RichText(
+                      text: TextSpan(
+                    text: namePlaceholder,
+                    style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 18,
+                        fontWeight: FontWeight.normal,
+                        decoration: TextDecoration.none),
+                  )),
+                  RichText(
+                      text: TextSpan(
+                          text: emailTemplate,
                           style: const TextStyle(
-                            fontSize: 20,
-                            color: Colors.black,
-                          ),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () => openChangePasswordDialog(),
-                        )),
-                        const Divider(
-                            color: Colors.black,
-                            height: 20,
-                            thickness: 1,
-                            indent: 20,
-                            endIndent: 10),
-                        // Change email
-                        RichText(
-                            text: TextSpan(
-                          text:
-                              AppLocalizations.of(context)!.profileChangeEmail,
-                          style: const TextStyle(
-                            fontSize: 20,
-                            color: Colors.black,
-                          ),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () => openChangeEmailDialog(),
-                        )),
-                        const Divider(
-                            color: Colors.black,
-                            height: 20,
-                            thickness: 1,
-                            indent: 20,
-                            endIndent: 10),
-                        // Delete profiel
-                        RichText(
-                            text: TextSpan(
-                          text: AppLocalizations.of(context)!
-                              .profileDeleteProfile,
-                          style: const TextStyle(
-                            fontSize: 20,
-                            color: Colors.red,
-                          ),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () => openDeleteProfileDialog(),
-                        )),
-                        const Divider(
-                            color: Colors.black,
-                            height: 20,
-                            thickness: 1,
-                            indent: 20,
-                            endIndent: 10),
-                        // Logout text and icon
-                        Expanded(
-                          child: Container(
-                            margin: const EdgeInsets.only(top: 20),
-                            child: InkWell(
-                              child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(AppLocalizations.of(context)!
-                                        .profileLogoutButton),
-                                    const IconButton(
-                                      icon: Icon(Icons.exit_to_app),
-                                      onPressed: null,
-                                      disabledColor: Colors.black,
-                                    )
-                                  ]),
-                              onTap: () {
-                                Navigator.pushNamed(context, '/login');
-                              },
-                            ),
-                          ),
+                              color: Colors.black,
+                              fontSize: 13,
+                              fontWeight: FontWeight.w500,
+                              decoration: TextDecoration.none))),
+                ])),
+          ),
+          Expanded(
+            flex: 2,
+            child: Container(
+              margin: const EdgeInsets.only(top: 80.0),
+              child: Center(
+                child: Column(
+                  children: <Widget>[
+                    // Change password
+                    RichText(
+                        text: TextSpan(
+                      text: AppLocalizations.of(context)!.profileChangePassword,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                      ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () => openChangePasswordDialog(),
+                    )),
+                    const Divider(
+                        color: Colors.black,
+                        height: 20,
+                        thickness: 1,
+                        indent: 20,
+                        endIndent: 10),
+                    // Change email
+                    RichText(
+                        text: TextSpan(
+                      text: AppLocalizations.of(context)!.profileChangeEmail,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                      ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () => openChangeEmailDialog(),
+                    )),
+                    const Divider(
+                        color: Colors.black,
+                        height: 20,
+                        thickness: 1,
+                        indent: 20,
+                        endIndent: 10),
+                    // Delete profiel
+                    RichText(
+                        text: TextSpan(
+                      text: AppLocalizations.of(context)!.profileDeleteProfile,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        color: Colors.red,
+                      ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () => openDeleteProfileDialog(),
+                    )),
+                    const Divider(
+                        color: Colors.black,
+                        height: 20,
+                        thickness: 1,
+                        indent: 20,
+                        endIndent: 10),
+                    // Logout text and icon
+                    Expanded(
+                      child: Container(
+                        margin: const EdgeInsets.only(top: 20),
+                        child: InkWell(
+                          child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(AppLocalizations.of(context)!
+                                    .profileLogoutButton),
+                                const IconButton(
+                                  icon: Icon(Icons.exit_to_app),
+                                  onPressed: null,
+                                  disabledColor: Colors.black,
+                                )
+                              ]),
+                          onTap: () {
+                            Navigator.pushNamed(context, '/login');
+                          },
                         ),
-                      ],
+                      ),
                     ),
-                  ),
+                  ],
                 ),
               ),
-            ])));
+            ),
+          ),
+        ]));
   }
 }

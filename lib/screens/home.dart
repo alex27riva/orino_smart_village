@@ -34,101 +34,97 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        padding: const EdgeInsets.all(16),
-        child: Column(children: <Widget>[
-          FutureBuilder<PostList>(
-              future: futurePost,
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return CarouselSlider(
-                    options: CarouselOptions(),
-                    items: snapshot.data!.posts
-                        .where((curPost) => curPost.hasImageAvailable)
-                        .map((item) => Center(
-                            child: ClipRRect(
-                                borderRadius: BorderRadius.circular(20.0),
-                                child: Image.network(
-                                  item.featuredImage,
-                                  fit: BoxFit.cover,
-                                  width: 500,
-                                ))))
-                        .toList(),
-                  );
-                } else if (snapshot.hasError) {
-                  return Text('${snapshot.error}');
-                }
-                return const CircularProgressIndicator();
-              }),
-          // CarouselSlider(
-          //   options: CarouselOptions(),
-          //   items: imgList
-          //       .map((item) => Center(
-          //               child: ClipRRect(
-          //             borderRadius: BorderRadius.circular(20.0),
-          //             child: Image(
-          //               image: AssetImage(item),
-          //             ),
-          //           )))
-          //       .toList(),
-          // ),
-          Container(
-              margin: const EdgeInsets.only(top: 50.0),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  // Ecomuseo
-                  HomeButton(
-                      AppLocalizations.of(context)!.homeButtonEcomuseum,
-                      buttonBackground,
-                      () => {
-                            Alert(
-                                    message: 'Prossimamente!',
-                                    shortDuration: true)
-                                .show()
-                          },
-                      15,
-                      icon: FontAwesomeIcons.buildingColumns),
-                  // Rocca di orino
-                  HomeButton(
-                      AppLocalizations.of(context)!.homeButtonFortress,
-                      buttonBackground,
-                      () => {Navigator.pushNamed(context, '/rocca')},
-                      15,
-                      icon: FontAwesomeIcons.fortAwesome),
-                ],
-              )),
-          // Second Row
-          Container(
-            margin: const EdgeInsets.only(top: 25),
+    return Container(
+      padding: const EdgeInsets.all(16),
+      child: Column(children: <Widget>[
+        FutureBuilder<PostList>(
+            future: futurePost,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return CarouselSlider(
+                  options: CarouselOptions(),
+                  items: snapshot.data!.posts
+                      .where((curPost) => curPost.hasImageAvailable)
+                      .map((item) => Center(
+                          child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20.0),
+                              child: Image.network(
+                                item.featuredImage,
+                                fit: BoxFit.cover,
+                                width: 500,
+                              ))))
+                      .toList(),
+                );
+              } else if (snapshot.hasError) {
+                return Text('${snapshot.error}');
+              }
+              return const CircularProgressIndicator();
+            }),
+        // CarouselSlider(
+        //   options: CarouselOptions(),
+        //   items: imgList
+        //       .map((item) => Center(
+        //               child: ClipRRect(
+        //             borderRadius: BorderRadius.circular(20.0),
+        //             child: Image(
+        //               image: AssetImage(item),
+        //             ),
+        //           )))
+        //       .toList(),
+        // ),
+        Container(
+            margin: const EdgeInsets.only(top: 50.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                // Ecoturismo
+                // Ecomuseo
                 HomeButton(
-                    AppLocalizations.of(context)!.homeButtonEcoturism,
+                    AppLocalizations.of(context)!.homeButtonEcomuseum,
                     buttonBackground,
                     () => {
                           Alert(message: 'Prossimamente!', shortDuration: true)
                               .show()
                         },
                     15,
-                    icon: FontAwesomeIcons.leaf),
-                // Cantine
+                    icon: FontAwesomeIcons.buildingColumns),
+                // Rocca di orino
                 HomeButton(
-                    AppLocalizations.of(context)!.homeButtonCellars,
+                    AppLocalizations.of(context)!.homeButtonFortress,
                     buttonBackground,
-                    () => {Navigator.pushNamed(context, '/cantine')},
+                    () => {Navigator.pushNamed(context, '/rocca')},
                     15,
-                    icon: FontAwesomeIcons.dungeon),
+                    icon: FontAwesomeIcons.fortAwesome),
               ],
-            ),
-          )
-        ]),
-      ),
+            )),
+        // Second Row
+        Container(
+          margin: const EdgeInsets.only(top: 25),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              // Ecoturismo
+              HomeButton(
+                  AppLocalizations.of(context)!.homeButtonEcoturism,
+                  buttonBackground,
+                  () => {
+                        Alert(message: 'Prossimamente!', shortDuration: true)
+                            .show()
+                      },
+                  15,
+                  icon: FontAwesomeIcons.leaf),
+              // Cantine
+              HomeButton(
+                  AppLocalizations.of(context)!.homeButtonCellars,
+                  buttonBackground,
+                  () => {Navigator.pushNamed(context, '/cantine')},
+                  15,
+                  icon: FontAwesomeIcons.dungeon),
+            ],
+          ),
+        )
+      ]),
     );
   }
 }

@@ -19,7 +19,8 @@ class ArView extends StatefulWidget {
   State<ArView> createState() => _ArViewState();
 }
 
-class _ArViewState extends State<ArView> { //with AutomaticKeepAliveClientMixin<ArView> {
+class _ArViewState extends State<ArView> {
+  //with AutomaticKeepAliveClientMixin<ArView> {
   late ARSessionManager arSessionManager;
   late ARObjectManager arObjectManager;
   late ARAnchorManager arAnchorManager;
@@ -38,8 +39,7 @@ class _ArViewState extends State<ArView> { //with AutomaticKeepAliveClientMixin<
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Stack(children: [
+    return Stack(children: [
       ARView(
         onARViewCreated: onARViewCreated,
         planeDetectionConfig: PlaneDetectionConfig.horizontalAndVertical,
@@ -52,7 +52,7 @@ class _ArViewState extends State<ArView> { //with AutomaticKeepAliveClientMixin<
               child: const Text("Remove Everything")),
         ]),
       )
-    ]));
+    ]);
   }
 
   void onARViewCreated(
@@ -106,7 +106,8 @@ class _ArViewState extends State<ArView> { //with AutomaticKeepAliveClientMixin<
         // Add note to anchor
         var newNode = ARNode(
             type: NodeType.webGLB,
-            uri:  'https://github.com/alex27riva/3d-models/blob/main/vase.glb?raw=true',
+            uri:
+                'https://github.com/alex27riva/3d-models/blob/main/vase.glb?raw=true',
             scale: Vector3(0.2, 0.2, 0.2),
             position: Vector3(0.0, 0.0, 0.0),
             rotation: Vector4(1.0, 0.0, 0.0, 0.0));
