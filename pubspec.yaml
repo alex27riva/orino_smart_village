@@ -50,6 +50,8 @@ dependencies:
   webview_flutter: ^3.0.4
   introduction_screen: ^3.0.1
   shared_preferences: ^2.0.15
+  flutter_inappwebview: ^5.4.4+3
+  permission_handler: ^10.1.0
 
   flutter_localizations:
     sdk: flutter

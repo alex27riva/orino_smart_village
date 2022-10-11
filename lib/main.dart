@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:orino_smart_village/pages/onboarding.dart';
 import 'package:orino_smart_village/pages/webview.dart';
 import 'package:orino_smart_village/screens/ar.dart';
+import 'package:orino_smart_village/screens/ar_webview.dart';
 import 'package:orino_smart_village/screens/feed.dart';
 import 'package:orino_smart_village/screens/map.dart';
 import 'package:orino_smart_village/pages/registration.dart';
@@ -16,12 +17,15 @@ import 'package:orino_smart_village/pages/login.dart';
 import 'package:orino_smart_village/widgets/360_view.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:orino_smart_village/constants/images.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 int? isViewed;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Permission.camera.request();
+  await Permission.location.request();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   isViewed = prefs.getInt('onBoard');
   runApp(const MyApp());
@@ -77,7 +81,7 @@ class _MainAppState extends State<MainApp> {
   void initState() {
     super.initState();
     _screens = [
-      const ArView(),
+      const ArWebView(),
       const Scanner(),
       Home(),
       const MapPage(),
@@ -165,7 +169,7 @@ class _MainAppState extends State<MainApp> {
               child: Text('Menu'),
             ),
             ListTile(
-              title: const Text("introduzione"),
+              title: const Text("Introduzione"),
               onTap: () {
                 Navigator.pushNamed(context, '/onboarding');
               },
