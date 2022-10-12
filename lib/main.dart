@@ -16,13 +16,15 @@ import 'package:orino_smart_village/pages/cantine.dart';
 import 'package:orino_smart_village/pages/contacts.dart';
 import 'package:orino_smart_village/pages/login.dart';
 import 'package:orino_smart_village/utils/InAppLocalHostSecureServer.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:orino_smart_village/widgets/360_view.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:orino_smart_village/constants/images.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-final InAppLocalHostSecureServer localhostServer = InAppLocalHostSecureServer();
+final InAppLocalhostServer localhostServer = InAppLocalhostServer(port: 8080);
+//final InAppLocalHostSecureServer localhostServer = InAppLocalHostSecureServer();
 int? isViewed;
 
 Future<void> main() async {
@@ -125,7 +127,6 @@ class _MainAppState extends State<MainApp> {
         physics: const NeverScrollableScrollPhysics(),
         children: _screens,
       ),
-
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.blueAccent,
@@ -161,7 +162,6 @@ class _MainAppState extends State<MainApp> {
               icon: Icon(Icons.feed, size: iconSize), label: 'Feed'),
         ],
       ),
-
       drawer: Drawer(
         child: ListView(
           // Important: Remove any padding from the ListView.

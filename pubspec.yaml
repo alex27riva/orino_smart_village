@@ -90,6 +90,7 @@ flutter:
     - assets/images/cantine/
     - assets/images/onboarding/
     - assets/certificates/
+    - assets/webcontent/
     - assets/images/profile-placeholder.png
     - assets/images/contacts.png
     - assets/percorso1.json

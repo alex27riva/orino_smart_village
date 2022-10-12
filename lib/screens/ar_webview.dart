@@ -63,7 +63,7 @@ class _ArWebViewState extends State<ArWebView> {
                 InAppWebView(
                   key: webViewKey,
                   initialUrlRequest:
-                  URLRequest(url: Uri.parse("https://127.0.0.1:8443/assets/webcontent/index.html")),
+                  URLRequest(url: Uri.parse("http://localhost:8080/assets/webcontent/index.html")),
                   initialOptions: options,
                   pullToRefreshController: pullToRefreshController,
                   onWebViewCreated: (controller) {

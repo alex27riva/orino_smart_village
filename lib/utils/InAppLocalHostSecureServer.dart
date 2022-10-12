@@ -1,10 +1,13 @@
 import 'dart:io';
 import 'dart:async';
-import 'package:mime/mime.dart';
+import 'dart:typed_data';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:mime/mime.dart';
 
 class InAppLocalHostSecureServer {
+  bool _started = false;
   HttpServer? _server;
+  MimeTypeResolver mimeTypeResolver = MimeTypeResolver();
   int _port = 8443;
 
   InAppLocalHostSecureServer({int port = 8443}) {
@@ -23,7 +26,7 @@ class InAppLocalHostSecureServer {
   ///```
   ///The `NSAllowsLocalNetworking` key is available since **iOS 10**.
   Future<void> start() async {
-    if (_server != null) {
+    if (_started) {
       throw Exception('Server already started on https://localhost:$_port');
     }
 
@@ -42,8 +45,9 @@ class InAppLocalHostSecureServer {
         _server = server;
 
         server.listen((HttpRequest request) async {
+          Uint8List body = Uint8List(0);
+
           print(request);
-          var body = <int>[];
           var path = request.requestedUri.path;
           path = (path.startsWith('/')) ? path.substring(1) : path;
           path += (path.endsWith('/')) ? 'index.html' : '';
@@ -56,18 +60,17 @@ class InAppLocalHostSecureServer {
             return;
           }
 
-          var contentType = ['text', 'html'];
+          var contentType = ContentType('text', 'html', charset: 'utf-8');
           if (!request.requestedUri.path.endsWith('/') &&
               request.requestedUri.pathSegments.isNotEmpty) {
-            var mimeType =
-                lookupMimeType(request.requestedUri.path, headerBytes: body);
+            var mimeType = mimeTypeResolver.lookup(request.requestedUri.path);
             if (mimeType != null) {
-              contentType = mimeType.split('/');
+              contentType = _getContentTypeFromMimeType(mimeType);
             }
           }
 
           request.response.headers.contentType =
-              ContentType(contentType[0], contentType[1], charset: 'utf-8');
+              request.response.headers.contentType = contentType;
           request.response.add(body);
           request.response.close();
         });
@@ -84,9 +87,31 @@ class InAppLocalHostSecureServer {
   ///Closes the server.
   Future<void> close() async {
     if (_server != null) {
-      await _server?.close(force: true);
-      print('Server running on http://localhost:$_port closed');
-      _server = null;
+      return;
     }
+    await _server!.close(force: true);
+    print('Server running on http://localhost:$_port closed');
+    _started = false;
+    _server = null;
+  }
+
+  ///Indicates if the server is running or not.
+  bool isRunning() {
+    return _server != null;
+  }
+
+  ContentType _getContentTypeFromMimeType(String mimeType) {
+    final contentType = mimeType.split('/');
+    String? charset;
+
+    if (_isTextFile(mimeType)) {
+      charset = 'utf-8';
+    }
+    return ContentType(contentType[0], contentType[1], charset: charset);
+  }
+
+  bool _isTextFile(String mimeType) {
+    final textFile = RegExp(r'^text\/|^application\/(javascript|json)');
+    return textFile.hasMatch(mimeType);
   }
 }
