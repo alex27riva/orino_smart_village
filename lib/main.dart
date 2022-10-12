@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:orino_smart_village/pages/onboarding.dart';
 import 'package:orino_smart_village/pages/webview.dart';
 import 'package:orino_smart_village/screens/ar.dart';
@@ -20,6 +21,7 @@ import 'package:orino_smart_village/constants/images.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+final InAppLocalhostServer localhostServer = InAppLocalhostServer(port: 8080);
 int? isViewed;
 
 Future<void> main() async {
@@ -27,6 +29,8 @@ Future<void> main() async {
   await Permission.camera.request();
   await Permission.location.request();
   SharedPreferences prefs = await SharedPreferences.getInstance();
+  // start the localhost server
+  await localhostServer.start();
   isViewed = prefs.getInt('onBoard');
   runApp(const MyApp());
 }
@@ -120,7 +124,6 @@ class _MainAppState extends State<MainApp> {
         physics: const NeverScrollableScrollPhysics(),
         children: _screens,
       ),
-
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.blueAccent,
@@ -156,7 +159,6 @@ class _MainAppState extends State<MainApp> {
               icon: Icon(Icons.feed, size: iconSize), label: 'Feed'),
         ],
       ),
-
       drawer: Drawer(
         child: ListView(
           // Important: Remove any padding from the ListView.

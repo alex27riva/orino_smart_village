@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+    <title>CampusAR</title>
+    <link rel="stylesheet" type = "text/css" href="style.css"/>
+  </head>
+
+  <body>
+  	<!-- <div id="search" class="dropdown">
+		<input id="searchbar" class="searchbar" type="search" placeholder="Trova un luogo...">
+		<div class="dropdown-content">
+			<ul id="buildingsList">
+			</ul>
+		</div>
+  	</div> -->
+  	<iframe id="ar-camera" src="ar.html" sandbox="allow-scripts allow-same-origin" scrolling="no" tabindex="1">
+  	</iframe>
+
+  	<div id="info-panel" tabindex="-1">
+  	
+  	<script type="text/javascript" src="js/search_filter.js"></script>
+    <script type="text/javascript" src="js/btnClick.js"></script>
+    <script type="text/javascript" src="js/load_places.js"></script>
+	<script type="text/javascript" src="js/displayInfoPanel.js"></script>
+  	</div>	
+  </body>
+</html>
