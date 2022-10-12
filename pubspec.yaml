@@ -52,6 +52,7 @@ dependencies:
   shared_preferences: ^2.0.15
   flutter_inappwebview: ^5.4.4+3
   permission_handler: ^10.1.0
+  mime: ^1.0.2
 
   flutter_localizations:
     sdk: flutter
@@ -88,6 +89,7 @@ flutter:
     - assets/images/logos/
     - assets/images/cantine/
     - assets/images/onboarding/
+    - assets/certificates/
     - assets/images/profile-placeholder.png
     - assets/images/contacts.png
     - assets/percorso1.json

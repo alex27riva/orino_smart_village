@@ -63,16 +63,11 @@ class _ArWebViewState extends State<ArWebView> {
                 InAppWebView(
                   key: webViewKey,
                   initialUrlRequest:
-                  URLRequest(url: Uri.parse("https://dash.covid19-italy.it")),
+                  URLRequest(url: Uri.parse("https://127.0.0.1:8443/assets/webcontent/index.html")),
                   initialOptions: options,
                   pullToRefreshController: pullToRefreshController,
                   onWebViewCreated: (controller) {
                     webViewController = controller;
-                  },
-                  onLoadStart: (controller, url) {
-                    setState(() {
-                      this.url = url.toString();
-                    });
                   },
                   androidOnPermissionRequest: (controller, origin, resources) async {
                     return PermissionRequestResponse(
@@ -87,12 +82,7 @@ class _ArWebViewState extends State<ArWebView> {
                         retain: true
                     );
                   },
-                  onLoadStop: (controller, url) async {
-                    pullToRefreshController.endRefreshing();
-                    setState(() {
-                      this.url = url.toString();
-                    });
-                  },
+
                   onLoadError: (controller, url, code, message) {
                     pullToRefreshController.endRefreshing();
                   },
@@ -109,6 +99,7 @@ class _ArWebViewState extends State<ArWebView> {
                       this.url = url.toString();
                     });
                   },
+
                 ),
                 progress < 1.0
                     ? LinearProgressIndicator(value: progress)
