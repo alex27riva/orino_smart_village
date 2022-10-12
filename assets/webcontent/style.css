@@ -62,7 +62,7 @@ body {
 	font-size: 110%;
 	text-indent: 15px;
 	
-	background: url("assets/images/search.png") no-repeat 14px center;
+	background: url("img/search.png") no-repeat 14px center;
 	background-color: #fff;
 	background-size: 23px;
 	color: transparent;
@@ -203,41 +203,8 @@ input::-webkit-search-cancel-button {
 	border-radius: 10em;
 	z-index: 1;
 }
-.close{
-	display: block;
-	position: absolute;
-	top: 10px;
-	right: 30px;
-	width: 16px;
-	height: 16px;
-	z-index: 4;
-	background-position: center;
-	background: url("assets/images/cancel.png") no-repeat;
-	background-size: 16px;
-	border: none;
-	border-radius: 0em;
-	
-}
-.credit{
-	background: url("assets/images/credits_icon.png") no-repeat;
-	background-position: center;
-	background-size: 30px;
-	background-color: rgba(255, 255, 255, 0.4);
-	grid-column: 1;
-	grid-row: 1;
-	justify-self: left;
-}
-.info{
-	background: url("assets/images/help_icon.png") no-repeat;
-	background-position: center;
-	background-size: 30px;
-	background-color: rgba(255, 255, 255, 0.4);
-	grid-column: 3;
-	grid-row: 1;
-	justify-self: right;
-}
 .map {
-	background: url("assets/images/map-2d.png") no-repeat;
+	background: url("img/map-2d.png") no-repeat;
 	background-position: center;
 	background-size: 30px;
 	background-color: rgba(255, 255, 255, 0.4);
@@ -247,7 +214,7 @@ input::-webkit-search-cancel-button {
 }
 
 .ar {
-	background: url("assets/images/ar.png") no-repeat;
+	background: url("img/ar.png") no-repeat;
 	background-position: center;
 	background-size: 30px;
 	background-color: rgba(255, 255, 255, 0.4);

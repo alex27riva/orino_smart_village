@@ -84,15 +84,19 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    # images
     - assets/images/navbar/
     - assets/images/carousel/
     - assets/images/logos/
     - assets/images/cantine/
     - assets/images/onboarding/
-    - assets/certificates/
-    - assets/webcontent/
     - assets/images/profile-placeholder.png
     - assets/images/contacts.png
+    # AR WebView
+    - assets/webcontent/
+    - assets/webcontent/js/
+    - assets/webcontent/img/
+    # Other assets
     - assets/percorso1.json
 
   # An image asset can refer to one or more resolution-specific "variants", see

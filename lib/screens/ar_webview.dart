@@ -11,7 +11,6 @@ class ArWebView extends StatefulWidget {
 }
 
 class _ArWebViewState extends State<ArWebView> {
-
   final GlobalKey webViewKey = GlobalKey();
 
   InAppWebViewController? webViewController;
@@ -57,55 +56,43 @@ class _ArWebViewState extends State<ArWebView> {
 
   @override
   Widget build(BuildContext context) {
-        return SafeArea(
-            child: Stack(
-              children: [
-                InAppWebView(
-                  key: webViewKey,
-                  initialUrlRequest:
-                  URLRequest(url: Uri.parse("http://localhost:8080/assets/webcontent/index.html")),
-                  initialOptions: options,
-                  pullToRefreshController: pullToRefreshController,
-                  onWebViewCreated: (controller) {
-                    webViewController = controller;
-                  },
-                  androidOnPermissionRequest: (controller, origin, resources) async {
-                    return PermissionRequestResponse(
-                        resources: resources,
-                        action: PermissionRequestResponseAction.GRANT);
-                  },
-                  androidOnGeolocationPermissionsShowPrompt:
-                      (InAppWebViewController controller, String origin) async {
-                    return GeolocationPermissionShowPromptResponse(
-                        origin: origin,
-                        allow: true,
-                        retain: true
-                    );
-                  },
-
-                  onLoadError: (controller, url, code, message) {
-                    pullToRefreshController.endRefreshing();
-                  },
-                  onProgressChanged: (controller, progress) {
-                    if (progress == 100) {
-                      pullToRefreshController.endRefreshing();
-                    }
-                    setState(() {
-                      this.progress = progress / 100;
-                    });
-                  },
-                  onUpdateVisitedHistory: (controller, url, androidIsReload) {
-                    setState(() {
-                      this.url = url.toString();
-                    });
-                  },
-
-                ),
-                progress < 1.0
-                    ? LinearProgressIndicator(value: progress)
-                    : Container(),
-              ],
-            )
-    );
+    return SafeArea(
+        child: Stack(
+      children: [
+        InAppWebView(
+          key: webViewKey,
+          initialUrlRequest: URLRequest(
+              url: Uri.parse(
+                  "http://localhost:8080/assets/webcontent/index.html")),
+          initialOptions: options,
+          pullToRefreshController: pullToRefreshController,
+          onWebViewCreated: (controller) {
+            webViewController = controller;
+          },
+          androidOnPermissionRequest: (controller, origin, resources) async {
+            return PermissionRequestResponse(
+                resources: resources,
+                action: PermissionRequestResponseAction.GRANT);
+          },
+          androidOnGeolocationPermissionsShowPrompt:
+              (InAppWebViewController controller, String origin) async {
+            return GeolocationPermissionShowPromptResponse(
+                origin: origin, allow: true, retain: true);
+          },
+          onLoadError: (controller, url, code, message) {
+            pullToRefreshController.endRefreshing();
+          },
+          onProgressChanged: (controller, progress) {
+            if (progress == 100) {
+              pullToRefreshController.endRefreshing();
+            }
+            setState(() {
+              this.progress = progress / 100;
+            });
+          },
+        ),
+        progress < 1.0 ? LinearProgressIndicator(value: progress) : Container(),
+      ],
+    ));
   }
 }

@@ -15,8 +15,6 @@ import 'package:orino_smart_village/pages/about.dart';
 import 'package:orino_smart_village/pages/cantine.dart';
 import 'package:orino_smart_village/pages/contacts.dart';
 import 'package:orino_smart_village/pages/login.dart';
-import 'package:orino_smart_village/utils/InAppLocalHostSecureServer.dart';
-import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:orino_smart_village/widgets/360_view.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:orino_smart_village/constants/images.dart';
@@ -24,7 +22,6 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final InAppLocalhostServer localhostServer = InAppLocalhostServer(port: 8080);
-//final InAppLocalHostSecureServer localhostServer = InAppLocalHostSecureServer();
 int? isViewed;
 
 Future<void> main() async {
