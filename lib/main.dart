@@ -48,8 +48,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(primarySwatch: Colors.blue),
         home: isViewed != 0 ? const OnBoardingPage() : const MainApp(),
         routes: {
-          '/login': (_) => const Login(),
-          '/register': (_) => const Registration(),
           '/scan': (_) => const Scanner(),
           '/about': (_) => const About(),
           '/home': (_) => const MainApp(),

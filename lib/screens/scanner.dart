@@ -27,8 +27,7 @@ class ScannerView extends StatefulWidget {
   State<StatefulWidget> createState() => _ScannerViewState();
 }
 
-class _ScannerViewState extends State<ScannerView>
-    with AutomaticKeepAliveClientMixin<ScannerView> {
+class _ScannerViewState extends State<ScannerView> {
   Barcode? result;
   QRViewController? controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
@@ -43,9 +42,6 @@ class _ScannerViewState extends State<ScannerView>
     }
     controller!.resumeCamera();
   }
-
-  @override
-  bool get wantKeepAlive => true;
 
   @override
   Widget build(BuildContext context) {

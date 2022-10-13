@@ -26,27 +26,12 @@ class _ArWebViewState extends State<ArWebView> {
         allowsInlineMediaPlayback: true,
       ));
 
-  late PullToRefreshController pullToRefreshController;
   String url = "";
   double progress = 0;
 
   @override
   void initState() {
     super.initState();
-
-    pullToRefreshController = PullToRefreshController(
-      options: PullToRefreshOptions(
-        color: Colors.blue,
-      ),
-      onRefresh: () async {
-        if (Platform.isAndroid) {
-          webViewController?.reload();
-        } else if (Platform.isIOS) {
-          webViewController?.loadUrl(
-              urlRequest: URLRequest(url: await webViewController?.getUrl()));
-        }
-      },
-    );
   }
 
   @override
@@ -65,7 +50,6 @@ class _ArWebViewState extends State<ArWebView> {
               url: Uri.parse(
                   "http://localhost:8080/assets/webcontent/index.html")),
           initialOptions: options,
-          pullToRefreshController: pullToRefreshController,
           onWebViewCreated: (controller) {
             webViewController = controller;
           },
@@ -78,17 +62,6 @@ class _ArWebViewState extends State<ArWebView> {
               (InAppWebViewController controller, String origin) async {
             return GeolocationPermissionShowPromptResponse(
                 origin: origin, allow: true, retain: true);
-          },
-          onLoadError: (controller, url, code, message) {
-            pullToRefreshController.endRefreshing();
-          },
-          onProgressChanged: (controller, progress) {
-            if (progress == 100) {
-              pullToRefreshController.endRefreshing();
-            }
-            setState(() {
-              this.progress = progress / 100;
-            });
           },
         ),
         progress < 1.0 ? LinearProgressIndicator(value: progress) : Container(),
