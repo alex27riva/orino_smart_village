@@ -14,7 +14,7 @@ final List<String> imgList = [
 ];
 
 class Home extends StatefulWidget {
-  Home({Key? key}) : super(key: key);
+  const Home({Key? key}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
@@ -25,7 +25,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
 
   @override
   void initState() {
-    futurePost = ApiService.getPosts(perPage: 7);
+    futurePost = ApiService.getPosts(perPage: 10);
     super.initState();
   }
 

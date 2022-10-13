@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:orino_smart_village/pages/onboarding.dart';
 import 'package:orino_smart_village/pages/webview.dart';
-import 'package:orino_smart_village/screens/ar.dart';
 import 'package:orino_smart_village/screens/ar_webview.dart';
 import 'package:orino_smart_village/screens/feed.dart';
 import 'package:orino_smart_village/screens/map.dart';
-import 'package:orino_smart_village/pages/registration.dart';
 import 'package:orino_smart_village/pages/rocca.dart';
 import 'package:orino_smart_village/screens/scanner.dart';
 import 'package:orino_smart_village/screens/home.dart';
@@ -14,7 +12,6 @@ import 'package:orino_smart_village/pages/settings.dart';
 import 'package:orino_smart_village/pages/about.dart';
 import 'package:orino_smart_village/pages/cantine.dart';
 import 'package:orino_smart_village/pages/contacts.dart';
-import 'package:orino_smart_village/pages/login.dart';
 import 'package:orino_smart_village/widgets/360_view.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:orino_smart_village/constants/images.dart';
@@ -68,7 +65,7 @@ class MainApp extends StatefulWidget {
   final String title = 'Orino Smart Village';
 
   @override
-  _MainAppState createState() => _MainAppState();
+  State<MainApp> createState() => _MainAppState();
 }
 
 class _MainAppState extends State<MainApp> {

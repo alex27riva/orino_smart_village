@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
@@ -7,7 +5,7 @@ class ArWebView extends StatefulWidget {
   const ArWebView({Key? key}) : super(key: key);
 
   @override
-  _ArWebViewState createState() => _ArWebViewState();
+  State<ArWebView> createState() => _ArWebViewState();
 }
 
 class _ArWebViewState extends State<ArWebView> {
@@ -62,6 +60,11 @@ class _ArWebViewState extends State<ArWebView> {
               (InAppWebViewController controller, String origin) async {
             return GeolocationPermissionShowPromptResponse(
                 origin: origin, allow: true, retain: true);
+          },
+          onProgressChanged: (controller, progress) {
+            setState(() {
+              this.progress = progress / 100;
+            });
           },
         ),
         progress < 1.0 ? LinearProgressIndicator(value: progress) : Container(),

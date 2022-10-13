@@ -7,14 +7,6 @@ class PostList {
     required this.posts,
   });
 
-  getFirst() {
-    return posts.first;
-  }
-
-  len() {
-    return posts.length;
-  }
-
   factory PostList.fromJson(List<dynamic> json) {
     List<Post> posts = <Post>[];
     posts = json.map((i) => Post.fromJson(i)).toList();
