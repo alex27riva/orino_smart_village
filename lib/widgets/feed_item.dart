@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:html_unescape/html_unescape.dart';
 import 'package:orino_smart_village/models/post.dart';
 import 'package:orino_smart_village/pages/webview.dart';
-import 'package:orino_smart_village/utils/utils.dart';
 
 const Color cardColor = Color(0x00F5DFBB);
 
@@ -13,12 +13,13 @@ class FeedItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var unescape = HtmlUnescape();
     return InkWell(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => WebViewPage(
                   url: post.link.toString(),
-                  title: post.title,
+                  title: unescape.convert(post.title),
                 )));
       },
       child: Card(
@@ -34,7 +35,7 @@ class FeedItem extends StatelessWidget {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              Text(post.title,
+              Text(unescape.convert(post.title),
                   style: const TextStyle(
                     fontSize: 30,
                     color: Colors.black,
