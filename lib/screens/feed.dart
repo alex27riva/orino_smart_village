@@ -12,10 +12,11 @@ class Feed extends StatefulWidget {
 
 class _FeedState extends State<Feed> with AutomaticKeepAliveClientMixin<Feed> {
   late Future<PostList> futurePost;
+  ApiService api = ApiService(URLS.baseUrl);
 
   @override
   void initState() {
-    futurePost = ApiService.getPosts(perPage: 10);
+    futurePost = api.getPosts(perPage: 10);
     super.initState();
   }
 

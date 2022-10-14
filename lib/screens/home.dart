@@ -22,10 +22,11 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
   late Future<PostList> futurePost;
+  ApiService api = ApiService(URLS.baseUrl);
 
   @override
   void initState() {
-    futurePost = ApiService.getPosts(perPage: 10);
+    futurePost = api.getPosts(perPage: 10);
     super.initState();
   }
 

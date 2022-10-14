@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:orino_smart_village/models/post_list.dart';
@@ -20,8 +21,8 @@ class HomeCarousel extends StatelessWidget {
                   .map((item) => Center(
                       child: ClipRRect(
                           borderRadius: BorderRadius.circular(20.0),
-                          child: Image.network(
-                            item.featuredImage,
+                          child: CachedNetworkImage(
+                            imageUrl: item.featuredImage,
                             fit: BoxFit.cover,
                             width: 500,
                           ))))
