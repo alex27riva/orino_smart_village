@@ -1,12 +1,12 @@
 import 'package:alert/alert.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:orino_smart_village/constants/images.dart';
 import 'package:orino_smart_village/utils/rest_api.dart';
 import 'package:orino_smart_village/models/post_list.dart';
 import 'package:orino_smart_village/widgets/home_button.dart';
+import 'package:orino_smart_village/widgets/home_carousel.dart';
 
 final List<String> imgList = [
   ImageConstants.roccaTramonto,
@@ -22,10 +22,11 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
   late Future<PostList> futurePost;
+  ApiService api = ApiService(URLS.baseUrl);
 
   @override
   void initState() {
-    futurePost = ApiService.getPosts(perPage: 10);
+    futurePost = api.getPosts(perPage: 10);
     super.initState();
   }
 
@@ -37,29 +38,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
     return Container(
       padding: const EdgeInsets.all(16),
       child: Column(children: <Widget>[
-        FutureBuilder<PostList>(
-            future: futurePost,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return CarouselSlider(
-                  options: CarouselOptions(),
-                  items: snapshot.data!.posts
-                      .where((curPost) => curPost.hasImageAvailable)
-                      .map((item) => Center(
-                          child: ClipRRect(
-                              borderRadius: BorderRadius.circular(20.0),
-                              child: Image.network(
-                                item.featuredImage,
-                                fit: BoxFit.cover,
-                                width: 500,
-                              ))))
-                      .toList(),
-                );
-              } else if (snapshot.hasError) {
-                return Text('${snapshot.error}');
-              }
-              return const CircularProgressIndicator();
-            }),
+        HomeCarousel(futurePost: futurePost),
         // CarouselSlider(
         //   options: CarouselOptions(),
         //   items: imgList
