@@ -53,5 +53,6 @@
 	"languageText": "Language",
 	"themeText": "Dark theme",
 	"notificationText": "Notifications",
-	"openExternalBrowser": "Open in browser"
+	"openExternalBrowser": "Open in browser",
+	"appVersion": "App version: "
 }

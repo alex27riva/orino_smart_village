@@ -53,5 +53,6 @@
 	"languageText": "Lingua",
 	"themeText": "Tema scuro",
 	"notificationText": "Notifiche",
-	"openExternalBrowser": "Apri nel browser"
+	"openExternalBrowser": "Apri nel browser",
+	"appVersion": "Versione app: "
 }
