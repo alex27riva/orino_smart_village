@@ -159,31 +159,46 @@ class _MainAppState extends State<MainApp> {
           // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
+            DrawerHeader(
+              decoration: const BoxDecoration(
                 color: Colors.blue,
               ),
-              child: Text('Menu'),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: const [
+                  Text('OrinoSmartVillage',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                  Image(
+                      image: AssetImage('assets/images/logos/osv-logo.jpg'),
+                      width: 100.0,
+                      height: 50.0),
+                ],
+              ),
             ),
             ListTile(
+              leading: const Icon(Icons.accessibility_new_outlined),
               title: const Text("Introduzione"),
               onTap: () {
                 Navigator.pushNamed(context, '/onboarding');
               },
             ),
             ListTile(
+              leading: const Icon(Icons.settings),
               title: Text(AppLocalizations.of(context)!.settingsTitle),
               onTap: () {
                 Navigator.pushNamed(context, '/settings');
               },
             ),
             ListTile(
+              leading: const Icon(Icons.contacts),
               title: Text(AppLocalizations.of(context)!.contactsTitle),
               onTap: () {
                 Navigator.pushNamed(context, '/contacts');
               },
             ),
             ListTile(
+              leading: const Icon(Icons.info_outline),
               title: Text(AppLocalizations.of(context)!.aboutTitle),
               onTap: () {
                 Navigator.pushNamed(context, '/about');
