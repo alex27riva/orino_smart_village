@@ -10,76 +10,11 @@ html, body {
 body {
 	font-family: arial,sans-serif;
 }
-#header {
-	display: table-cell;
-	width: 100vw;
-	height: 150px;
-	text-align: center;
-	text-transform: uppercase;
-	text-shadow: 0px 1px 1px #ddd;
-	vertical-align: middle;
-	font-family:Garamond,Baskerville,"Baskerville Old Face","Hoefler Text","Times New Roman",serif;
-	font-size: 1.5em;
-	background-color: white;
-	background-image: url("assets/images/sf_testata.png");
-	background-repeat: no-repeat;
-	background-position-x: center;
-	background-position-y: bottom;
-	border-top: 3px;
-	border-bottom: 3px;
-	border-left: 0px;
-	border-right: 0px;
-	border-color: #006254;
-	border-style: solid;
-	position: relative;
-	top: 0px;
-	right: 0px;
-	z-index: 1;
-}
 #header a:visited{
 	color: black;
 }
 #header a:link{
 	color: black;
-}
-#search {
-	position: relative;
-	top: 0px;
-	left: 0px;
-	padding: 15px;
-	z-index: 1;
-}
-.searchbar{
-	position: relative;
-	display: inline-block;
-	left: 0px;
-	
-	box-sizing: content-box;
-	-webkit-appearance: textfield;
-	-webkit-box-sizing: content-box;
-	
-	font-family: inherit;
-	font-size: 110%;
-	text-indent: 15px;
-	
-	background: url("img/search.png") no-repeat 14px center;
-	background-color: #fff;
-	background-size: 23px;
-	color: transparent;
-	
-	border: solid 2px #006254;
-	padding: 15px 18px 15px 18px;
-	width: 15px;
-	
-	-webkit-border-radius: 10em;
-	-moz-border-radius: 10em;
-	border-radius: 10em;
-	
-	-webkit-transition: all .5s;
-	-moz-transition: all .5s;
-	transition: all .5s;
-
-	cursor: pointer;
 }
 
 input::-webkit-search-decoration,

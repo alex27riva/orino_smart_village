@@ -24,13 +24,13 @@ function renderPlaces(places) {
         icon.setAttribute("width", "5.5");
         icon.setAttribute("height", "8");
         icon.setAttribute("name", places[i].name);
-        icon.setAttribute("src", "img/map-marker.png");
+        icon.setAttribute("src", "img/map-marker-orange.png");
         icon.setAttribute("look-at", "[gps-camera]");
         icon.setAttribute("clickhandler", "");
         icon.setAttribute("id", i + "_icon");
         a_scene.appendChild(icon);
         const text = ar_doc.createElement("a-entity");
-        text.setAttribute("text","value: " + places[i].name + "; font: https://cdn.aframe.io/fonts/Monoid.fnt; width: 30; align: center; color: #086e25");
+        text.setAttribute("text","value: " + places[i].name + "; font: https://cdn.aframe.io/fonts/Monoid.fnt; width: 30; align: center; color: #dd9e06");
         text.setAttribute("position"," 0 6 0");
         text.setAttribute("gps-entity-place", "latitude: " + places[i].latitude + "; longitude: " + places[i].longitude + ";");
         text.setAttribute("look-at", "[gps-camera]");
