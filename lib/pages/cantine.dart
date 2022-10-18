@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:orino_smart_village/utils/utils.dart';
-
 import 'package:orino_smart_village/constants/images.dart';
 
 //button border
@@ -10,15 +8,6 @@ RoundedRectangleBorder buttonBorder = RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(15));
 
 const buttonSize = Size(140, 140);
-
-const burgettUrl =
-    "https://sites.google.com/view/orum-vocidalmargine/il-burghett-di-rat";
-const gesaUrl =
-    "https://sites.google.com/view/orum-vocidalmargine/la-cantina-du-la-gesa-sala-1";
-const marianaUrl =
-    "https://sites.google.com/view/orum-vocidalmargine/la-cantina-du-la-mariana";
-const faelUrl =
-    "https://sites.google.com/view/orum-vocidalmargine/la-cantina-dul-fael";
 
 class Cantine extends StatelessWidget {
   const Cantine({Key? key}) : super(key: key);
@@ -44,9 +33,7 @@ class Cantine extends StatelessWidget {
                       fixedSize: buttonSize,
                       shape: buttonBorder,
                     ),
-                    onPressed: () {
-                      Utils.openUrl(burgettUrl);
-                    },
+                    onPressed: () {},
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: const [
@@ -70,9 +57,7 @@ class Cantine extends StatelessWidget {
                       fixedSize: buttonSize,
                       shape: buttonBorder,
                     ),
-                    onPressed: () {
-                      Utils.openUrl(gesaUrl);
-                    },
+                    onPressed: () {},
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: const [
@@ -103,9 +88,7 @@ class Cantine extends StatelessWidget {
                       fixedSize: buttonSize,
                       shape: buttonBorder,
                     ),
-                    onPressed: () {
-                      Utils.openUrl(marianaUrl);
-                    },
+                    onPressed: () {},
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: const [
@@ -131,9 +114,7 @@ class Cantine extends StatelessWidget {
                       fixedSize: buttonSize,
                       shape: buttonBorder,
                     ),
-                    onPressed: () {
-                      Utils.openUrl(faelUrl);
-                    },
+                    onPressed: () {},
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: const [
