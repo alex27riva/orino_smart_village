@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:orino_smart_village/constants/images.dart';
+import 'package:orino_smart_village/constants/urls.dart';
 import 'package:orino_smart_village/utils/rest_api.dart';
 import 'package:orino_smart_village/models/post_list.dart';
 import 'package:orino_smart_village/widgets/home_button.dart';
@@ -22,7 +23,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
   late Future<PostList> futurePost;
-  ApiService api = ApiService(URLS.baseUrl);
+  ApiService api = ApiService(URLS.baseApiUrl);
 
   @override
   void initState() {
