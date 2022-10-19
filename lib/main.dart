@@ -82,9 +82,9 @@ class _MainAppState extends State<MainApp> {
     _screens = [
       const ArWebView(),
       const Scanner(),
-      Home(),
+      const Home(),
       const MapPage(),
-      Feed(),
+      const Feed(),
     ];
     _pageController = PageController(initialPage: _currentIndex);
   }
