@@ -1,6 +1,8 @@
 import 'dart:developer';
 import 'dart:io';
+import 'package:alert/alert.dart';
 import 'package:flutter/material.dart';
+import 'package:orino_smart_village/constants/urls.dart';
 import 'package:orino_smart_village/pages/webview.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:vibration/vibration.dart';
@@ -132,11 +134,19 @@ class _ScannerViewState extends State<ScannerView> {
   }
 
   _launchURLBrowser(scannedUrl) async {
-    Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => WebViewPage(
-              url: scannedUrl,
-              title: Uri.parse(scannedUrl).host,
-            )));
+    Uri uri = Uri.parse(scannedUrl);
+    if (uri.host == URLS.baseDomain) { // www.orinosmartvillage.it
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => WebViewPage(
+                url: scannedUrl,
+                title: uri.host,
+              )));
+    } else {
+      Alert(
+              message: AppLocalizations.of(context)!.invalidQrAlert,
+              shortDuration: true)
+          .show();
+    }
   }
 
   @override

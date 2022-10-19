@@ -54,5 +54,6 @@
 	"themeText": "Dark theme",
 	"notificationText": "Notifications",
 	"openExternalBrowser": "Open in browser",
-	"appVersion": "App version: "
+	"appVersion": "App version: ",
+	"invalidQrAlert": "Invalid QR code"
 }

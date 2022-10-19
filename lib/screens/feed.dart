@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:orino_smart_village/constants/urls.dart';
 import 'package:orino_smart_village/utils/rest_api.dart';
 import 'package:orino_smart_village/models/post_list.dart';
 import 'package:orino_smart_village/widgets/feed_item.dart';
@@ -12,7 +13,7 @@ class Feed extends StatefulWidget {
 
 class _FeedState extends State<Feed> with AutomaticKeepAliveClientMixin<Feed> {
   late Future<PostList> futurePost;
-  ApiService api = ApiService(URLS.baseUrl);
+  ApiService api = ApiService(URLS.baseApiUrl);
 
   @override
   void initState() {
