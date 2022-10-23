@@ -15,17 +15,23 @@ class HomeCarousel extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return CarouselSlider(
-              options: CarouselOptions(),
+              options: CarouselOptions(
+                autoPlayAnimationDuration: const Duration(seconds: 2),
+                autoPlay: true,
+                viewportFraction: 0.8,
+              ),
               items: snapshot.data!.posts
                   .where((curPost) => curPost.hasImageAvailable)
-                  .map((item) => Center(
-                      child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20.0),
-                          child: CachedNetworkImage(
-                            imageUrl: item.featuredImage,
-                            fit: BoxFit.cover,
-                            width: 500,
-                          ))))
+                  .map((item) => Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(20.0),
+                            child: CachedNetworkImage(
+                              imageUrl: item.featuredImage,
+                              fit: BoxFit.cover,
+                              width: 500,
+                            )),
+                      ))
                   .toList(),
             );
           } else if (snapshot.hasError) {

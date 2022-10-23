@@ -2,17 +2,11 @@ import 'package:alert/alert.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:orino_smart_village/constants/images.dart';
 import 'package:orino_smart_village/constants/urls.dart';
 import 'package:orino_smart_village/utils/rest_api.dart';
 import 'package:orino_smart_village/models/post_list.dart';
 import 'package:orino_smart_village/widgets/home_button.dart';
 import 'package:orino_smart_village/widgets/home_carousel.dart';
-
-final List<String> imgList = [
-  ImageConstants.roccaTramonto,
-  ImageConstants.territorio,
-];
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -37,74 +31,50 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16),
-      child: Column(children: <Widget>[
-        HomeCarousel(futurePost: futurePost),
-        // CarouselSlider(
-        //   options: CarouselOptions(),
-        //   items: imgList
-        //       .map((item) => Center(
-        //               child: ClipRRect(
-        //             borderRadius: BorderRadius.circular(20.0),
-        //             child: Image(
-        //               image: AssetImage(item),
-        //             ),
-        //           )))
-        //       .toList(),
-        // ),
-        Container(
-            margin: const EdgeInsets.only(top: 50.0),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                // Ecomuseo
-                HomeButton(
-                    AppLocalizations.of(context)!.homeButtonEcomuseum,
-                    buttonBackground,
-                    () => {
-                          Alert(message: 'Prossimamente!', shortDuration: true)
-                              .show()
-                        },
-                    15,
-                    icon: FontAwesomeIcons.buildingColumns),
-                // Rocca di orino
-                HomeButton(
-                    AppLocalizations.of(context)!.homeButtonFortress,
-                    buttonBackground,
-                    () => {Navigator.pushNamed(context, '/rocca')},
-                    15,
-                    icon: FontAwesomeIcons.fortAwesome),
-              ],
-            )),
-        // Second Row
-        Container(
-          margin: const EdgeInsets.only(top: 25),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              // Ecoturismo
-              HomeButton(
-                  AppLocalizations.of(context)!.homeButtonEcoturism,
-                  buttonBackground,
-                  () => {
-                        Alert(message: 'Prossimamente!', shortDuration: true)
-                            .show()
-                      },
-                  15,
-                  icon: FontAwesomeIcons.leaf),
-              // Cantine
-              HomeButton(
-                  AppLocalizations.of(context)!.homeButtonCellars,
-                  buttonBackground,
-                  () => {Navigator.pushNamed(context, '/cantine')},
-                  15,
-                  icon: FontAwesomeIcons.dungeon),
-            ],
-          ),
-        )
-      ]),
-    );
+        padding: const EdgeInsets.only(top: 16.0),
+        child: Column(children: <Widget>[
+          HomeCarousel(futurePost: futurePost),
+          Container(
+            margin: const EdgeInsets.only(left: 32.0, right: 32.0, top: 50.0),
+            child: GridView.count(
+                crossAxisCount: 2,
+                shrinkWrap: true,
+                childAspectRatio: 1,
+                crossAxisSpacing: 20.0,
+                mainAxisSpacing: 20.0,
+                padding: const EdgeInsets.only(left: 25, right: 25),
+                children: [
+                  HomeButton(
+                      text: AppLocalizations.of(context)!.homeButtonEcomuseum,
+                      onPress: () => {
+                            Alert(
+                                    message: 'Prossimamente!',
+                                    shortDuration: true)
+                                .show()
+                          },
+                      icon: FontAwesomeIcons.buildingColumns),
+                  // Rocca di orino
+                  HomeButton(
+                      text: AppLocalizations.of(context)!.homeButtonFortress,
+                      onPress: () => {Navigator.pushNamed(context, '/rocca')},
+                      icon: FontAwesomeIcons.fortAwesome),
+                  // Ecoturismo
+                  HomeButton(
+                      text: AppLocalizations.of(context)!.homeButtonEcoturism,
+                      onPress: () => {
+                            Alert(
+                                    message: 'Prossimamente!',
+                                    shortDuration: true)
+                                .show()
+                          },
+                      icon: FontAwesomeIcons.leaf),
+                  // Cantine
+                  HomeButton(
+                      text: AppLocalizations.of(context)!.homeButtonCellars,
+                      onPress: () => {Navigator.pushNamed(context, '/cantine')},
+                      icon: FontAwesomeIcons.dungeon)
+                ]),
+          )
+        ]));
   }
 }

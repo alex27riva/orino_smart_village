@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-//button border
-RoundedRectangleBorder buttonBorder = RoundedRectangleBorder(
-    side: const BorderSide(
-        color: Colors.black, width: 1.2, style: BorderStyle.solid),
-    borderRadius: BorderRadius.circular(15));
-
 const buttonForeground = Color(0xff304d85);
 const buttonBackground = Color(0xff90a955);
-const buttonSize = Size(120, 120);
 
 class HomeButton extends StatelessWidget {
   final String text;
@@ -18,8 +11,13 @@ class HomeButton extends StatelessWidget {
   final VoidCallback onPress;
   final IconData icon;
 
-  const HomeButton(this.text, this.backColor, this.onPress, this.textSize,
-      {Key? key, required this.icon})
+  const HomeButton(
+      {Key? key,
+      required this.text,
+      this.backColor = buttonBackground,
+      required this.onPress,
+      this.textSize = 15,
+      required this.icon})
       : super(key: key);
 
   @override
@@ -28,8 +26,10 @@ class HomeButton extends StatelessWidget {
       style: TextButton.styleFrom(
         textStyle: const TextStyle(fontSize: 20),
         backgroundColor: backColor,
-        fixedSize: buttonSize,
-        shape: buttonBorder,
+        shape: RoundedRectangleBorder(
+            side: const BorderSide(
+                color: Colors.black, width: 1.2, style: BorderStyle.solid),
+            borderRadius: BorderRadius.circular(15)),
       ),
       onPressed: () {
         onPress();
