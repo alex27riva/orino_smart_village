@@ -95,6 +95,7 @@ flutter:
     - assets/images/logos/
     - assets/images/cantine/
     - assets/images/onboarding/
+    - assets/images/icons/
     - assets/images/profile-placeholder.png
     - assets/images/contacts.png
     # AR WebView

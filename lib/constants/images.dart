@@ -26,4 +26,9 @@ class ImageConstants {
   static const cantinaGesa = 'assets/images/cantine/cantina-gesa.jpg';
   static const cantinaMariana = 'assets/images/cantine/cantina-mariana.jpg';
   static const fael = 'assets/images/cantine/fael.jpg';
+
+// 360
+  static const icon360 = 'assets/images/icons/360-icon.png';
+  static const roccaPanoramic =
+      'https://gitea.selfhosto.space/alex27riva/orino-360-images/raw/branch/main/R0010056_20221020103956.jpg';
 }

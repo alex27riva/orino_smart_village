@@ -56,7 +56,9 @@ class MyApp extends StatelessWidget {
           '/contacts': (_) => const Contacts(),
           '/settings': (_) => const Settings(),
           '/cantine': (_) => const Cantine(),
-          '/360': (_) => const View360(),
+          '/360': (_) => const View360(
+                imageUrl: '',
+              ),
           '/webview': (_) => const WebViewPage(),
           '/onboarding': (_) => const OnBoardingPage(),
         });
@@ -110,11 +112,6 @@ class _MainAppState extends State<MainApp> {
                 Navigator.pushNamed(context, '/about');
               },
               icon: const Icon(Icons.help)),
-          IconButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/360');
-              },
-              icon: const Icon(Icons.panorama_fish_eye))
         ],
       ),
       body: PageView(
