@@ -6,25 +6,41 @@ const buttonBackground = Color(0xff90a955);
 
 class HomeButton extends StatelessWidget {
   final String text;
-  final int textSize;
+  final double textSize;
   final Color backColor;
   final VoidCallback onPress;
-  final IconData icon;
+  final IconData? icon;
+  final String? image;
+  late Widget child;
+  final String selector;
 
-  const HomeButton(
+  HomeButton(
       {Key? key,
       required this.text,
       this.backColor = buttonBackground,
       required this.onPress,
-      this.textSize = 15,
-      required this.icon})
-      : super(key: key);
+      this.textSize = 14,
+      this.icon,
+      this.image,
+      this.selector = 'icon'})
+      : super(key: key) {
+    if (selector == 'icon') {
+      child = FaIcon(icon, size: 72, color: buttonForeground);
+    } else if (selector == 'image') {
+      child = Padding(
+        padding: const EdgeInsets.all(8.0),
+        child:
+            Image(image: AssetImage(image!), fit: BoxFit.contain, height: 80),
+      );
+    } else {
+      child = Container();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
       style: TextButton.styleFrom(
-        textStyle: const TextStyle(fontSize: 20),
         backgroundColor: backColor,
         shape: RoundedRectangleBorder(
             side: const BorderSide(
@@ -36,10 +52,10 @@ class HomeButton extends StatelessWidget {
       },
       child:
           Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-        FaIcon(icon, size: 72, color: buttonForeground),
+        child,
         Text(text,
             textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 14, color: Colors.black)),
+            style: TextStyle(fontSize: textSize, color: Colors.black)),
       ]),
     );
   }

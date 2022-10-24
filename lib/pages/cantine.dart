@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:orino_smart_village/constants/images.dart';
-
-//button border
-RoundedRectangleBorder buttonBorder = RoundedRectangleBorder(
-    side: const BorderSide(
-        color: Colors.black, width: 1.2, style: BorderStyle.solid),
-    borderRadius: BorderRadius.circular(15));
-
-const buttonSize = Size(140, 140);
+import 'package:orino_smart_village/widgets/home_button.dart';
 
 class Cantine extends StatelessWidget {
   const Cantine({Key? key}) : super(key: key);
@@ -19,121 +12,37 @@ class Cantine extends StatelessWidget {
           title: const Text("Cantine"),
         ),
         body: Container(
-          margin: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      textStyle: const TextStyle(fontSize: 20),
-                      backgroundColor: Colors.white,
-                      fixedSize: buttonSize,
-                      shape: buttonBorder,
-                    ),
-                    onPressed: () {},
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Image(
-                              image: AssetImage(ImageConstants.burgett),
-                            ),
-                          ),
-                          Text('Il Burgett di Ratt',
-                              textAlign: TextAlign.center,
-                              style:
-                                  TextStyle(fontSize: 12, color: Colors.black)),
-                        ]),
-                  ),
-                  // Cantina du la Gesa
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      textStyle: const TextStyle(fontSize: 20),
-                      backgroundColor: Colors.white,
-                      fixedSize: buttonSize,
-                      shape: buttonBorder,
-                    ),
-                    onPressed: () {},
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Image(
-                              image: AssetImage(ImageConstants.cantinaGesa),
-                              width: 90,
-                              height: 90,
-                            ),
-                          ),
-                          Text('Cantina du la Gesa',
-                              textAlign: TextAlign.center,
-                              style:
-                                  TextStyle(fontSize: 12, color: Colors.black)),
-                        ]),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                // Cantina du la Mariana
-                children: <Widget>[
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      textStyle: const TextStyle(fontSize: 20),
-                      backgroundColor: Colors.white,
-                      fixedSize: buttonSize,
-                      shape: buttonBorder,
-                    ),
-                    onPressed: () {},
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Image(
-                              image: AssetImage(ImageConstants.cantinaMariana),
-                              width: 90,
-                              height: 90,
-                            ),
-                          ),
-                          Text('Cantina du la Mariana',
-                              textAlign: TextAlign.center,
-                              style:
-                                  TextStyle(fontSize: 12, color: Colors.black)),
-                        ]),
-                  ),
-                  //Cantina dul Fael
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      textStyle: const TextStyle(fontSize: 20),
-                      backgroundColor: Colors.white,
-                      fixedSize: buttonSize,
-                      shape: buttonBorder,
-                    ),
-                    onPressed: () {},
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Image(
-                              image: AssetImage(ImageConstants.fael),
-                            ),
-                          ),
-                          Text('La cantina dul Fael',
-                              textAlign: TextAlign.center,
-                              style:
-                                  TextStyle(fontSize: 12, color: Colors.black)),
-                        ]),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ));
+            margin: const EdgeInsets.all(16.0),
+            alignment: Alignment.center,
+            child: GridView.count(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              crossAxisCount: 2,
+              shrinkWrap: true,
+              childAspectRatio: 1,
+              crossAxisSpacing: 25.0,
+              mainAxisSpacing: 25.0,
+              children: [
+                HomeButton(
+                    text: "Il Burgett di Ratt",
+                    onPress: () {},
+                    selector: 'image',
+                    image: ImageConstants.burgett),
+                HomeButton(
+                    text: "Cantina du la Gesa",
+                    onPress: () {},
+                    selector: 'image',
+                    image: ImageConstants.cantinaGesa),
+                HomeButton(
+                    text: "Cantina du la Mariana",
+                    onPress: () {},
+                    selector: 'image',
+                    image: ImageConstants.cantinaMariana),
+                HomeButton(
+                    text: "La cantina dul Fael",
+                    onPress: () {},
+                    selector: 'image',
+                    image: ImageConstants.fael),
+              ],
+            )));
   }
 }
