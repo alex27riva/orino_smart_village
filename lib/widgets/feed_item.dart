@@ -4,7 +4,7 @@ import 'package:html_unescape/html_unescape.dart';
 import 'package:orino_smart_village/models/post.dart';
 import 'package:orino_smart_village/pages/webview.dart';
 
-const Color cardColor = Color(0x00F5DFBB);
+const Color cardColor = Color.fromRGBO(202, 240, 248, 0.7);
 
 class FeedItem extends StatelessWidget {
   final Post post;
@@ -24,7 +24,7 @@ class FeedItem extends StatelessWidget {
       },
       child: Card(
         margin: const EdgeInsets.all(10.0),
-        elevation: 50,
+        elevation: 10,
         color: cardColor,
         shape: const RoundedRectangleBorder(
             side: BorderSide(
