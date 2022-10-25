@@ -2,6 +2,7 @@ class Post {
   final int id;
   final String title;
   final String content;
+  final String excerpt;
   final String featuredImage;
   final bool hasImageAvailable;
   final Uri link;
@@ -10,6 +11,7 @@ class Post {
       {required this.id,
       required this.title,
       required this.link,
+      required this.excerpt,
       required this.content,
       required this.featuredImage,
       required this.hasImageAvailable});
@@ -21,6 +23,7 @@ class Post {
       title: json['title']['rendered'] as String,
       link: Uri.parse(json['link']),
       content: json['content']['rendered'],
+      excerpt: json['excerpt']['rendered'],
       featuredImage: hasImage ? json['featured_media_url'] : "",
       hasImageAvailable: hasImage,
     );

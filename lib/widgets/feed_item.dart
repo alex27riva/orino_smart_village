@@ -55,7 +55,12 @@ class FeedItem extends StatelessWidget {
               ),
               Container(
                 padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
-                child: SizedBox(height: 200, child: Html(data: post.content)),
+                child: SizedBox(
+                    height: 200,
+                    child: Html(
+                      data: post.excerpt,
+                      shrinkWrap: true,
+                    )),
               ),
             ],
           ),
