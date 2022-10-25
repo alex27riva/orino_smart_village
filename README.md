@@ -1,6 +1,6 @@
 # Orino Smart Village
 
-OrinoAr rebuilt using Flutter (Dart) language.
+Official application for the municipality of Orino as part of the project _Cariplo Smart Villages & Citizen Science_.
 
 ## Installation
 
@@ -11,11 +11,12 @@ Follow this guide to install Flutter on your computer: [Link](https://docs.flutt
 - QR code scanner
 - Map with locations
 - Fetch post using Wordpress API
+- Cache images and posts
 
 ## Roadmap
 - [ ] Implement locations in Augmented Reality (AR)
-- [ ] Cache images and posts
 - [ ] Filter locations and tracks in the maps screen
+- [ ] Offline mode
 
 ## Screenshots
 <img alt="Homepage" src=".github/app-home.jpg" width="400"/>
