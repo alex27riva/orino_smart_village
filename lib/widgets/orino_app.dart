@@ -22,7 +22,7 @@ class _OrinoAppState extends State<OrinoApp> {
   late PageController _pageController;
   late List<Widget> _screens;
 
-  static const double iconSize = 50;
+  static const double iconSize = 35;
 
   @override
   void initState() {
@@ -66,6 +66,7 @@ class _OrinoAppState extends State<OrinoApp> {
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.blueAccent,
         unselectedItemColor: Colors.blue,
+        showUnselectedLabels: false,
         currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {
@@ -113,7 +114,7 @@ class _OrinoAppState extends State<OrinoApp> {
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                   Image(
-                      image: AssetImage('assets/images/logos/osv-logo.jpg'),
+                      image: AssetImage(ImageConstants.osvLogo),
                       width: 100.0,
                       height: 50.0),
                 ],

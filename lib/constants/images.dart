@@ -31,4 +31,7 @@ class ImageConstants {
   static const icon360 = 'assets/images/icons/360-icon.png';
   static const roccaPanoramic =
       'https://gitea.selfhosto.space/alex27riva/orino-360-images/raw/branch/main/R0010056_20221020103956.jpg';
+
+  // Misc
+  static const osvLogo = 'assets/images/logos/osv-logo.jpg';
 }
