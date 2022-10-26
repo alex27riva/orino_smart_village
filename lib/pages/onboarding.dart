@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:orino_smart_village/main.dart';
+import 'package:orino_smart_village/widgets/orino_app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class OnBoardingPage extends StatelessWidget {
@@ -69,7 +69,7 @@ class OnBoardingPage extends StatelessWidget {
       );
 
   void goToHome(context) => Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => const MainApp()),
+        MaterialPageRoute(builder: (_) => const OrinoApp()),
       );
 
   Widget buildImage(String path) =>
