@@ -122,7 +122,7 @@ class _OrinoAppState extends State<OrinoApp> {
             ),
             ListTile(
               leading: const Icon(Icons.accessibility_new_outlined),
-              title: const Text("Introduzione"),
+              title: Text(AppLocalizations.of(context)!.onboardingTitle),
               onTap: () {
                 Navigator.pushNamed(context, '/onboarding');
               },

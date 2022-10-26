@@ -55,5 +55,14 @@
 	"notificationText": "Notifiche",
 	"openExternalBrowser": "Apri nel browser",
 	"appVersion": "Versione app: ",
-	"invalidQrAlert": "Codice QR non valido"
+	"invalidQrAlert": "Codice QR non valido",
+	"onboardingTitle": "Introduzione",
+	"skipText": "Salta",
+	"startText": "Inizia",
+	"onboardFirstPageTitle": "Esplora le bellezze del territorio",
+	"onboardFirstPageBody": "Alla scoperta del territorio tra storia, natura e leggenda",
+	"onboardSecondPageBody": "Ottieni maggiori informazioni scansionando degli appositi codici QR",
+	"onboardSecondPageTitle": "Scansiona i codici QR",
+	"onboardThirdPageBody": "Tocca il pulsante qui sotto per andare alla schermata principale",
+	"onboardThirdPageTitle": "Iniziamo!"
 }

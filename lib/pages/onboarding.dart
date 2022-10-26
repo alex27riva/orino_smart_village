@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:orino_smart_village/constants/images.dart';
 import 'package:orino_smart_village/widgets/orino_app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class OnBoardingPage extends StatelessWidget {
   const OnBoardingPage({Key? key}) : super(key: key);
@@ -17,23 +19,20 @@ class OnBoardingPage extends StatelessWidget {
         child: IntroductionScreen(
           pages: [
             PageViewModel(
-              title: 'Esplora le bellezze del territorio',
-              body:
-                  'Alla scoperta del territorio tra storia, natura e leggenda',
-              image: buildImage('assets/images/onboarding/montain-tourist.jpg'),
+              title: AppLocalizations.of(context)!.onboardFirstPageTitle,
+              body: AppLocalizations.of(context)!.onboardFirstPageBody,
+              image: buildImage(ImageConstants.mountainTourist),
               decoration: getPageDecoration(),
             ),
             PageViewModel(
-              title: 'Scansiona i codici QR',
-              body:
-                  'Ottieni maggiori informazioni scansionando degli appositi codici QR',
-              image: buildImage('assets/images/onboarding/qrcode-scanning.jpg'),
+              title: AppLocalizations.of(context)!.onboardSecondPageTitle,
+              body: AppLocalizations.of(context)!.onboardSecondPageBody,
+              image: buildImage(ImageConstants.qrcodeScanning),
               decoration: getPageDecoration(),
             ),
             PageViewModel(
-              title: 'Iniziamo!',
-              body:
-                  'Tocca il pulsante qui sotto per andare alla schermata principale',
+              title: AppLocalizations.of(context)!.onboardThirdPageTitle,
+              body: AppLocalizations.of(context)!.onboardThirdPageBody,
               footer: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   shape: const StadiumBorder(),
@@ -44,26 +43,25 @@ class OnBoardingPage extends StatelessWidget {
                   _storeOnboardInfo();
                   goToHome(context);
                 },
-                child: const Text("Inizia"),
+                child: Text(AppLocalizations.of(context)!.startText),
               ),
-              image:
-                  buildImage('assets/images/onboarding/happy-family-start.jpg'),
+              image: buildImage(ImageConstants.happyFamilyStart),
               decoration: getPageDecoration(),
             ),
           ],
-          done: const Text('Inizia',
-              style:
-                  TextStyle(fontWeight: FontWeight.w600, color: Colors.white)),
+          done: Text(AppLocalizations.of(context)!.startText,
+              style: const TextStyle(
+                  fontWeight: FontWeight.w600, color: Colors.white)),
           onDone: () {
             _storeOnboardInfo();
             goToHome(context);
           },
           showSkipButton: true,
-          skip: const Text('Salta', style: TextStyle(color: Colors.white)),
+          skip: Text(AppLocalizations.of(context)!.skipText,
+              style: const TextStyle(color: Colors.white)),
           onSkip: () => goToHome(context),
           next: const Icon(Icons.arrow_forward, color: Colors.white),
           dotsDecorator: getDotDecoration(),
-          onChange: (index) => print('Page $index selected'),
           globalBackgroundColor: Theme.of(context).primaryColor,
         ),
       );

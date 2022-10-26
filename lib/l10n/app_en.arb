@@ -55,5 +55,14 @@
 	"notificationText": "Notifications",
 	"openExternalBrowser": "Open in browser",
 	"appVersion": "App version: ",
-	"invalidQrAlert": "Invalid QR code"
+	"invalidQrAlert": "Invalid QR code",
+	"onboardingTitle": "Onboarding",
+	"skipText": "Skip",
+	"startText": "Start",
+	"onboardFirstPageTitle": "Explore the beauty of the land",
+	"onboardFirstPageBody": "Discovering the area among history, nature and legend",
+	"onboardSecondPageBody": "Get more information by scanning special QR codes",
+	"onboardSecondPageTitle": "Scan the QR codes",
+	"onboardThirdPageBody": "Tap the button below to go to the main screen",
+	"onboardThirdPageTitle": "Let's start!"
 }

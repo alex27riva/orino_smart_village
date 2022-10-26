@@ -32,6 +32,13 @@ class ImageConstants {
   static const roccaPanoramic =
       'https://gitea.selfhosto.space/alex27riva/orino-360-images/raw/branch/main/R0010056_20221020103956.jpg';
 
-  // Misc
+// Onboarding
+  static const mountainTourist =
+      'assets/images/onboarding/mountain-tourist.jpg';
+  static const qrcodeScanning = 'assets/images/onboarding/qrcode-scanning.jpg';
+  static const happyFamilyStart =
+      'assets/images/onboarding/happy-family-start.jpg';
+
+// Misc
   static const osvLogo = 'assets/images/logos/osv-logo.jpg';
 }
