@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:orino_smart_village/constants/images.dart';
 import 'package:orino_smart_village/constants/urls.dart';
 import 'package:orino_smart_village/utils/rest_api.dart';
 import 'package:orino_smart_village/models/post_list.dart';
@@ -39,7 +40,14 @@ class _FeedState extends State<Feed> with AutomaticKeepAliveClientMixin<Feed> {
                   );
                 });
           } else if (snapshot.hasError) {
-            return Text('${snapshot.error}');
+            return Container(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Image(image: AssetImage(ImageConstants.noInternet))
+                  ]),
+            );
           }
           return const Center(child: CircularProgressIndicator());
         });

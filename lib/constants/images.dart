@@ -12,14 +12,15 @@ class ImageConstants {
   static const comuneOrino = 'assets/images/logos/comune-orino.png';
 
 // Profile
-  static const profilePlaceholder = 'assets/images/profile-placeholder.png';
+  static const profilePlaceholder =
+      'assets/images/misc/profile-placeholder.png';
 
 // Carousel
   static const roccaTramonto = 'assets/images/carousel/rocca-tramonto.jpg';
   static const territorio = 'assets/images/carousel/territorio.jpg';
 
 // Contacts
-  static const contactBanner = 'assets/images/contacts.png';
+  static const contactBanner = 'assets/images/misc/contacts.png';
 
 // Cantine
   static const burgett = 'assets/images/cantine/burgett.jpg';
@@ -41,4 +42,5 @@ class ImageConstants {
 
 // Misc
   static const osvLogo = 'assets/images/logos/osv-logo.jpg';
+  static const noInternet = 'assets/images/misc/no-internet.png';
 }

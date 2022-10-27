@@ -35,7 +35,8 @@ class HomeCarousel extends StatelessWidget {
                   .toList(),
             );
           } else if (snapshot.hasError) {
-            return Text('${snapshot.error}');
+            // TODO: handle carousel if there is no internet connection
+            return const Text('No internet connection');
           }
           return const CircularProgressIndicator();
         });
