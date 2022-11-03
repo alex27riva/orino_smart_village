@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
-import 'package:html_unescape/html_unescape.dart';
 import 'package:orino_smart_village/models/post.dart';
 import 'package:orino_smart_village/pages/webview.dart';
+import 'package:orino_smart_village/utils/utils.dart';
 
 const Color cardColor = Color.fromRGBO(202, 240, 248, 0.7);
 
@@ -13,13 +12,12 @@ class FeedItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var unescape = HtmlUnescape();
     return InkWell(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => WebViewPage(
                   url: post.link.toString(),
-                  title: unescape.convert(post.title),
+                  title: Utils.unescape(post.title),
                 )));
       },
       child: Card(
@@ -35,9 +33,10 @@ class FeedItem extends StatelessWidget {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              Text(unescape.convert(post.title),
+              Text(Utils.unescape(post.title),
+                  overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
-                    fontSize: 30,
+                    fontSize: 24,
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
                   )),
@@ -54,14 +53,12 @@ class FeedItem extends StatelessWidget {
                     : Container(), // empty container
               ),
               Container(
-                padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
-                child: SizedBox(
-                    height: 200,
-                    child: Html(
-                      data: post.excerpt,
-                      shrinkWrap: true,
-                    )),
-              ),
+                  padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
+                  child: SizedBox(
+                    height: 150,
+                    child: Text(Utils.stripHtmlTags(post.excerpt),
+                        softWrap: true, maxLines: 8),
+                  )),
             ],
           ),
         ),

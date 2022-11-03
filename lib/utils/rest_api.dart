@@ -18,7 +18,7 @@ class ApiService {
   Future<PostList> getPosts({int perPage = 5}) async {
     final response = await dio.get(URLS.postsEndpoint,
         options: buildCacheOptions(const Duration(days: 7)),
-        queryParameters: {'perPage': perPage, 'page': 2});
+        queryParameters: {'perPage': perPage, 'page': 3});
     if (response.statusCode == 200) {
       return PostList.fromJson(json.decode(response.data));
     } else {

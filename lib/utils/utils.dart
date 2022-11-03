@@ -3,8 +3,15 @@ import 'dart:io';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:path_provider/path_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:html_unescape/html_unescape.dart';
 
 class Utils {
+  static var htmlUnescape = HtmlUnescape();
+
+  static String unescape(escapedString) {
+    return htmlUnescape.convert(escapedString);
+  }
+
   static void openUri(uri) {
     launchUrl(uri, mode: LaunchMode.externalApplication);
   }
@@ -19,5 +26,12 @@ class Utils {
     await file.writeAsBytes(byteData.buffer
         .asUint8List(byteData.offsetInBytes, byteData.lengthInBytes));
     return file;
+  }
+
+  static String stripHtmlTags(String html) {
+    RegExp exp = RegExp(r"<[^>]*>", multiLine: true, caseSensitive: true);
+    String parsedString = html.replaceAll(exp, '').replaceAll('[&hellip;]', '');
+    parsedString = unescape(parsedString);
+    return parsedString;
   }
 }
