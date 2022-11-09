@@ -1,10 +1,13 @@
+import 'dart:async';
 import 'dart:convert';
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:orino_smart_village/models/waypoint.dart';
+import 'package:geolocator/geolocator.dart';
+
+const LatLng _center = LatLng(45.8876175, 8.7261915);
 
 class MapPage extends StatefulWidget {
   const MapPage({Key? key}) : super(key: key);
@@ -15,23 +18,32 @@ class MapPage extends StatefulWidget {
 
 class _MapPageState extends State<MapPage>
     with AutomaticKeepAliveClientMixin<MapPage> {
+  final Completer<GoogleMapController> _controller = Completer();
   late GoogleMapController mapController;
-  final LatLng _center = const LatLng(45.8876175, 8.7261915);
-
   late Future _future;
+
+  static const CameraPosition centerPosition =
+      CameraPosition(target: _center, zoom: 14.0);
 
   Future<String> loadString() async =>
       await rootBundle.loadString('assets/percorso1.json');
   List<Marker> allMarkers = [];
 
-  void _onMapCreated(GoogleMapController controller) {
-    mapController = controller;
+  // Method for getting user current location
+  Future<Position> getUserCurrentLocation() async {
+    await Geolocator.requestPermission()
+        .then((value) {})
+        .onError((error, stackTrace) async {
+      await Geolocator.requestPermission();
+    });
+    return await Geolocator.getCurrentPosition();
   }
 
   @override
   void initState() {
     super.initState();
     _future = loadString();
+    _goToCenter();
   }
 
   @override
@@ -39,8 +51,7 @@ class _MapPageState extends State<MapPage>
 
   @override
   Widget build(BuildContext context) {
-    Random random = Random();
-
+    super.build(context);
     return Stack(children: [
       SizedBox(
         height: MediaQuery.of(context).size.height,
@@ -58,25 +69,54 @@ class _MapPageState extends State<MapPage>
                   infoWindow: InfoWindow(
                       title: currentWaypoint.name,
                       snippet: currentWaypoint.desc),
-                  markerId: MarkerId(random.nextInt(100).toString()),
+                  markerId: MarkerId(currentWaypoint.name),
                   position: LatLng(
                       currentWaypoint.latitude, currentWaypoint.longitude));
             }).toList();
 
             return GoogleMap(
-              myLocationButtonEnabled: true,
+              // Use FloatingActionButton
+              myLocationButtonEnabled: false,
               myLocationEnabled: true,
+              mapToolbarEnabled: false,
               mapType: MapType.terrain,
-              initialCameraPosition: CameraPosition(
+              initialCameraPosition: const CameraPosition(
                 target: _center,
                 zoom: 11.0,
               ),
               markers: Set.from(allMarkers),
-              onMapCreated: _onMapCreated,
+              onMapCreated: (GoogleMapController controller) {
+                _controller.complete(controller);
+              },
             );
           },
         ),
       ),
+      // Current location button
+      Positioned(
+        bottom: 35,
+        left: 10,
+        child: FloatingActionButton(
+          child: const Icon(Icons.my_location_outlined),
+          onPressed: () async {
+            getUserCurrentLocation().then((value) async {
+              _goToPosition(value.latitude, value.longitude);
+            });
+          },
+        ),
+      ),
     ]);
+  }
+
+  Future<void> _goToCenter() async {
+    final GoogleMapController controller = await _controller.future;
+    controller.animateCamera(CameraUpdate.newCameraPosition(centerPosition));
+  }
+
+  Future<void> _goToPosition(double lat, double lon) async {
+    LatLng pos = LatLng(lat, lon);
+    final GoogleMapController controller = await _controller.future;
+    controller.animateCamera(CameraUpdate.newCameraPosition(
+        CameraPosition(target: pos, zoom: 14.0)));
   }
 }

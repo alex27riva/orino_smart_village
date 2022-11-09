@@ -44,7 +44,9 @@ dependencies:
   alert: ^2.0.1
   url_launcher: ^6.1.4
   flutter_dropdown: ^1.0.1+hotfix.1
+  # Map
   google_maps_flutter: ^2.1.8
+  geolocator: ^9.0.2
   panorama: ^0.4.1
   flutter_html: ^3.0.0-alpha.5
   path_provider: ^2.0.11
