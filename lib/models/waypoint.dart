@@ -1,3 +1,10 @@
+/*
+ * waypoint.dart
+ * orino_smart_village
+ * Created by Alessandro Riva
+ * Copyright (c) 2022.
+ */
+
 class Waypoint {
   Waypoint(
       {required this.latitude, required this.longitude, required this.name, this.desc});

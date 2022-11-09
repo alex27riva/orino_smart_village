@@ -1,3 +1,10 @@
+/*
+ * home_carousel.dart
+ * orino_smart_village
+ * Created by Alessandro Riva
+ * Copyright (c) 2022.
+ */
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';

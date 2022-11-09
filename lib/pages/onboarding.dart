@@ -1,3 +1,10 @@
+/*
+ * onboarding.dart
+ * orino_smart_village
+ * Created by Alessandro Riva
+ * Copyright (c) 2022.
+ */
+
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:orino_smart_village/constants/images.dart';

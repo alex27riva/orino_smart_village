@@ -1,3 +1,10 @@
+/*
+ * main.dart
+ * orino_smart_village
+ * Created by Alessandro Riva
+ * Copyright (c) 2022.
+ */
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';

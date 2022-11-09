@@ -1,3 +1,10 @@
+/*
+ * utils.dart
+ * orino_smart_village
+ * Created by Alessandro Riva
+ * Copyright (c) 2022.
+ */
+
 import 'dart:async';
 import 'dart:io';
 import 'package:flutter/services.dart' show rootBundle;

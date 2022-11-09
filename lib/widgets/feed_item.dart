@@ -1,3 +1,10 @@
+/*
+ * feed_item.dart
+ * orino_smart_village
+ * Created by Alessandro Riva
+ * Copyright (c) 2022.
+ */
+
 import 'package:flutter/material.dart';
 import 'package:orino_smart_village/models/post.dart';
 import 'package:orino_smart_village/pages/webview.dart';

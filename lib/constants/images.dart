@@ -1,3 +1,10 @@
+/*
+ * images.dart
+ * orino_smart_village
+ * Created by Alessandro Riva
+ * Copyright (c) 2022.
+ */
+
 class ImageConstants {
 // navbar icons
   static const arIcon = 'assets/images/navbar/ar-icon.png';

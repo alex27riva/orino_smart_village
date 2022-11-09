@@ -1,3 +1,10 @@
+/*
+ * urls.dart
+ * orino_smart_village
+ * Created by Alessandro Riva
+ * Copyright (c) 2022.
+ */
+
 class URLS {
   static const String baseDomain = 'www.orinosmartvillage.it';
   static const String baseApiUrl =

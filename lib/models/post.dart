@@ -1,3 +1,10 @@
+/*
+ * post.dart
+ * orino_smart_village
+ * Created by Alessandro Riva
+ * Copyright (c) 2022.
+ */
+
 class Post {
   final int id;
   final String title;

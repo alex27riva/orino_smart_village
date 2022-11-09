@@ -1,3 +1,10 @@
+/*
+ * post_list.dart
+ * orino_smart_village
+ * Created by Alessandro Riva
+ * Copyright (c) 2022.
+ */
+
 import 'package:orino_smart_village/models/post.dart';
 
 class PostList {
