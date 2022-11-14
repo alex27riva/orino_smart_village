@@ -65,5 +65,11 @@
 	"onboardSecondPageTitle": "Scansiona i codici QR",
 	"onboardThirdPageBody": "Tocca il pulsante qui sotto per andare alla schermata principale",
 	"onboardThirdPageTitle": "Iniziamo!",
-	"shortlyText": "Prossimamente!"
+	"shortlyText": "Prossimamente!",
+	"cellarDescription": "Le cantine rappresentano gli spazi espositivi dell’Ecomuseo, dedicati alle testimonianze di cultura materiale.",
+	"cellarTitle": "Le cantine",
+	"cellarMarianaTitle": "Cantina de la Mariana",
+	"cellarGesaTitle": "Cantina du la Gesa",
+	"burgettRatTitle": "Burghett di Rat",
+	"cellarFaelTitle": "Cantina dul Fael"
 }

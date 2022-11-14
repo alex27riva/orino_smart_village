@@ -65,5 +65,11 @@
 	"onboardSecondPageTitle": "Scan the QR codes",
 	"onboardThirdPageBody": "Tap the button below to go to the main screen",
 	"onboardThirdPageTitle": "Let's start!",
-	"shortlyText": "Shortly!"
+	"shortlyText": "Shortly!",
+	"cellarDescription": "The cellars represent the exhibition spaces of the Ecomuseum, dedicated to the evidence of material culture.",
+	"cellarTitle": "Cellars",
+	"cellarMarianaTitle": "Cellar \"de la Mariana\"",
+	"cellarGesaTitle": "Cellar \"du la gesa\"",
+	"burgettRatTitle": "Burghett of Rat",
+	"cellarFaelTitle": "Cellar dul Fael"
 }
