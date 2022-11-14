@@ -64,5 +64,6 @@
 	"onboardSecondPageBody": "Get more information by scanning special QR codes",
 	"onboardSecondPageTitle": "Scan the QR codes",
 	"onboardThirdPageBody": "Tap the button below to go to the main screen",
-	"onboardThirdPageTitle": "Let's start!"
+	"onboardThirdPageTitle": "Let's start!",
+	"shortlyText": "Shortly!"
 }

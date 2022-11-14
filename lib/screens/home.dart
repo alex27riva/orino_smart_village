@@ -55,7 +55,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
                       text: AppLocalizations.of(context)!.homeButtonEcomuseum,
                       onPress: () => {
                             Alert(
-                                    message: 'Prossimamente!',
+                                    message: AppLocalizations.of(context)!.shortlyText,
                                     shortDuration: true)
                                 .show()
                           },
@@ -70,7 +70,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
                       text: AppLocalizations.of(context)!.homeButtonEcoturism,
                       onPress: () => {
                             Alert(
-                                    message: 'Prossimamente!',
+                                    message: AppLocalizations.of(context)!.shortlyText,
                                     shortDuration: true)
                                 .show()
                           },

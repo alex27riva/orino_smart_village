@@ -8,6 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:orino_smart_village/constants/images.dart';
 import 'package:orino_smart_village/widgets/home_button.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Cantine extends StatelessWidget {
   const Cantine({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class Cantine extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Cantine"),
+          title: Text(AppLocalizations.of(context)!.homeButtonCellars,),
         ),
         body: Container(
             margin: const EdgeInsets.all(16.0),
