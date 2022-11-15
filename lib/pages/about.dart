@@ -40,13 +40,11 @@ class About extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           RichText(
-                            textAlign: TextAlign.justify,
+                            textAlign: TextAlign.center,
                             text: TextSpan(
                               text: AppLocalizations.of(context)!
                                   .aboutFirstParagraph,
                               style: const TextStyle(
-                                  leadingDistribution:
-                                      TextLeadingDistribution.even,
                                   color: Colors.black,
                                   fontSize: 15,
                                   fontWeight: FontWeight.normal,
@@ -54,13 +52,13 @@ class About extends StatelessWidget {
                             ),
                           ),
                           RichText(
-                            textAlign: TextAlign.justify,
+                            textAlign: TextAlign.center,
                             text: TextSpan(
                               text: AppLocalizations.of(context)!
                                   .aboutSecondParagraph,
                               style: const TextStyle(
                                   color: Colors.black,
-                                  fontSize: 14,
+                                  fontSize: 15,
                                   fontWeight: FontWeight.normal,
                                   decoration: TextDecoration.none),
                             ),

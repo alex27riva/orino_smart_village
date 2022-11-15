@@ -34,6 +34,7 @@ class _FeedState extends State<Feed> with AutomaticKeepAliveClientMixin<Feed> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return FutureBuilder<PostList>(
         future: futurePost,
         builder: (context, snapshot) {

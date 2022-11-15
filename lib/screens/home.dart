@@ -37,6 +37,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Container(
         padding: const EdgeInsets.only(top: 16.0),
         child: Column(children: <Widget>[

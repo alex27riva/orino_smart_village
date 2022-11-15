@@ -68,7 +68,7 @@ class _SettingsState extends State<Settings> {
               ),
             ),
             // dark theme
-            Container(
+            /*Container(
               margin: const EdgeInsets.only(top: 20.0),
               child: SwitchListTile(
                 title: Text(AppLocalizations.of(context)!.themeText),
@@ -80,7 +80,7 @@ class _SettingsState extends State<Settings> {
                   setState(() => darkThemeState = value);
                 },
               ),
-            ),
+            ),*/
           ],
         ),
       ),

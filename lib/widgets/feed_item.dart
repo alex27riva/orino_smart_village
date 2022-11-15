@@ -36,17 +36,20 @@ class FeedItem extends StatelessWidget {
           width: 1,
           color: Colors.black,
         )),
+        // Card title
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
               Text(Utils.unescape(post.title),
                   overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
                   style: const TextStyle(
                     fontSize: 24,
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
                   )),
+              // Card image
               Container(
                 child: (post.hasImageAvailable)
                     ? ClipRRect(
@@ -59,11 +62,13 @@ class FeedItem extends StatelessWidget {
                       )
                     : Container(), // empty container
               ),
+              // Card content
               Container(
                   padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
                   child: SizedBox(
                     height: 150,
                     child: Text(Utils.stripHtmlTags(post.excerpt),
+                        textAlign: TextAlign.center,
                         softWrap: true, maxLines: 8),
                   )),
             ],

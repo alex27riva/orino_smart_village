@@ -32,7 +32,7 @@ class Rocca extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.only(top: 50.0),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20.0),
+                  borderRadius: BorderRadius.circular(15.0),
                   child: const Image(
                     image: AssetImage(ImageConstants.roccaTramonto),
                   ),
@@ -41,7 +41,7 @@ class Rocca extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.only(top: 80),
                 child: RichText(
-                    textAlign: TextAlign.justify,
+                    textAlign: TextAlign.center,
                     text: TextSpan(
                       text: AppLocalizations.of(context)!.fortressDescription,
                       style: const TextStyle(

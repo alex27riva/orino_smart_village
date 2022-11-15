@@ -18,7 +18,7 @@ class HomeButton extends StatelessWidget {
   final VoidCallback onPress;
   final IconData? icon;
   final String? image;
-  late Widget child;
+  late final Widget child;
   final String selector;
 
   HomeButton(
