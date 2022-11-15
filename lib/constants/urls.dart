@@ -12,4 +12,14 @@ class URLS {
   static const String usersEndpoint = '/users';
   static const String postsEndpoint = '/posts';
   static const String mediaEndpoint = '/media';
+
+  // Cantine
+  static const String cantinaMariana =
+      'https://www.orinosmartvillage.it/place/cantina-mariana/';
+  static const String cantinaGesa =
+      'https://www.orinosmartvillage.it/place/cantina-du-la-gesa/';
+  static const String cantinaFael =
+      'https://www.orinosmartvillage.it/place/cantina-dul-fael/';
+  static const String burgettDiRat =
+      'https://www.orinosmartvillage.it/place/burghett-rat/';
 }

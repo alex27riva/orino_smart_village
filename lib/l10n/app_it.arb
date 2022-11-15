@@ -71,5 +71,10 @@
 	"cellarMarianaTitle": "Cantina de la Mariana",
 	"cellarGesaTitle": "Cantina du la Gesa",
 	"burgettRatTitle": "Burghett di Rat",
-	"cellarFaelTitle": "Cantina dul Fael"
+	"cellarFaelTitle": "Cantina dul Fael",
+	"moreInfoText": "Più informazioni",
+	"cellarMarianaDescription": "La cantina du la Mariana è uno spazio espositivo che conserva l’architettura di una stalla: il soffitto a volta, la pavimentazione in beola, la mangiatoia. In questo luogo si possono trovare le testimonianze di cultura materiale che raccontano le attività che si svolgevano nella stalla o a questa collegate.",
+	"cellarGesaDescription": "Questo spazio espositivo è così chiamato per la sua localizzazione a lato della chiesa parrocchiale. La prima delle due sale che lo compone è quella dedicata al lavoro della terra, cioè della campagna, dove la fine dell’inverno segnava l’avvio delle attività agricole.",
+	"cellarBurgettDescription": "Lo spazio espositivo denominato Burghett di Rat è dedicato alle testimonianze di cultura materiale che raccontano il grande lavoro manuale svolto nei secoli dalla figura del boscaiolo, architetto del paesaggio.",
+	"cellarFaelDescription": "Gli oggetti della cultura materiale che raccontano il percorso dalla coltivazione dell’uva alla vinificazione sono collocati nella Cantina dul Fael, dedicata a un personaggio entrato a far parte della memoria storica del paese."
 }

@@ -8,7 +8,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:orino_smart_village/widgets/360_button.dart';
-import 'package:orino_smart_village/widgets/360_view.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:orino_smart_village/constants/images.dart';

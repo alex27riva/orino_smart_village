@@ -71,5 +71,10 @@
 	"cellarMarianaTitle": "Cellar \"de la Mariana\"",
 	"cellarGesaTitle": "Cellar \"du la gesa\"",
 	"burgettRatTitle": "Burghett of Rat",
-	"cellarFaelTitle": "Cellar dul Fael"
+	"cellarFaelTitle": "Cellar dul Fael",
+	"moreInfoText": "More info",
+	"cellarMarianaDescription": "",
+	"cellarGesaDescription": "",
+	"cellarBurgettDescription": "",
+	"cellarFaelDescription": ""
 }
