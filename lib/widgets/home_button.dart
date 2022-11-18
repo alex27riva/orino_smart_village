@@ -11,6 +11,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 const buttonForeground = Color(0xff304d85);
 const buttonBackground = Color(0xff90a955);
 
+enum ChildType { icon, image }
+
 class HomeButton extends StatelessWidget {
   final String text;
   final double textSize;
@@ -19,7 +21,7 @@ class HomeButton extends StatelessWidget {
   final IconData? icon;
   final String? image;
   late final Widget child;
-  final String selector;
+  final ChildType childType;
 
   HomeButton(
       {Key? key,
@@ -29,11 +31,11 @@ class HomeButton extends StatelessWidget {
       this.textSize = 14,
       this.icon,
       this.image,
-      this.selector = 'icon'})
+      this.childType = ChildType.icon})
       : super(key: key) {
-    if (selector == 'icon') {
+    if (childType == ChildType.icon) {
       child = FaIcon(icon, size: 72, color: buttonForeground);
-    } else if (selector == 'image') {
+    } else if (childType == ChildType.image) {
       child = Padding(
         padding: const EdgeInsets.all(8.0),
         child:

@@ -61,7 +61,7 @@ class Cantine extends StatelessWidget {
                                     externalUrl: URLS.burgettDiRat,
                                   )));
                         },
-                        selector: 'image',
+                        childType: ChildType.image,
                         image: ImageConstants.burgett),
                     HomeButton(
                         text: AppLocalizations.of(context)!.cellarGesaTitle,
@@ -75,7 +75,7 @@ class Cantine extends StatelessWidget {
                                     externalUrl: URLS.cantinaGesa,
                                   )));
                         },
-                        selector: 'image',
+                        childType: ChildType.image,
                         image: ImageConstants.cantinaGesa),
                     HomeButton(
                         text: AppLocalizations.of(context)!.cellarMarianaTitle,
@@ -89,7 +89,7 @@ class Cantine extends StatelessWidget {
                                     externalUrl: URLS.cantinaMariana,
                                   )));
                         },
-                        selector: 'image',
+                        childType: ChildType.image,
                         image: ImageConstants.cantinaMariana),
                     HomeButton(
                         text: AppLocalizations.of(context)!.cellarFaelTitle,
@@ -103,7 +103,7 @@ class Cantine extends StatelessWidget {
                                     externalUrl: URLS.cantinaFael,
                                   )));
                         },
-                        selector: 'image',
+                        childType: ChildType.image,
                         image: ImageConstants.fael),
                   ],
                 ),
