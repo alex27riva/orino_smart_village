@@ -8,6 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:orino_smart_village/models/language_settings.dart';
 import 'package:orino_smart_village/pages/onboarding.dart';
 import 'package:orino_smart_village/pages/webview.dart';
 import 'package:orino_smart_village/pages/rocca.dart';
@@ -21,6 +22,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:orino_smart_village/widgets/orino_app.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:provider/provider.dart';
 
 final InAppLocalhostServer localhostServer = InAppLocalhostServer(port: 8080);
 int? isViewed;
@@ -44,26 +46,37 @@ class MyApp extends StatelessWidget {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]);
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        onGenerateTitle: (context) => AppLocalizations.of(context)!.appTitle,
-        localizationsDelegates: AppLocalizations.localizationsDelegates,
-        supportedLocales: AppLocalizations.supportedLocales,
-        theme: ThemeData(primarySwatch: Colors.blue),
-        home: isViewed != 0 ? const OnBoardingPage() : const OrinoApp(),
-        routes: {
-          '/scan': (_) => const Scanner(),
-          '/about': (_) => const About(),
-          '/home': (_) => const OrinoApp(),
-          '/rocca': (_) => const Rocca(),
-          '/contacts': (_) => const Contacts(),
-          '/settings': (_) => const Settings(),
-          '/cantine': (_) => const Cantine(),
-          '/360': (_) => const View360(
-                imageUrl: '',
-              ),
-          '/webview': (_) => const WebViewPage(),
-          '/onboarding': (_) => const OnBoardingPage(),
-        });
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => LanguageSettings(),
+        )
+      ],
+      child: Consumer<LanguageSettings>(builder: (context, langValue, child) {
+        return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            onGenerateTitle: (context) =>
+                AppLocalizations.of(context)!.appTitle,
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+            theme: ThemeData(primarySwatch: Colors.blue),
+            locale: Locale(langValue.lang),
+            home: isViewed != 0 ? const OnBoardingPage() : const OrinoApp(),
+            routes: {
+              '/scan': (_) => const Scanner(),
+              '/about': (_) => const About(),
+              '/home': (_) => const OrinoApp(),
+              '/rocca': (_) => const Rocca(),
+              '/contacts': (_) => const Contacts(),
+              '/settings': (_) => const Settings(),
+              '/cantine': (_) => const Cantine(),
+              '/360': (_) => const View360(
+                    imageUrl: '',
+                  ),
+              '/webview': (_) => const WebViewPage(),
+              '/onboarding': (_) => const OnBoardingPage(),
+            });
+      }),
+    );
   }
 }

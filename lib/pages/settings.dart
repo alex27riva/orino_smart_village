@@ -8,9 +8,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dropdown/flutter_dropdown.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:orino_smart_village/models/language_settings.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:provider/provider.dart';
 
 const double borderWidth = 1;
+const languages = {'Italiano': 'it', 'English': 'en'};
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
@@ -38,20 +41,27 @@ class _SettingsState extends State<Settings> {
             Container(
               margin: const EdgeInsets.only(top: 15.0),
               child: ListTile(
-                shape: const Border(
-                    bottom:
-                        BorderSide(color: Colors.black, width: borderWidth)),
-                leading: Text(AppLocalizations.of(context)!.languageText),
-                trailing: DropDown(
-                  items: const ["Italiano", "English"],
-                  hint: const Text("Italiano"),
-                  icon: const Icon(
-                    Icons.expand_more,
-                    color: Colors.blue,
-                  ),
-                  onChanged: print,
-                ),
-              ),
+                  shape: const Border(
+                      bottom:
+                          BorderSide(color: Colors.black, width: borderWidth)),
+                  leading: Text(AppLocalizations.of(context)!.languageText,
+                      style: const TextStyle(fontSize: 16)),
+                  trailing: Consumer<LanguageSettings>(
+                    builder: (context, langValue, child) {
+                      return DropDown(
+                        items: const ["Italiano", "English"],
+                        initialValue:
+                            langValue.lang == 'it' ? 'Italiano' : 'English',
+                        icon: const Icon(
+                          Icons.expand_more,
+                          color: Colors.blue,
+                        ),
+                        onChanged: (val) {
+                          langValue.setLanguage(languages[val]!);
+                        },
+                      );
+                    },
+                  )),
             ),
             // notifications
             Container(
