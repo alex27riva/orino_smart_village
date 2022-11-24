@@ -104,6 +104,7 @@ flutter:
     - assets/webcontent/
     - assets/webcontent/js/
     - assets/webcontent/img/
+    - assets/webcontent/dashboard/
     # Other assets
     - assets/percorso1.json
 

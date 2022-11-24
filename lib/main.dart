@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:orino_smart_village/models/language_settings.dart';
+import 'package:orino_smart_village/pages/dashboard.dart';
 import 'package:orino_smart_village/pages/onboarding.dart';
 import 'package:orino_smart_village/pages/webview.dart';
 import 'package:orino_smart_village/pages/rocca.dart';
@@ -75,6 +76,7 @@ class MyApp extends StatelessWidget {
                   ),
               '/webview': (_) => const WebViewPage(),
               '/onboarding': (_) => const OnBoardingPage(),
+              '/dashboard': (_) => const Dashboard(),
             });
       }),
     );

@@ -135,6 +135,13 @@ class _OrinoAppState extends State<OrinoApp> {
               },
             ),
             ListTile(
+              leading: const Icon(Icons.dashboard),
+              title: const Text("Dashboard"),
+              onTap: () {
+                Navigator.pushNamed(context, '/dashboard');
+              },
+            ),
+            ListTile(
               leading: const Icon(Icons.settings),
               title: Text(AppLocalizations.of(context)!.settingsTitle),
               onTap: () {
