@@ -29,22 +29,21 @@ class CellarInfo extends StatelessWidget {
       appBar: AppBar(title: Text(title)),
       body: Container(
         padding: const EdgeInsets.all(20.0),
-        child: SingleChildScrollView(
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ClipRRect(
-                    borderRadius: BorderRadius.circular(15.0),
-                    child: Image(image: AssetImage(imagePath))),
-                Padding(
-                  padding: const EdgeInsets.only(top: 20.0),
-                  child: Text(
-                    content,
-                    textAlign: TextAlign.center,
-                  ),
-                )
-              ]),
-        ),
+        child: ListView(children: [
+          ClipRRect(
+              borderRadius: BorderRadius.circular(15.0),
+              child: Image(image: AssetImage(imagePath))),
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0),
+            child: Text(
+              content,
+              textAlign: TextAlign.center,
+            ),
+          ),
+          const SizedBox(
+            height: 100,
+          ),
+        ]),
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
