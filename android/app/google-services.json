@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "977737550939",
+    "firebase_url": "https://orino-smart-village-default-rtdb.firebaseio.com",
+    "project_id": "orino-smart-village",
+    "storage_bucket": "orino-smart-village.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:977737550939:android:e921cff59635bbbcc9037e",
+        "android_client_info": {
+          "package_name": "com.orinosmartvillage.orino_smart_village"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "977737550939-c865i24nulnep4jjqn9eo0avkbbeq0v1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmT2jaRMZDAsDjbTVaraa2PsTPbnX7hj8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "977737550939-c865i24nulnep4jjqn9eo0avkbbeq0v1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "977737550939-ijua0drc2mtld9n9u9ri2p74kulaabsd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.orinosmartvillage.orino-smart-village"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

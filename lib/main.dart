@@ -5,9 +5,11 @@
  * Copyright (c) 2022.
  */
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:orino_smart_village/firebase_options.dart';
 import 'package:orino_smart_village/models/language_settings.dart';
 import 'package:orino_smart_village/pages/onboarding.dart';
 import 'package:orino_smart_village/pages/webview.dart';
@@ -32,6 +34,10 @@ Future<void> main() async {
   await Permission.camera.request();
   await Permission.location.request();
   SharedPreferences prefs = await SharedPreferences.getInstance();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   // start the localhost server
   await localhostServer.start();
   isViewed = prefs.getInt('onBoard');
