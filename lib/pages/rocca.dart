@@ -54,7 +54,7 @@ class Rocca extends StatelessWidget {
                       )),
                 ),
                 const PanoramicButton(
-                    panoramicImageUrl: ImageConstants.roccaPanoramic),
+                    panoramicImageName: ImageConstants.roccaPanoramicFilename),
                 // Show on map button container
                 Container(
                   margin: const EdgeInsets.only(left: 20.0, right: 20.0),
