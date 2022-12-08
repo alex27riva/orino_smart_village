@@ -45,7 +45,7 @@ class HomeCarousel extends StatelessWidget {
             // TODO: handle carousel if there is no internet connection
             return const Text('No internet connection');
           }
-          return const CircularProgressIndicator();
+          return const Center(child: CircularProgressIndicator());
         });
   }
 }

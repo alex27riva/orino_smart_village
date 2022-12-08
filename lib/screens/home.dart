@@ -38,51 +38,66 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    // double screenWidth = MediaQuery.of(context).size.width;
+    // double screenHeight = MediaQuery.of(context).size.height;
     return Container(
-        padding: const EdgeInsets.only(top: 16.0),
-        child: Column(children: <Widget>[
-          HomeCarousel(futurePost: futurePost),
-          Container(
-            margin: const EdgeInsets.only(left: 32.0, right: 32.0, top: 50.0),
-            child: GridView.count(
-                crossAxisCount: 2,
-                shrinkWrap: true,
-                childAspectRatio: 1,
-                crossAxisSpacing: 20.0,
-                mainAxisSpacing: 20.0,
-                padding: const EdgeInsets.only(left: 25, right: 25),
-                children: [
-                  HomeButton(
-                      text: AppLocalizations.of(context)!.homeButtonEcomuseum,
-                      onPress: () => {
-                            Alert(
-                                    message: AppLocalizations.of(context)!.shortlyText,
-                                    shortDuration: true)
-                                .show()
-                          },
-                      icon: FontAwesomeIcons.buildingColumns),
-                  // Rocca di orino
-                  HomeButton(
-                      text: AppLocalizations.of(context)!.homeButtonFortress,
-                      onPress: () => {Navigator.pushNamed(context, '/rocca')},
-                      icon: FontAwesomeIcons.fortAwesome),
-                  // Ecoturismo
-                  HomeButton(
-                      text: AppLocalizations.of(context)!.homeButtonEcoturism,
-                      onPress: () => {
-                            Alert(
-                                    message: AppLocalizations.of(context)!.shortlyText,
-                                    shortDuration: true)
-                                .show()
-                          },
-                      icon: FontAwesomeIcons.leaf),
-                  // Cantine
-                  HomeButton(
-                      text: AppLocalizations.of(context)!.homeButtonCellars,
-                      onPress: () => {Navigator.pushNamed(context, '/cantine')},
-                      icon: FontAwesomeIcons.dungeon)
-                ]),
-          )
-        ]));
+        padding: const EdgeInsets.only(top: 10.0),
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              Expanded(child: HomeCarousel(futurePost: futurePost)),
+              Expanded(
+                child: Container(
+                  margin: const EdgeInsets.only(left: 32.0, right: 32.0),
+                  child: GridView.count(
+                      crossAxisCount: 2,
+                      shrinkWrap: true,
+                      childAspectRatio: 1,
+                      crossAxisSpacing: 20.0,
+                      mainAxisSpacing: 20.0,
+                      padding: const EdgeInsets.only(left: 25, right: 25),
+                      children: [
+                        HomeButton(
+                            text: AppLocalizations.of(context)!
+                                .homeButtonEcomuseum,
+                            onPress: () => {
+                                  Alert(
+                                          message: AppLocalizations.of(context)!
+                                              .shortlyText,
+                                          shortDuration: true)
+                                      .show()
+                                },
+                            icon: FontAwesomeIcons.buildingColumns),
+                        // Rocca di orino
+                        HomeButton(
+                            text: AppLocalizations.of(context)!
+                                .homeButtonFortress,
+                            onPress: () =>
+                                {Navigator.pushNamed(context, '/rocca')},
+                            icon: FontAwesomeIcons.fortAwesome),
+                        // Ecoturismo
+                        HomeButton(
+                            text: AppLocalizations.of(context)!
+                                .homeButtonEcoturism,
+                            onPress: () => {
+                                  Alert(
+                                          message: AppLocalizations.of(context)!
+                                              .shortlyText,
+                                          shortDuration: true)
+                                      .show()
+                                },
+                            icon: FontAwesomeIcons.leaf),
+                        // Cantine
+                        HomeButton(
+                            text:
+                                AppLocalizations.of(context)!.homeButtonCellars,
+                            onPress: () =>
+                                {Navigator.pushNamed(context, '/cantine')},
+                            icon: FontAwesomeIcons.dungeon)
+                      ]),
+                ),
+              )
+            ]));
   }
 }
