@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:orino_smart_village/constants/images.dart';
 import 'package:orino_smart_village/constants/urls.dart';
 import 'package:orino_smart_village/pages/cellar_info.dart';
-import 'package:orino_smart_village/widgets/home_button.dart';
+import 'package:orino_smart_village/widgets/big_button.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Cantine extends StatelessWidget {
@@ -49,7 +49,7 @@ class Cantine extends StatelessWidget {
                   crossAxisSpacing: 25.0,
                   mainAxisSpacing: 25.0,
                   children: [
-                    HomeButton(
+                    BigButton(
                         text: AppLocalizations.of(context)!.burgettRatTitle,
                         onPress: () {
                           Navigator.of(context).push(MaterialPageRoute(
@@ -63,7 +63,7 @@ class Cantine extends StatelessWidget {
                         },
                         childType: ChildType.image,
                         image: ImageConstants.burgett),
-                    HomeButton(
+                    BigButton(
                         text: AppLocalizations.of(context)!.cellarGesaTitle,
                         onPress: () {
                           Navigator.of(context).push(MaterialPageRoute(
@@ -77,7 +77,7 @@ class Cantine extends StatelessWidget {
                         },
                         childType: ChildType.image,
                         image: ImageConstants.cantinaGesa),
-                    HomeButton(
+                    BigButton(
                         text: AppLocalizations.of(context)!.cellarMarianaTitle,
                         onPress: () {
                           Navigator.of(context).push(MaterialPageRoute(
@@ -91,7 +91,7 @@ class Cantine extends StatelessWidget {
                         },
                         childType: ChildType.image,
                         image: ImageConstants.cantinaMariana),
-                    HomeButton(
+                    BigButton(
                         text: AppLocalizations.of(context)!.cellarFaelTitle,
                         onPress: () {
                           Navigator.of(context).push(MaterialPageRoute(

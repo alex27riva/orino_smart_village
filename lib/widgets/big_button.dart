@@ -13,17 +13,17 @@ const buttonBackground = Color(0xff90a955);
 
 enum ChildType { icon, image }
 
-class HomeButton extends StatelessWidget {
+class BigButton extends StatelessWidget {
   final String text;
   final double textSize;
   final Color backColor;
   final VoidCallback onPress;
   final IconData? icon;
   final String? image;
-  late final Widget child;
+  late final Widget innerChild;
   final ChildType childType;
 
-  HomeButton(
+  BigButton(
       {Key? key,
       required this.text,
       this.backColor = buttonBackground,
@@ -34,15 +34,15 @@ class HomeButton extends StatelessWidget {
       this.childType = ChildType.icon})
       : super(key: key) {
     if (childType == ChildType.icon) {
-      child = FaIcon(icon, size: 72, color: buttonForeground);
+      innerChild = FaIcon(icon, size: 72, color: buttonForeground);
     } else if (childType == ChildType.image) {
-      child = Padding(
+      innerChild = Padding(
         padding: const EdgeInsets.all(8.0),
         child:
             Image(image: AssetImage(image!), fit: BoxFit.contain, height: 80),
       );
     } else {
-      child = Container();
+      innerChild = Container();
     }
   }
 
@@ -60,11 +60,16 @@ class HomeButton extends StatelessWidget {
         onPress();
       },
       child:
-          Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-        child,
-        Text(text,
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: textSize, color: Colors.black)),
+          Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+        Flexible(
+          flex: 2,
+            child: innerChild),
+        Flexible(
+          flex: 1,
+          child: Text(text,
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: textSize, color: Colors.black)),
+        ),
       ]),
     );
   }

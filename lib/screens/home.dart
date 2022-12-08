@@ -12,7 +12,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:orino_smart_village/constants/urls.dart';
 import 'package:orino_smart_village/utils/rest_api.dart';
 import 'package:orino_smart_village/models/post_list.dart';
-import 'package:orino_smart_village/widgets/home_button.dart';
+import 'package:orino_smart_village/widgets/big_button.dart';
 import 'package:orino_smart_village/widgets/home_carousel.dart';
 
 class Home extends StatefulWidget {
@@ -58,7 +58,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
                       mainAxisSpacing: 20.0,
                       padding: const EdgeInsets.only(left: 25, right: 25),
                       children: [
-                        HomeButton(
+                        BigButton(
                             text: AppLocalizations.of(context)!
                                 .homeButtonEcomuseum,
                             onPress: () => {
@@ -70,14 +70,14 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
                                 },
                             icon: FontAwesomeIcons.buildingColumns),
                         // Rocca di orino
-                        HomeButton(
+                        BigButton(
                             text: AppLocalizations.of(context)!
                                 .homeButtonFortress,
                             onPress: () =>
                                 {Navigator.pushNamed(context, '/rocca')},
                             icon: FontAwesomeIcons.fortAwesome),
                         // Ecoturismo
-                        HomeButton(
+                        BigButton(
                             text: AppLocalizations.of(context)!
                                 .homeButtonEcoturism,
                             onPress: () => {
@@ -89,7 +89,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
                                 },
                             icon: FontAwesomeIcons.leaf),
                         // Cantine
-                        HomeButton(
+                        BigButton(
                             text:
                                 AppLocalizations.of(context)!.homeButtonCellars,
                             onPress: () =>
