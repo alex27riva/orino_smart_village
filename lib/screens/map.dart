@@ -11,6 +11,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:orino_smart_village/models/poi.dart';
 import 'package:orino_smart_village/services/realtime_db_service.dart';
 
 const LatLng _center = LatLng(45.8876175, 8.7261915);
@@ -63,20 +64,17 @@ class _MapPageState extends State<MapPage>
         width: MediaQuery.of(context).size.width,
         child: FutureBuilder<Iterable<DataSnapshot>>(
           future: locFuture,
-          builder: (context, AsyncSnapshot snapshot) {
+          builder: (context, snapshot) {
             if (!snapshot.hasData) {
               return const Center(child: CircularProgressIndicator());
             }
-            snapshot.data!.forEach((child) {
-              var childVal = child.value;
-
+            for (var child in snapshot.data!) {
+              POI poi = POI.fromDataSnapshot(child);
               allMarkers.add(Marker(
-                  infoWindow: InfoWindow(
-                      title: childVal['name'], snippet: childVal['desc']),
-                  markerId: MarkerId(childVal['name']),
-                  position:
-                      LatLng(childVal['latitude'], childVal['longitude'])));
-            });
+                  infoWindow: InfoWindow(title: poi.name, snippet: poi.desc),
+                  markerId: MarkerId(poi.name),
+                  position: LatLng(poi.latitude, poi.longitude)));
+            }
 
             return GoogleMap(
               // Use FloatingActionButton
