@@ -13,6 +13,7 @@ import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:orino_smart_village/models/waypoint.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:orino_smart_village/services/realtime_db_service.dart';
 
 const LatLng _center = LatLng(45.8876175, 8.7261915);
 
@@ -28,6 +29,8 @@ class _MapPageState extends State<MapPage>
   final Completer<GoogleMapController> _controller = Completer();
   late GoogleMapController mapController;
   late Future _future;
+  late Future locFuture;
+  late RealtimeDatabase rtdb = RealtimeDatabase();
 
   static const CameraPosition centerPosition =
       CameraPosition(target: _center, zoom: 14.0);
@@ -50,6 +53,7 @@ class _MapPageState extends State<MapPage>
   void initState() {
     super.initState();
     _future = loadString();
+    locFuture = rtdb.getLocations();
     _goToCenter();
   }
 
