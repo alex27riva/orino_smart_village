@@ -108,8 +108,6 @@ flutter:
     - assets/webcontent/
     - assets/webcontent/js/
     - assets/webcontent/img/
-    # Other assets
-    - assets/percorso1.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
