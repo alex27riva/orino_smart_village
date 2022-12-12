@@ -6,13 +6,13 @@
  */
 
 import 'dart:async';
-import 'dart:convert';
 
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:orino_smart_village/models/waypoint.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:orino_smart_village/models/poi.dart';
+import 'package:orino_smart_village/services/realtime_db_service.dart';
 
 const LatLng _center = LatLng(45.8876175, 8.7261915);
 
@@ -27,13 +27,12 @@ class _MapPageState extends State<MapPage>
     with AutomaticKeepAliveClientMixin<MapPage> {
   final Completer<GoogleMapController> _controller = Completer();
   late GoogleMapController mapController;
-  late Future _future;
+  late Future<Iterable<DataSnapshot>> locFuture;
+  late RealtimeDatabase rtdb = RealtimeDatabase();
 
   static const CameraPosition centerPosition =
       CameraPosition(target: _center, zoom: 14.0);
 
-  Future<String> loadString() async =>
-      await rootBundle.loadString('assets/percorso1.json');
   List<Marker> allMarkers = [];
 
   // Method for getting user current location
@@ -49,7 +48,7 @@ class _MapPageState extends State<MapPage>
   @override
   void initState() {
     super.initState();
-    _future = loadString();
+    locFuture = rtdb.getLocations();
     _goToCenter();
   }
 
@@ -63,23 +62,19 @@ class _MapPageState extends State<MapPage>
       SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        child: FutureBuilder(
-          future: _future,
-          builder: (context, AsyncSnapshot snapshot) {
+        child: FutureBuilder<Iterable<DataSnapshot>>(
+          future: locFuture,
+          builder: (context, snapshot) {
             if (!snapshot.hasData) {
-              return const CircularProgressIndicator();
+              return const Center(child: CircularProgressIndicator());
             }
-            List<dynamic> parsedJson = jsonDecode(snapshot.data);
-            allMarkers = parsedJson.map((element) {
-              Waypoint currentWaypoint = Waypoint.fromJson(element);
-              return Marker(
-                  infoWindow: InfoWindow(
-                      title: currentWaypoint.name,
-                      snippet: currentWaypoint.desc),
-                  markerId: MarkerId(currentWaypoint.name),
-                  position: LatLng(
-                      currentWaypoint.latitude, currentWaypoint.longitude));
-            }).toList();
+            for (var child in snapshot.data!) {
+              POI poi = POI.fromDataSnapshot(child);
+              allMarkers.add(Marker(
+                  infoWindow: InfoWindow(title: poi.name, snippet: poi.desc),
+                  markerId: MarkerId(poi.name),
+                  position: LatLng(poi.latitude, poi.longitude)));
+            }
 
             return GoogleMap(
               // Use FloatingActionButton
