@@ -76,9 +76,7 @@ class MyApp extends StatelessWidget {
               '/contacts': (_) => const Contacts(),
               '/settings': (_) => const Settings(),
               '/cantine': (_) => const Cantine(),
-              '/360': (_) => const View360(
-                    imageUrl: '',
-                  ),
+              '/360': (_) => const View360(),
               '/webview': (_) => const WebViewPage(),
               '/onboarding': (_) => const OnBoardingPage(),
             });
