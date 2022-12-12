@@ -26,7 +26,7 @@ class _MapPageState extends State<MapPage>
     with AutomaticKeepAliveClientMixin<MapPage> {
   final Completer<GoogleMapController> _controller = Completer();
   late GoogleMapController mapController;
-  late Future<Iterable<DataSnapshot>?> locFuture;
+  late Future<Iterable<DataSnapshot>> locFuture;
   late RealtimeDatabase rtdb = RealtimeDatabase();
 
   static const CameraPosition centerPosition =
@@ -61,7 +61,7 @@ class _MapPageState extends State<MapPage>
       SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        child: FutureBuilder<Iterable<DataSnapshot>?>(
+        child: FutureBuilder<Iterable<DataSnapshot>>(
           future: locFuture,
           builder: (context, AsyncSnapshot snapshot) {
             if (!snapshot.hasData) {
