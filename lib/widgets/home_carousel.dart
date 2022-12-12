@@ -9,6 +9,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:orino_smart_village/models/post_list.dart';
+import 'package:orino_smart_village/widgets/network_unavailable.dart';
 
 class HomeCarousel extends StatelessWidget {
   final Future<PostList> futurePost;
@@ -42,8 +43,7 @@ class HomeCarousel extends StatelessWidget {
                   .toList(),
             );
           } else if (snapshot.hasError) {
-            // TODO: handle carousel if there is no internet connection
-            return const Text('No internet connection');
+            return const NetworkUnavailable();
           }
           return const Center(child: CircularProgressIndicator());
         });

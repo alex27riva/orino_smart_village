@@ -6,11 +6,11 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:orino_smart_village/constants/images.dart';
 import 'package:orino_smart_village/constants/urls.dart';
 import 'package:orino_smart_village/utils/rest_api.dart';
 import 'package:orino_smart_village/models/post_list.dart';
 import 'package:orino_smart_village/widgets/feed_item.dart';
+import 'package:orino_smart_village/widgets/network_unavailable.dart';
 
 class Feed extends StatefulWidget {
   const Feed({Key? key}) : super(key: key);
@@ -50,11 +50,7 @@ class _FeedState extends State<Feed> with AutomaticKeepAliveClientMixin<Feed> {
           } else if (snapshot.hasError) {
             return Container(
               padding: const EdgeInsets.all(20.0),
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Image(image: AssetImage(ImageConstants.noInternet))
-                  ]),
+              child: const NetworkUnavailable(),
             );
           }
           return const Center(child: CircularProgressIndicator());

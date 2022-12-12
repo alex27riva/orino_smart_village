@@ -48,5 +48,5 @@ class ImageConstants {
 
 // Misc
   static const osvLogo = 'assets/images/logos/osv-logo.jpg';
-  static const noInternet = 'assets/images/misc/no-internet.png';
+  static const noWifi = 'assets/images/misc/no-wifi.png';
 }

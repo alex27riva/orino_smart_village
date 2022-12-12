@@ -76,5 +76,6 @@
 	"cellarMarianaDescription": "",
 	"cellarGesaDescription": "",
 	"cellarBurgettDescription": "",
-	"cellarFaelDescription": ""
+	"cellarFaelDescription": "",
+	"networkErrorText": "A network problem has occurred."
 }
