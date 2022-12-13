@@ -41,4 +41,14 @@ class Utils {
     parsedString = unescape(parsedString);
     return parsedString;
   }
+
+  static String shortText(String originalText, {int maxLength = 20}) {
+    if (originalText.length > maxLength) {
+      int lastSpaceBeforeLimit = originalText.lastIndexOf(' ', maxLength);
+      String shortenedText = originalText.substring(0, lastSpaceBeforeLimit);
+      shortenedText += '...';
+      return shortenedText;
+    }
+    return originalText;
+  }
 }

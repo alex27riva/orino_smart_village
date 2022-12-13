@@ -41,7 +41,7 @@ class FeedItem extends StatelessWidget {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              Text(Utils.unescape(post.title),
+              Text(Utils.shortText(Utils.unescape(post.title), maxLength: 20),
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
@@ -67,9 +67,12 @@ class FeedItem extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
                   child: SizedBox(
                     height: 150,
-                    child: Text(Utils.stripHtmlTags(post.excerpt),
+                    child: Text(
+                        Utils.shortText(Utils.stripHtmlTags(post.excerpt),
+                            maxLength: 150),
                         textAlign: TextAlign.center,
-                        softWrap: true, maxLines: 8),
+                        softWrap: true,
+                        maxLines: 8),
                   )),
             ],
           ),
