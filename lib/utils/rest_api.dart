@@ -23,13 +23,23 @@ class ApiService {
   }
 
   Future<PostList> getPosts({int perPage = 5}) async {
-    final response = await dio.get(URLS.postsEndpoint,
-        options: buildCacheOptions(const Duration(days: 7)),
-        queryParameters: {'perPage': perPage, 'page': 3});
-    if (response.statusCode == 200) {
-      return PostList.fromJson(json.decode(response.data));
-    } else {
-      throw Exception('Failed to load posts');
+    try {
+      final response = await dio.get(URLS.postsEndpoint,
+          options: buildCacheOptions(const Duration(days: 7)),
+          queryParameters: {'perPage': perPage, 'page': 3});
+      if (response.statusCode == 200) {
+        return PostList.fromJson(json.decode(response.data));
+      } else {
+        throw Exception('Failed to load posts');
+      }
+    } on DioError catch (e) {
+      if (e.response != null) {
+        print('Dio error!');
+        print('STATUS: ${e.response?.statusCode}');
+        print('DATA: ${e.response?.data}');
+        print('HEADERS: ${e.response?.headers}');
+      }
     }
+    return Future.error(Exception('Error occurred'));
   }
 }
