@@ -6,6 +6,9 @@
  */
 
 class URLS {
+  // Prevent this class being instantiated
+  URLS._();
+
   static const String baseDomain = 'www.orinosmartvillage.it';
   static const String baseApiUrl =
       'https://www.orinosmartvillage.it/wp-json/wp/v2';

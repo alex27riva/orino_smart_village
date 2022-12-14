@@ -12,6 +12,9 @@ import 'package:flutter/material.dart';
 import 'package:orino_smart_village/services/storage_service.dart';
 import 'package:orino_smart_village/widgets/network_unavailable.dart';
 
+const int kCarouselItems = 10;
+const int kAnimationSeconds = 2;
+
 class HomeCarousel extends StatelessWidget {
   const HomeCarousel({Key? key}) : super(key: key);
 
@@ -24,11 +27,11 @@ class HomeCarousel extends StatelessWidget {
           if (snapshot.hasData) {
             List<Reference> images = snapshot.data!.items;
             images.shuffle();
-            Iterable<Reference> selectedImages = images.take(10);
+            Iterable<Reference> selectedImages = images.take(kCarouselItems);
 
             return CarouselSlider(
               options: CarouselOptions(
-                autoPlayAnimationDuration: const Duration(seconds: 2),
+                autoPlayAnimationDuration: const Duration(seconds: kAnimationSeconds),
                 autoPlay: true,
                 viewportFraction: 0.8,
               ),

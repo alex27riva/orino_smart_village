@@ -6,6 +6,9 @@
  */
 
 class ImageConstants {
+  // Prevent this class being instantiated
+  ImageConstants._();
+
 // navbar icons
   static const arIcon = 'assets/images/navbar/ar-icon.png';
   static const scanIcon = 'assets/images/navbar/scan-icon.png';

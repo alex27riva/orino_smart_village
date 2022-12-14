@@ -11,6 +11,8 @@ import 'package:orino_smart_village/pages/webview.dart';
 import 'package:orino_smart_village/utils/utils.dart';
 
 const Color cardColor = Color.fromRGBO(202, 240, 248, 0.7);
+const int postTitleMaxLen = 20;
+const int postContentMaxLen = 150;
 
 class FeedItem extends StatelessWidget {
   final Post post;
@@ -41,7 +43,9 @@ class FeedItem extends StatelessWidget {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              Text(Utils.shortText(Utils.unescape(post.title), maxLength: 20),
+              Text(
+                  Utils.shortText(Utils.unescape(post.title),
+                      maxLength: postTitleMaxLen),
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
@@ -69,7 +73,7 @@ class FeedItem extends StatelessWidget {
                     height: 150,
                     child: Text(
                         Utils.shortText(Utils.stripHtmlTags(post.excerpt),
-                            maxLength: 150),
+                            maxLength: postContentMaxLen),
                         textAlign: TextAlign.center,
                         softWrap: true,
                         maxLines: 8),

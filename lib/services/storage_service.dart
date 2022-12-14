@@ -7,7 +7,7 @@
 
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
-import 'package:orino_smart_village/constants/misc.dart';
+import 'package:orino_smart_village/constants/constants.dart';
 
 class Storage {
   final FirebaseStorage storage = FirebaseStorage.instance;
@@ -23,7 +23,7 @@ class Storage {
   }
 
   Future<ListResult> getInstaImages() async {
-    final Reference ref = storage.ref().child(MiscCostants.instaImagesFolder);
+    final Reference ref = storage.ref().child(Constants.instaImagesFolder);
     ListResult result = await ref.listAll();
     return result;
   }
