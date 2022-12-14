@@ -7,45 +7,62 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:orino_smart_village/models/post_list.dart';
+import 'package:orino_smart_village/services/storage_service.dart';
 import 'package:orino_smart_village/widgets/network_unavailable.dart';
 
 class HomeCarousel extends StatelessWidget {
-  final Future<PostList> futurePost;
-
-  const HomeCarousel({Key? key, required this.futurePost}) : super(key: key);
+  const HomeCarousel({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<PostList>(
-        future: futurePost,
+    Storage storage = Storage();
+    return FutureBuilder<ListResult>(
+        future: storage.getInstaImages(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
+            List<Reference> images = snapshot.data!.items;
+            images.shuffle();
+            Iterable<Reference> selectedImages = images.take(10);
+
             return CarouselSlider(
               options: CarouselOptions(
                 autoPlayAnimationDuration: const Duration(seconds: 2),
                 autoPlay: true,
                 viewportFraction: 0.8,
               ),
-              items: snapshot.data!.posts
-                  .where((curPost) => curPost.hasImageAvailable)
-                  .map((item) => Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ClipRRect(
-                            borderRadius: BorderRadius.circular(20.0),
-                            child: CachedNetworkImage(
-                              imageUrl: item.featuredImage,
-                              fit: BoxFit.cover,
-                              width: 500,
-                            )),
-                      ))
-                  .toList(),
+              items:
+                  selectedImages.map((item) => getCarouselItem(item)).toList(),
             );
           } else if (snapshot.hasError) {
             return const NetworkUnavailable();
           }
           return const Center(child: CircularProgressIndicator());
         });
+  }
+
+  Widget getCarouselItem(Reference ref) {
+    return FutureBuilder(
+      future: ref.getDownloadURL(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(20.0),
+                child: CachedNetworkImage(
+                  imageUrl: snapshot.data.toString(),
+                  fit: BoxFit.cover,
+                  width: 500,
+                )),
+          );
+        }
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const CircularProgressIndicator();
+        }
+        return Container();
+      },
+    );
   }
 }

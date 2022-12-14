@@ -9,9 +9,6 @@ import 'package:alert/alert.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:orino_smart_village/constants/urls.dart';
-import 'package:orino_smart_village/utils/rest_api.dart';
-import 'package:orino_smart_village/models/post_list.dart';
 import 'package:orino_smart_village/widgets/big_button.dart';
 import 'package:orino_smart_village/widgets/home_carousel.dart';
 
@@ -23,12 +20,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
-  late Future<PostList> futurePost;
-  ApiService api = ApiService(URLS.baseApiUrl);
 
   @override
   void initState() {
-    futurePost = api.getPosts(perPage: 10);
     super.initState();
   }
 
@@ -46,7 +40,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
-              Expanded(child: HomeCarousel(futurePost: futurePost)),
+              const Expanded(child: HomeCarousel()),
               Expanded(
                 child: Container(
                   margin: const EdgeInsets.only(left: 32.0, right: 32.0),
