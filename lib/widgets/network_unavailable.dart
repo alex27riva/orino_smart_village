@@ -17,7 +17,9 @@ class NetworkUnavailable extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Text(AppLocalizations.of(context)!.networkErrorText),
+        Text(AppLocalizations.of(context)!.networkErrorText,
+            style: const TextStyle(
+                color: Colors.red, fontWeight: FontWeight.w600, fontSize: 16)),
         const Image(
           image: AssetImage(ImageConstants.noWifi),
           width: 100,
