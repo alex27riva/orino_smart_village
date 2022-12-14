@@ -7,6 +7,7 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:orino_smart_village/constants/misc.dart';
 import 'package:orino_smart_village/services/storage_service.dart';
 import 'package:panorama/panorama.dart';
 
@@ -37,7 +38,8 @@ class _View360State extends State<View360> {
 
   @override
   void initState() {
-    futureImageURL = storage.downloadURL(widget.imageName);
+    futureImageURL = storage.downloadURL(
+        path: MiscCostants.instaImagesFolder, imageName: widget.imageName);
     super.initState();
   }
 
