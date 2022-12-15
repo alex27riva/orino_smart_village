@@ -11,22 +11,26 @@ import 'package:orino_smart_village/widgets/360_view.dart';
 
 class PanoramicButton extends StatelessWidget {
   final String panoramicImageName;
+  final double buttonSize;
 
-  const PanoramicButton({Key? key, required this.panoramicImageName})
+  const PanoramicButton(
+      {Key? key, required this.panoramicImageName, this.buttonSize = 100.0})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => View360(imageName: panoramicImageName),
-            ));
+        if (panoramicImageName != '') {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => View360(imageName: panoramicImageName),
+              ));
+        }
       },
-      splashRadius: 60.0,
-      iconSize: 100.0,
+      splashRadius: 40.0,
+      iconSize: buttonSize,
       icon: const ImageIcon(AssetImage(ImageConstants.icon360)),
     );
   }

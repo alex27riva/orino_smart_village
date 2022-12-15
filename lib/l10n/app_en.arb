@@ -77,5 +77,6 @@
 	"cellarGesaDescription": "",
 	"cellarBurgettDescription": "",
 	"cellarFaelDescription": "",
-	"networkErrorText": "No connection"
+	"networkErrorText": "No connection",
+	"homeButtonChurch": "Church"
 }

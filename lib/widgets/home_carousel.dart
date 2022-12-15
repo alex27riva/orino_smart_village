@@ -31,7 +31,8 @@ class HomeCarousel extends StatelessWidget {
 
             return CarouselSlider(
               options: CarouselOptions(
-                autoPlayAnimationDuration: const Duration(seconds: kAnimationSeconds),
+                autoPlayAnimationDuration:
+                    const Duration(seconds: kAnimationSeconds),
                 autoPlay: true,
                 viewportFraction: 0.8,
               ),
@@ -62,7 +63,7 @@ class HomeCarousel extends StatelessWidget {
           );
         }
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const CircularProgressIndicator();
+          return const Center(child: CircularProgressIndicator());
         }
         return Container();
       },

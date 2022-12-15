@@ -52,17 +52,12 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
                       mainAxisSpacing: 20.0,
                       padding: const EdgeInsets.only(left: 25, right: 25),
                       children: [
+                        // Chiesa
                         BigButton(
                             text: AppLocalizations.of(context)!
-                                .homeButtonEcomuseum,
-                            onPress: () => {
-                                  Alert(
-                                          message: AppLocalizations.of(context)!
-                                              .shortlyText,
-                                          shortDuration: true)
-                                      .show()
-                                },
-                            icon: FontAwesomeIcons.buildingColumns),
+                                .homeButtonChurch,
+                            onPress: () => {Navigator.pushNamed(context, '/church')},
+                            icon: FontAwesomeIcons.church),
                         // Rocca di orino
                         BigButton(
                             text: AppLocalizations.of(context)!
