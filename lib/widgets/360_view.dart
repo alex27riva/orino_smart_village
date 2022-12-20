@@ -39,7 +39,7 @@ class _View360State extends State<View360> {
   @override
   void initState() {
     futureImageURL = storage.downloadURL(
-        path: Constants.instaImagesFolder, imageName: widget.imageName);
+        path: Constants.panoramicImagesFolder, imageName: widget.imageName);
     super.initState();
   }
 

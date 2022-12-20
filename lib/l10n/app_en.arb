@@ -78,5 +78,8 @@
 	"cellarBurgettDescription": "",
 	"cellarFaelDescription": "",
 	"networkErrorText": "No connection",
-	"homeButtonChurch": "Church"
+	"homeButtonChurch": "Church",
+	"churchFirstItem": "Interior shot San Lorenzo Church",
+	"churchSecondItem": "External shot San Lorenzo Church",
+	"churchThirdItem": "Shot of the backyard outside the cemetery."
 }

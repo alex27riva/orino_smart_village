@@ -40,7 +40,10 @@ class ImageConstants {
 
 // 360
   static const icon360 = 'assets/images/icons/360-icon.png';
-  static const roccaPanoramicFilename = 'R0010056_20221020103956.jpg';
+  static const roccaPanoramicName = 'R0010056_20221020103956.jpg';
+  static const churchPanoramicIntName = 'R0010038_20221020094024.jpg';
+  static const churchPanoramicExtName = 'R0010041_20221020094232.jpg';
+  static const churchCemeteryName = 'R0010035_20221020093635.jpg';
 
 // Onboarding
   static const mountainTourist =
