@@ -71,7 +71,7 @@ class _MapPageState extends State<MapPage>
             for (var child in snapshot.data!) {
               POI poi = POI.fromDataSnapshot(child);
               allMarkers.add(Marker(
-                  infoWindow: InfoWindow(title: poi.name, snippet: poi.desc),
+                  infoWindow: InfoWindow(title: poi.name, snippet: poi.desc != "" ? poi.desc : null),
                   markerId: MarkerId(poi.name),
                   position: LatLng(poi.latitude, poi.longitude)));
             }

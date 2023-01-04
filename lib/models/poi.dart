@@ -32,7 +32,7 @@ class POI {
   factory POI.fromDataSnapshot(DataSnapshot data) {
     Map<dynamic, dynamic>? values = data.value as Map?;
     final name = values!['name'] as String;
-    final desc = values['desc'] as String?;
+    final desc = values['description'] as String?;
     final latitude = values['latitude'] as double;
     final longitude = values['longitude'] as double;
 
