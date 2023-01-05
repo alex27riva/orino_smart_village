@@ -12,14 +12,14 @@ Follow this guide to install Flutter on your computer: [Link](https://docs.flutt
 - Map with locations
 - Fetch post using Wordpress API
 - Cache images and posts
+- Show locations in augmented reality
 
 ## Roadmap
-- [ ] Implement locations in Augmented Reality (AR)
 - [ ] Filter locations and tracks in the maps screen
-- [ ] Offline mode
+- [ ] Implement notifications for news and events
 
 ## Screenshots
-<img alt="Homepage" src=".github/app-home.jpg" width="400"/>
+<img alt="Main screen of the app" src=".github/app-home.jpg" width="400"/>
 
 ## Author
 - [@alex27riva](https://www.github.com/alex27riva)
