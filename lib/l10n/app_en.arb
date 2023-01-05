@@ -81,5 +81,10 @@
 	"homeButtonChurch": "Church",
 	"churchFirstItem": "Interior shot San Lorenzo Church",
 	"churchSecondItem": "External shot San Lorenzo Church",
-	"churchThirdItem": "Shot of the backyard outside the cemetery."
+	"churchThirdItem": "Shot of the backyard outside the cemetery.",
+	"homeButtonCourtyard": "Courtyards",
+	"courtFirstItem": "Cortyard 1",
+	"courtSecondItem": "Cortyard 2",
+	"courtThirdItem": "Cortyard 3",
+	"courtFourthItem": "Cortyard 4"
 }

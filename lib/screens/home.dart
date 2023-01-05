@@ -9,6 +9,7 @@ import 'package:alert/alert.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:orino_smart_village/constants/images.dart';
 import 'package:orino_smart_village/widgets/big_button.dart';
 import 'package:orino_smart_village/widgets/home_carousel.dart';
 
@@ -20,7 +21,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
-
   @override
   void initState() {
     super.initState();
@@ -54,9 +54,10 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
                       children: [
                         // Chiesa
                         BigButton(
-                            text: AppLocalizations.of(context)!
-                                .homeButtonChurch,
-                            onPress: () => {Navigator.pushNamed(context, '/church')},
+                            text:
+                                AppLocalizations.of(context)!.homeButtonChurch,
+                            onPress: () =>
+                                {Navigator.pushNamed(context, '/church')},
                             icon: FontAwesomeIcons.church),
                         // Rocca di orino
                         BigButton(
@@ -67,16 +68,18 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
                             icon: FontAwesomeIcons.fortAwesome),
                         // Ecoturismo
                         BigButton(
-                            text: AppLocalizations.of(context)!
-                                .homeButtonEcoturism,
-                            onPress: () => {
-                                  Alert(
-                                          message: AppLocalizations.of(context)!
-                                              .shortlyText,
-                                          shortDuration: true)
-                                      .show()
-                                },
-                            icon: FontAwesomeIcons.leaf),
+                          childType: ChildType.widget,
+                          text:
+                              AppLocalizations.of(context)!.homeButtonCourtyard,
+                          onPress: () =>
+                              {Navigator.pushNamed(context, '/courtyard')},
+                          //image: ImageConstants.fence),
+                          passedChild: const ImageIcon(
+                            AssetImage(ImageConstants.fence),
+                            color: Color(0xff304d85),
+                            size: 70,
+                          ),
+                        ),
                         // Cantine
                         BigButton(
                             text:

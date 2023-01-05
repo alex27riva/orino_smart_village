@@ -11,7 +11,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 const buttonForeground = Color(0xff304d85);
 const buttonBackground = Color(0xff90a955);
 
-enum ChildType { icon, image }
+enum ChildType { icon, image, widget }
 
 class BigButton extends StatelessWidget {
   final String text;
@@ -20,6 +20,7 @@ class BigButton extends StatelessWidget {
   final VoidCallback onPress;
   final IconData? icon;
   final String? image;
+  final Widget? passedChild;
   late final Widget innerChild;
   final ChildType childType;
 
@@ -31,6 +32,7 @@ class BigButton extends StatelessWidget {
       this.textSize = 14,
       this.icon,
       this.image,
+      this.passedChild,
       this.childType = ChildType.icon})
       : super(key: key) {
     if (childType == ChildType.icon) {
@@ -42,7 +44,7 @@ class BigButton extends StatelessWidget {
             Image(image: AssetImage(image!), fit: BoxFit.contain, height: 80),
       );
     } else {
-      innerChild = Container();
+      innerChild = passedChild ?? Container();
     }
   }
 
@@ -61,9 +63,7 @@ class BigButton extends StatelessWidget {
       },
       child:
           Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-        Flexible(
-          flex: 2,
-            child: innerChild),
+        Flexible(flex: 2, child: innerChild),
         Flexible(
           flex: 1,
           child: Text(text,

@@ -45,6 +45,12 @@ class ImageConstants {
   static const churchPanoramicExtName = 'R0010041_20221020094232.jpg';
   static const churchCemeteryName = 'R0010035_20221020093635.jpg';
 
+// Courtyard
+  static const courtyardOne = 'R0010044_20221020095053.jpg';
+  static const courtyardTwo = 'R0010046_20221020095229.jpg';
+  static const courtyardThree = 'R0010047_20221020095344.jpg';
+  static const courtyardFour = 'R0010050_20221020100729.jpg';
+
 // Onboarding
   static const mountainTourist =
       'assets/images/onboarding/mountain-tourist.jpg';
@@ -55,4 +61,5 @@ class ImageConstants {
 // Misc
   static const osvLogo = 'assets/images/logos/osv-logo.jpg';
   static const noWifi = 'assets/images/misc/no-wifi.png';
+  static const fence = 'assets/images/icons/fence.png';
 }

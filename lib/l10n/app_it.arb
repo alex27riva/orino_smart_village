@@ -81,5 +81,10 @@
 	"homeButtonChurch": "Chiesa",
 	"churchFirstItem": "Ripresa interna Chiesa San Lorenzo",
 	"churchSecondItem": "Ripresa esterna Chiesa San Lorenzo",
-	"churchThirdItem": "Ripresa del cortile fuori dal cimitero."
+	"churchThirdItem": "Ripresa del cortile fuori dal cimitero.",
+	"homeButtonCourtyard": "Cortili",
+	"courtFirstItem": "Cortile 1",
+	"courtSecondItem": "Cortile 2",
+	"courtThirdItem": "Cortile 3",
+	"courtFourthItem": "Cortile 4"
 }

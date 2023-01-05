@@ -12,6 +12,7 @@ import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:orino_smart_village/firebase_options.dart';
 import 'package:orino_smart_village/models/language_settings.dart';
 import 'package:orino_smart_village/pages/church.dart';
+import 'package:orino_smart_village/pages/courtyard.dart';
 import 'package:orino_smart_village/pages/onboarding.dart';
 import 'package:orino_smart_village/pages/webview.dart';
 import 'package:orino_smart_village/pages/rocca.dart';
@@ -78,6 +79,7 @@ class MyApp extends StatelessWidget {
               '/settings': (_) => const Settings(),
               '/cantine': (_) => const Cantine(),
               '/church': (_) => const ChurchPage(),
+              '/courtyard': (_) => const Courtyard(),
               '/360': (_) => const View360(),
               '/webview': (_) => const WebViewPage(),
               '/onboarding': (_) => const OnBoardingPage(),
