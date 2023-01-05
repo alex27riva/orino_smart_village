@@ -14,6 +14,7 @@ import 'package:provider/provider.dart';
 
 const double borderWidth = 1;
 const languages = {'Italiano': 'it', 'English': 'en'};
+const notificationSwitchEnabled = false, themeSwitchEnabled = false;
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
@@ -63,37 +64,44 @@ class _SettingsState extends State<Settings> {
                     },
                   )),
             ),
-            // notifications
-            Container(
-              margin: const EdgeInsets.only(top: 20.0),
-              child: SwitchListTile(
-                title: Text(AppLocalizations.of(context)!.notificationText),
-                value: notificationState,
-                shape: const Border(
-                    bottom:
-                        BorderSide(color: Colors.black, width: borderWidth)),
-                onChanged: (value) {
-                  setState(() => notificationState = value);
-                },
+            // notification switch
+            Visibility(
+              visible: notificationSwitchEnabled,
+              child: Container(
+                margin: const EdgeInsets.only(top: 20.0),
+                child: SwitchListTile(
+                  title: Text(AppLocalizations.of(context)!.notificationText),
+                  value: notificationState,
+                  shape: const Border(
+                      bottom:
+                          BorderSide(color: Colors.black, width: borderWidth)),
+                  onChanged: (value) {
+                    setState(() => notificationState = value);
+                  },
+                ),
               ),
             ),
-            // dark theme
-            /*Container(
-              margin: const EdgeInsets.only(top: 20.0),
-              child: SwitchListTile(
-                title: Text(AppLocalizations.of(context)!.themeText),
-                value: darkThemeState,
-                shape: const Border(
-                    bottom:
-                        BorderSide(color: Colors.black, width: borderWidth)),
-                onChanged: (value) {
-                  setState(() => darkThemeState = value);
-                },
+            // dark theme switch
+            Visibility(
+              visible: themeSwitchEnabled,
+              child: Container(
+                margin: const EdgeInsets.only(top: 20.0),
+                child: SwitchListTile(
+                  title: Text(AppLocalizations.of(context)!.themeText),
+                  value: darkThemeState,
+                  shape: const Border(
+                      bottom:
+                          BorderSide(color: Colors.black, width: borderWidth)),
+                  onChanged: (value) {
+                    setState(() => darkThemeState = value);
+                  },
+                ),
               ),
-            ),*/
+            ),
           ],
         ),
       ),
+      // App version in the bottom of the screen
       bottomSheet: FutureBuilder<PackageInfo>(
         future: PackageInfo.fromPlatform(),
         builder: (context, snapshot) {
