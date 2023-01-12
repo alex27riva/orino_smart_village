@@ -25,4 +25,7 @@ class URLS {
       'https://www.orinosmartvillage.it/place/cantina-dul-fael/';
   static const String burgettDiRat =
       'https://www.orinosmartvillage.it/place/burghett-rat/';
+
+  // Terms and conditions
+  static const String terms = '';
 }

@@ -13,6 +13,7 @@ import 'package:orino_smart_village/screens/home.dart';
 import 'package:orino_smart_village/screens/map.dart';
 import 'package:orino_smart_village/screens/scanner.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class OrinoApp extends StatefulWidget {
   const OrinoApp({Key? key}) : super(key: key);
@@ -106,56 +107,85 @@ class _OrinoAppState extends State<OrinoApp> {
         ],
       ),
       drawer: Drawer(
-        child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
-          children: [
-            DrawerHeader(
-              decoration: const BoxDecoration(
-                color: Colors.blue,
+        child: Expanded(
+          child: ListView(
+            // Important: Remove any padding from the ListView.
+            padding: EdgeInsets.zero,
+            children: [
+              DrawerHeader(
+                decoration: const BoxDecoration(
+                  color: Colors.blue,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: const [
+                    Text('OrinoSmartVillage',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16)),
+                    Image(
+                        image: AssetImage(ImageConstants.osvLogo),
+                        width: 100.0,
+                        height: 50.0),
+                  ],
+                ),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const [
-                  Text('OrinoSmartVillage',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                  Image(
-                      image: AssetImage(ImageConstants.osvLogo),
-                      width: 100.0,
-                      height: 50.0),
-                ],
+              ListTile(
+                leading: const Icon(Icons.accessibility_new_outlined),
+                title: Text(AppLocalizations.of(context)!.onboardingTitle),
+                onTap: () {
+                  Navigator.pushNamed(context, '/onboarding');
+                },
               ),
-            ),
-            ListTile(
-              leading: const Icon(Icons.accessibility_new_outlined),
-              title: Text(AppLocalizations.of(context)!.onboardingTitle),
-              onTap: () {
-                Navigator.pushNamed(context, '/onboarding');
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.settings),
-              title: Text(AppLocalizations.of(context)!.settingsTitle),
-              onTap: () {
-                Navigator.pushNamed(context, '/settings');
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.contacts),
-              title: Text(AppLocalizations.of(context)!.contactsTitle),
-              onTap: () {
-                Navigator.pushNamed(context, '/contacts');
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.info_outline),
-              title: Text(AppLocalizations.of(context)!.aboutTitle),
-              onTap: () {
-                Navigator.pushNamed(context, '/about');
-              },
-            ),
-          ],
+              ListTile(
+                leading: const Icon(Icons.settings),
+                title: Text(AppLocalizations.of(context)!.settingsTitle),
+                onTap: () {
+                  Navigator.pushNamed(context, '/settings');
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.contacts),
+                title: Text(AppLocalizations.of(context)!.contactsTitle),
+                onTap: () {
+                  Navigator.pushNamed(context, '/contacts');
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.info_outline),
+                title: Text(AppLocalizations.of(context)!.aboutTitle),
+                onTap: () {
+                  Navigator.pushNamed(context, '/about');
+                },
+              ),
+              // Terms & conditions
+              const Divider(
+                height: 20,
+              ),
+              InkWell(
+                onTap: null,
+                // onTap: () {
+                //   Navigator.of(context).push(MaterialPageRoute(
+                //       builder: (context) => const WebViewPage(
+                //             url: '',
+                //             title: "Terms & conditions",
+                //           )));
+                // },
+                child: ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      AppLocalizations.of(context)!.termsAndConditions,
+                      style: const TextStyle(
+                        fontSize: 12.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blue,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
