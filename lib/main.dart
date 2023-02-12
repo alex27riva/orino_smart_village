@@ -9,6 +9,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:orino_smart_village/firebase_options.dart';
 import 'package:orino_smart_village/models/language_settings.dart';
 import 'package:orino_smart_village/pages/church.dart';
@@ -67,7 +68,10 @@ class MyApp extends StatelessWidget {
                 AppLocalizations.of(context)!.appTitle,
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
-            theme: ThemeData(primarySwatch: Colors.blue),
+            theme: ThemeData(
+              primarySwatch: Colors.blue,
+              textTheme: GoogleFonts.ralewayTextTheme(),
+            ),
             locale: Locale(langValue.lang),
             home: isViewed != 0 ? const OnBoardingPage() : const OrinoApp(),
             routes: {

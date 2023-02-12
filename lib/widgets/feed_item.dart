@@ -10,7 +10,7 @@ import 'package:orino_smart_village/models/post.dart';
 import 'package:orino_smart_village/pages/webview.dart';
 import 'package:orino_smart_village/utils/utils.dart';
 
-const Color cardColor = Color.fromRGBO(202, 240, 248, 0.7);
+Color cardColor = Colors.white;
 const int postTitleMaxLen = 20;
 const int postContentMaxLen = 150;
 
@@ -23,63 +23,80 @@ class FeedItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(
+        Navigator.of(context).push(
+          MaterialPageRoute(
             builder: (context) => WebViewPage(
-                  url: post.link.toString(),
-                  title: Utils.unescape(post.title),
-                )));
+              url: post.link.toString(),
+              title: Utils.unescape(post.title),
+            ),
+          ),
+        );
       },
       child: Card(
-        margin: const EdgeInsets.all(10.0),
-        elevation: 10,
+        margin: const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 24.0),
+        elevation: 2,
         color: cardColor,
-        shape: const RoundedRectangleBorder(
-            side: BorderSide(
-          width: 1,
-          color: Colors.black,
-        )),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16.0),
+        ),
         // Card title
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            children: [
-              Text(
-                  Utils.shortText(Utils.unescape(post.title),
-                      maxLength: postTitleMaxLen),
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 24,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w500,
-                  )),
-              // Card image
-              Container(
-                child: (post.hasImageAvailable)
-                    ? ClipRRect(
-                        borderRadius: BorderRadius.circular(15.0),
-                        child: Image.network(
-                          post.featuredImage,
-                          width: 200,
-                          height: 150,
-                        ),
-                      )
-                    : Container(), // empty container
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Card image
+            SizedBox(
+              width: double.infinity,
+              child: (post.hasImageAvailable)
+                  ? ClipRRect(
+                    borderRadius: BorderRadius.circular(16.0),
+                    child: Image.network(
+                      post.featuredImage,
+                      fit: BoxFit.cover,
+                      height: 150,
+                    ),
+                  )
+                  : Container(), // empty container
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 16.0,
+                left: 24.0,
+                right: 24.0,
               ),
-              // Card content
-              Container(
-                  padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
-                  child: SizedBox(
-                    height: 150,
-                    child: Text(
-                        Utils.shortText(Utils.stripHtmlTags(post.excerpt),
-                            maxLength: postContentMaxLen),
-                        textAlign: TextAlign.center,
-                        softWrap: true,
-                        maxLines: 8),
-                  )),
-            ],
-          ),
+              child: Text(
+                Utils.shortText(
+                  Utils.unescape(post.title),
+                  maxLength: postTitleMaxLen,
+                ),
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                  fontSize: 20.0,
+                  color: Colors.black87,
+                  fontWeight: FontWeight.w900,
+                ),
+              ),
+            ),
+            // Card content
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 8.0,
+                bottom: 16.0,
+                left: 24.0,
+                right: 24.0,
+              ),
+              child: Text(
+                Utils.shortText(Utils.stripHtmlTags(post.excerpt),
+                    maxLength: postContentMaxLen),
+                style: const TextStyle(
+                  fontSize: 16.0,
+                  color: Colors.black87,
+                  fontWeight: FontWeight.w500,
+                ),
+                softWrap: true,
+                maxLines: 8,
+              ),
+            ),
+          ],
         ),
       ),
     );
