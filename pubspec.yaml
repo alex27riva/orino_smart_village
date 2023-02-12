@@ -50,7 +50,7 @@ dependencies:
   # Misc
   panorama: ^0.4.1
   webview_flutter: ^3.0.4
-  introduction_screen: ^3.0.1
+  introduction_screen: ^3.1.4
   flutter_inappwebview: ^5.4.4+3
   # Api
   dio_http_cache: ^0.3.0
