@@ -70,9 +70,9 @@ class FeedItem extends StatelessWidget {
                 ),
                 overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
-                  fontSize: 20.0,
+                  fontSize: 16.0,
                   color: Colors.black87,
-                  fontWeight: FontWeight.w900,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
             ),
@@ -88,7 +88,7 @@ class FeedItem extends StatelessWidget {
                 Utils.shortText(Utils.stripHtmlTags(post.excerpt),
                     maxLength: postContentMaxLen),
                 style: const TextStyle(
-                  fontSize: 16.0,
+                  fontSize: 14.0,
                   color: Colors.black87,
                   fontWeight: FontWeight.w500,
                 ),
