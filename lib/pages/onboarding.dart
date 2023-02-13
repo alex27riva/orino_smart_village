@@ -40,17 +40,22 @@ class OnBoardingPage extends StatelessWidget {
             PageViewModel(
               title: AppLocalizations.of(context)!.onboardThirdPageTitle,
               body: AppLocalizations.of(context)!.onboardThirdPageBody,
-              footer: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  shape: const StadiumBorder(),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+              footer: Container(
+                margin: const EdgeInsets.symmetric(horizontal: 48.0),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shape: const StadiumBorder(),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20.0,
+                      vertical: 16.0,
+                    ),
+                  ),
+                  onPressed: () {
+                    _storeOnboardInfo();
+                    goToHome(context);
+                  },
+                  child: Text(AppLocalizations.of(context)!.startText),
                 ),
-                onPressed: () {
-                  _storeOnboardInfo();
-                  goToHome(context);
-                },
-                child: Text(AppLocalizations.of(context)!.startText),
               ),
               image: buildImage(ImageConstants.happyFamilyStart),
               decoration: getPageDecoration(),
@@ -91,8 +96,8 @@ class OnBoardingPage extends StatelessWidget {
       );
 
   PageDecoration getPageDecoration() => const PageDecoration(
-        titleTextStyle: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-        bodyTextStyle: TextStyle(fontSize: 20),
+        titleTextStyle: TextStyle(fontSize: 24.0, fontWeight: FontWeight.w700),
+        bodyTextStyle: TextStyle(fontSize: 16.0),
         imagePadding: EdgeInsets.all(24),
         pageColor: Colors.white,
       );
