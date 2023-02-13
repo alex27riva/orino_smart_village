@@ -1,5 +1,5 @@
 name: orino_smart_village
-description: A new Flutter project.
+description: Official application for the municipality of Orino.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -36,17 +36,17 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^4.0.3
   # Home
-  carousel_slider: ^4.1.1
+  carousel_slider: ^4.2.1
   cached_network_image: ^3.2.2
   # Scanner
   qr_code_scanner: ^1.0.0
   font_awesome_flutter: ^10.1.0
   vibration: ^1.7.4-nullsafety.0
   alert: ^2.0.1
-  url_launcher: ^6.1.4
+  url_launcher: ^6.1.9
   flutter_dropdown: ^1.0.1+hotfix.1
   # Map
-  google_maps_flutter: ^2.1.8
+  google_maps_flutter: ^2.2.3
   geolocator: ^9.0.2
   # Misc
   panorama: ^0.4.1
@@ -59,11 +59,11 @@ dependencies:
   # Utils
   html_unescape: ^2.0.0
   flutter_html: ^3.0.0-alpha.5
-  package_info_plus: ^2.0.0
-  provider: ^6.0.4
-  shared_preferences: ^2.0.15
+  package_info_plus: ^3.0.3
+  provider: ^6.0.5
+  shared_preferences: ^2.0.17
   permission_handler: ^10.1.0
-  mime: ^1.0.2
+  mime: ^1.0.4
   # Firebase
   firebase_core: ^2.3.0
   firebase_storage: ^11.0.6
