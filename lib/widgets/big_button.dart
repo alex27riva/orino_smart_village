@@ -29,14 +29,14 @@ class BigButton extends StatelessWidget {
       required this.text,
       this.backColor = buttonBackground,
       required this.onPress,
-      this.textSize = 14,
+      this.textSize = 14.0,
       this.icon,
       this.image,
       this.passedChild,
       this.childType = ChildType.icon})
       : super(key: key) {
     if (childType == ChildType.icon) {
-      innerChild = FaIcon(icon, size: 72, color: buttonForeground);
+      innerChild = FaIcon(icon, size: 72.0, color: buttonForeground);
     } else if (childType == ChildType.image) {
       innerChild = Padding(
         padding: const EdgeInsets.all(8.0),
@@ -52,25 +52,29 @@ class BigButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       style: TextButton.styleFrom(
+        elevation: 1,
         backgroundColor: backColor,
         shape: RoundedRectangleBorder(
-            side: const BorderSide(
-                color: Colors.black, width: 1.2, style: BorderStyle.solid),
-            borderRadius: BorderRadius.circular(15)),
+          borderRadius: BorderRadius.circular(16.0),
+        ),
       ),
       onPressed: () {
         onPress();
       },
-      child:
-          Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-        Flexible(flex: 2, child: innerChild),
-        Flexible(
-          flex: 1,
-          child: Text(text,
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: textSize, color: Colors.black)),
-        ),
-      ]),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 4.0),
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Flexible(flex: 2, child: innerChild),
+              Flexible(
+                flex: 1,
+                child: Text(text,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: textSize, color: Colors.black)),
+              ),
+            ]),
+      ),
     );
   }
 }

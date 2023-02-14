@@ -64,9 +64,12 @@ class _ScannerViewState extends State<ScannerView> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Text(AppLocalizations.of(context)!.scannerSubtitle),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: Text(AppLocalizations.of(context)!.scannerSubtitle),
+                ),
                 Container(
-                  margin: const EdgeInsets.all(8),
+                  margin: const EdgeInsets.symmetric(vertical: 8.0),
                   child: ElevatedButton(
                       onPressed: () async {
                         await controller?.toggleFlash();
@@ -79,9 +82,11 @@ class _ScannerViewState extends State<ScannerView> {
                       child: FutureBuilder(
                         future: controller?.getFlashStatus(),
                         builder: (context, snapshot) {
-                          return Icon((snapshot.data == false
-                              ? Icons.flash_off
-                              : Icons.flash_on));
+                          return Icon(
+                            (snapshot.data == false
+                                ? Icons.flash_off
+                                : Icons.flash_on),
+                          );
                         },
                       )),
                 ),
@@ -142,7 +147,8 @@ class _ScannerViewState extends State<ScannerView> {
 
   _launchURLBrowser(scannedUrl) async {
     Uri uri = Uri.parse(scannedUrl);
-    if (uri.host == URLS.baseDomain) { // www.orinosmartvillage.it
+    // www.orinosmartvillage.it
+    if (uri.host == URLS.baseDomain) {
       Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => WebViewPage(
                 url: scannedUrl,
