@@ -23,9 +23,11 @@ class _FeedState extends State<Feed> with AutomaticKeepAliveClientMixin<Feed> {
   late Future<PostList> futurePost;
   ApiService api = ApiService(URLS.baseApiUrl);
 
+  Future<PostList> fetchPostList() => api.getPosts(perPage: 10);
+
   @override
   void initState() {
-    futurePost = api.getPosts(perPage: 10);
+    futurePost = fetchPostList();
     super.initState();
   }
 
@@ -35,25 +37,32 @@ class _FeedState extends State<Feed> with AutomaticKeepAliveClientMixin<Feed> {
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return FutureBuilder<PostList>(
-        future: futurePost,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return ListView.builder(
-                padding: const EdgeInsets.all(20.0),
-                itemCount: snapshot.data!.posts.length,
-                itemBuilder: (context, index) {
-                  return FeedItem(
-                    post: snapshot.data!.posts[index],
-                  );
-                });
-          } else if (snapshot.hasError) {
-            return Container(
-              padding: const EdgeInsets.all(20.0),
-              child: const NetworkUnavailable(),
-            );
-          }
-          return const Center(child: CircularProgressIndicator());
+    return RefreshIndicator(
+      onRefresh: () async {
+        setState(() {
+          futurePost = fetchPostList();
         });
+      },
+      child: FutureBuilder<PostList>(
+          future: futurePost,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return ListView.builder(
+                  padding: const EdgeInsets.all(20.0),
+                  itemCount: snapshot.data!.posts.length,
+                  itemBuilder: (context, index) {
+                    return FeedItem(
+                      post: snapshot.data!.posts[index],
+                    );
+                  });
+            } else if (snapshot.hasError) {
+              return Container(
+                padding: const EdgeInsets.all(20.0),
+                child: const NetworkUnavailable(),
+              );
+            }
+            return const Center(child: CircularProgressIndicator());
+          }),
+    );
   }
 }
