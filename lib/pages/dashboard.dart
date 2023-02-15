@@ -7,6 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:orino_smart_village/constants/urls.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -51,9 +52,7 @@ class _DashboardState extends State<Dashboard> {
       children: [
         InAppWebView(
           key: webViewKey,
-          initialUrlRequest: URLRequest(
-              url: Uri.parse(
-                  "http://localhost:8080/assets/webcontent/dashboard/hv_layout.html")),
+          initialUrlRequest: URLRequest(url: Uri.parse(URLS.dashboard)),
           initialOptions: options,
           onWebViewCreated: (controller) {
             webViewController = controller;
