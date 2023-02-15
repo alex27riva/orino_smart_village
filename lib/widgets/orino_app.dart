@@ -119,8 +119,8 @@ class _OrinoAppState extends State<OrinoApp> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: const [
                   Text('OrinoSmartVillage',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 16)),
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                   Image(
                       image: AssetImage(ImageConstants.osvLogo),
                       width: 100.0,
@@ -139,7 +139,7 @@ class _OrinoAppState extends State<OrinoApp> {
               leading: const Icon(Icons.dashboard),
               title: const Text("Dashboard"),
               onTap: () {
-                Navigator.pushNamed(context, '/dashboard');
+                Navigator.popAndPushNamed(context, '/dashboard');
               },
             ),
             ListTile(
