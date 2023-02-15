@@ -143,17 +143,17 @@ class _OrinoAppState extends State<OrinoApp> {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.settings),
-              title: Text(AppLocalizations.of(context)!.settingsTitle),
-              onTap: () {
-                Navigator.pushNamed(context, '/settings');
-              },
-            ),
-            ListTile(
               leading: const Icon(Icons.contacts),
               title: Text(AppLocalizations.of(context)!.contactsTitle),
               onTap: () {
                 Navigator.pushNamed(context, '/contacts');
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: Text(AppLocalizations.of(context)!.settingsTitle),
+              onTap: () {
+                Navigator.pushNamed(context, '/settings');
               },
             ),
             ListTile(
