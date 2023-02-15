@@ -5,17 +5,21 @@
  * Copyright (c) 2022.
  */
 
-import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:orino_smart_village/utils/utils.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class WebViewPage extends StatefulWidget {
   final String url;
   final String title;
+  final bool loadingIndicator;
 
-  const WebViewPage({Key? key, this.url = '', this.title = 'Browser'})
+  const WebViewPage(
+      {Key? key,
+      this.url = '',
+      this.title = 'Browser',
+      this.loadingIndicator = false})
       : super(key: key);
 
   @override
@@ -23,8 +27,7 @@ class WebViewPage extends StatefulWidget {
 }
 
 class _WebViewPageState extends State<WebViewPage> {
-  final Completer<WebViewController> _controller =
-      Completer<WebViewController>();
+  bool _isLoadingPage = true;
 
   @override
   Widget build(BuildContext context) {
@@ -46,9 +49,27 @@ class _WebViewPageState extends State<WebViewPage> {
           },
         ),
       ]),
-      body: WebView(
-        initialUrl: widget.url,
-        javascriptMode: JavascriptMode.unrestricted,
+      body: Stack(
+        children: [
+          InAppWebView(
+            initialUrlRequest: URLRequest(url: Uri.parse(widget.url)),
+            onWebViewCreated: (InAppWebViewController controller) {},
+            onLoadStart: (controller, url) async {
+              setState(() {
+                _isLoadingPage = true;
+              });
+            },
+            onLoadStop: (controller, url) {
+              setState(() {
+                _isLoadingPage = false;
+              });
+            },
+          ),
+          if (widget.loadingIndicator && _isLoadingPage)
+            const Center(
+              child: CircularProgressIndicator(),
+            ),
+        ],
       ),
     );
   }

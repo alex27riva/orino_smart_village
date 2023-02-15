@@ -50,7 +50,6 @@ dependencies:
   geolocator: ^9.0.2
   # Misc
   panorama: ^0.4.1
-  webview_flutter: ^3.0.4
   introduction_screen: ^3.1.4
   flutter_inappwebview: ^5.4.4+3
   # Api
