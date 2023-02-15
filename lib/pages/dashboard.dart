@@ -1,8 +1,8 @@
 /*
- * ar_webview.dart
+ * dashboard.dart
  * orino_smart_village
  * Created by Alessandro Riva
- * Copyright (c) 2022.
+ * Copyright (c) 2022-2023.
  */
 
 import 'package:flutter/material.dart';
@@ -56,11 +56,6 @@ class _DashboardState extends State<Dashboard> {
           initialOptions: options,
           onWebViewCreated: (controller) {
             webViewController = controller;
-          },
-          androidOnPermissionRequest: (controller, origin, resources) async {
-            return PermissionRequestResponse(
-                resources: resources,
-                action: PermissionRequestResponseAction.GRANT);
           },
           onProgressChanged: (controller, progress) {
             setState(() {
