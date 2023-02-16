@@ -28,4 +28,8 @@ class URLS {
 
   // Terms and conditions
   static const String terms = '';
+
+  // Dashboard
+  static const String dashboard =
+      'http://34.65.173.216/dashboard/?IMBUILDINGS_PEOPLE_COUNTER=y&IMBUILDINGS_PEOPLE_COUNTER_0=y&IMBUILDINGS_PEOPLE_COUNTER_2=y';
 }

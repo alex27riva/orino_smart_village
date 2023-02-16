@@ -119,8 +119,8 @@ class _OrinoAppState extends State<OrinoApp> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: const [
                   Text('OrinoSmartVillage',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 16)),
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                   Image(
                       image: AssetImage(ImageConstants.osvLogo),
                       width: 100.0,
@@ -136,10 +136,10 @@ class _OrinoAppState extends State<OrinoApp> {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.settings),
-              title: Text(AppLocalizations.of(context)!.settingsTitle),
+              leading: const Icon(Icons.dashboard),
+              title: const Text("Dashboard"),
               onTap: () {
-                Navigator.pushNamed(context, '/settings');
+                Navigator.popAndPushNamed(context, '/dashboard');
               },
             ),
             ListTile(
@@ -147,6 +147,13 @@ class _OrinoAppState extends State<OrinoApp> {
               title: Text(AppLocalizations.of(context)!.contactsTitle),
               onTap: () {
                 Navigator.pushNamed(context, '/contacts');
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: Text(AppLocalizations.of(context)!.settingsTitle),
+              onTap: () {
+                Navigator.pushNamed(context, '/settings');
               },
             ),
             ListTile(
