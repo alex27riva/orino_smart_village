@@ -1,6 +1,7 @@
 class Marker {
-    constructor(name, lat, lng){
+    constructor(name, desc, lat, lng){
         this.name = name;
+		this.desc = desc;
 		this.latitude = lat;
 		this.longitude = lng;
     }
@@ -18,25 +19,41 @@ function renderPlaces(places) {
     let a_scene = ar_doc.getElementById("scene");
 
     for(let i = 0; i < places.length; i++) {
+		// add icon container
+		const iconContainer = ar_doc.createElement("a-entity");
+		iconContainer.setAttribute("gps-entity-place", "latitude: " + places[i].latitude + "; longitude: " + places[i].longitude + ";");
+		iconContainer.setAttribute("clickhandler", "");
+		iconContainer.setAttribute("id", i + "_icon_container");
+		a_scene.appendChild(iconContainer);
+
         // add place icon
         const icon = ar_doc.createElement("a-image");
         icon.setAttribute("gps-entity-place", "latitude: " + places[i].latitude + "; longitude: " + places[i].longitude + ";");
-        icon.setAttribute("width", "5.5");
-        icon.setAttribute("height", "8");
+        icon.setAttribute("width", "11");
+        icon.setAttribute("height", "16");
         icon.setAttribute("name", places[i].name);
         icon.setAttribute("src", "img/map-marker-orange.png");
         icon.setAttribute("look-at", "[gps-camera]");
         icon.setAttribute("clickhandler", "");
         icon.setAttribute("id", i + "_icon");
-        a_scene.appendChild(icon);
+        iconContainer.appendChild(icon);
+
+		// add text container
+		const textContainer = ar_doc.createElement("a-entity");
+		textContainer.setAttribute("gps-entity-place", "latitude: " + places[i].latitude + "; longitude: " + places[i].longitude + ";");
+		textContainer.setAttribute("clickhandler", "");
+		textContainer.setAttribute("id", i + "_text_container");
+		a_scene.appendChild(textContainer);
+
+		// add text
         const text = ar_doc.createElement("a-entity");
-        text.setAttribute("text","value: " + places[i].name + "; font: https://cdn.aframe.io/fonts/Monoid.fnt; width: 30; align: center; color: #dd9e06");
-        text.setAttribute("position"," 0 6 0");
+        text.setAttribute("text","value: " + places[i].name + "; font: https://cdn.aframe.io/fonts/Monoid.fnt; width: 60; align: center; color: #dd9e06");
+        text.setAttribute("position"," 0 12 0");
         text.setAttribute("gps-entity-place", "latitude: " + places[i].latitude + "; longitude: " + places[i].longitude + ";");
         text.setAttribute("look-at", "[gps-camera]");
         text.setAttribute("clickhandler", "");
         text.setAttribute("id", i + "_name");
-        a_scene.appendChild(text);
+        textContainer.appendChild(text);
     }
 }
 
@@ -83,13 +100,13 @@ arview.contentWindow.onload = () => {
 	httpReq.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			let json = httpReq.response;
-			let places = JSON.parse(json);
+			let obj = JSON.parse(json);
+			let places = obj.location;
 			for(let i = 0; i < places.length; i++){
-				markers.push(new Marker( places[i].desc, places[i].latitude, places[i].longitude));
+				markers.push(new Marker( places[i].name, places[i].description, places[i].latitude, places[i].longitude));
 			}
 			renderPlaces(markers);
-			loadSearchbarItems(markers);
-			window.db = places;
+			window.db = obj;
 		}
 	};
 }
