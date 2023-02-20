@@ -19,7 +19,7 @@ class NetworkUnavailable extends StatelessWidget {
       children: [
         Text(AppLocalizations.of(context)!.networkErrorText,
             style: const TextStyle(
-                color: Colors.red, fontWeight: FontWeight.w600, fontSize: 16)),
+                color: Colors.red, fontWeight: FontWeight.bold, fontSize: 18)),
         const Image(
           image: AssetImage(ImageConstants.noWifi),
           width: 100,

@@ -57,6 +57,7 @@ class _FeedState extends State<Feed> with AutomaticKeepAliveClientMixin<Feed> {
                   });
             } else if (snapshot.hasError) {
               return Container(
+                alignment: Alignment.center,
                 padding: const EdgeInsets.all(20.0),
                 child: const NetworkUnavailable(),
               );
