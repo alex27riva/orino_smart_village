@@ -7,6 +7,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:orino_smart_village/constants/images.dart';
+import 'package:orino_smart_village/constants/urls.dart';
+import 'package:orino_smart_village/pages/webview.dart';
 import 'package:orino_smart_village/screens/ar_webview.dart';
 import 'package:orino_smart_village/screens/feed.dart';
 import 'package:orino_smart_village/screens/home.dart';
@@ -168,14 +170,14 @@ class _OrinoAppState extends State<OrinoApp> {
               height: 20,
             ),
             InkWell(
-              onTap: null,
-              // onTap: () {
-              //   Navigator.of(context).push(MaterialPageRoute(
-              //       builder: (context) => const WebViewPage(
-              //             url: '',
-              //             title: "Terms & conditions",
-              //           )));
-              // },
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => WebViewPage(
+                          url: URLS.termsAndConditions,
+                          title:
+                              AppLocalizations.of(context)!.termsAndConditions,
+                        )));
+              },
               child: ListTile(
                 title: Padding(
                   padding: const EdgeInsets.all(8.0),

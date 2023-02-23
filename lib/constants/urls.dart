@@ -27,7 +27,7 @@ class URLS {
       'https://www.orinosmartvillage.it/place/burghett-rat/';
 
   // Terms and conditions
-  static const String terms = '';
+  static const String termsAndConditions = 'https://www.orinosmartvillage.it/termini-e-condizioni-duso/';
 
   // Dashboard
   static const String dashboard =
