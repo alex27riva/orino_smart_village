@@ -4,6 +4,8 @@ Official application for the municipality of Orino as part of the project _Carip
 
 ## Installation
 
+You can build the app from source or install the APK from the releases page.
+
 Follow this guide to install Flutter on your computer: [Link](https://docs.flutter.dev/get-started/install)
 
 ## Features
@@ -13,6 +15,7 @@ Follow this guide to install Flutter on your computer: [Link](https://docs.flutt
 - Fetch post using Wordpress API
 - Cache images and posts
 - Show locations in augmented reality
+- Dashboard for viewing sensors data
 
 ## Roadmap
 - [ ] Filter locations and tracks in the maps screen
